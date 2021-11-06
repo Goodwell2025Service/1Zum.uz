@@ -18,7 +18,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # Your stuff: custom urls includes go here
     path("", include('birzum.apps.products.urls', namespace="products")),
-    # path("cart/", include('birzum.apps.cart.urls', namespace='cart'))
+    path("cart/", include('birzum.apps.cart.urls', namespace='cart'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
