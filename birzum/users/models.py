@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 # Create your models here.
 
@@ -16,7 +17,7 @@ class User(AbstractUser):
     """Default user for birZum ecommerce system."""
 
     phone = models.CharField(_("Телефон"), max_length=50, blank=True, null=True)
-    birth_date = models.DateField(_("Birth date"), blank=True)
+    birth_date = models.DateField(_("Birth date"), blank=True, null=True, default=timezone.now)
     gender = models.CharField(
         _("Gender"), 
         choices=GenderChoices.choices, 
