@@ -34,9 +34,9 @@
                 </div>
                 <!-- End of Dropdown Menu -->
                 <span class="divider d-lg-show"></span>
-                <a href="blog.html" class="d-lg-show">Blog</a>
-                <a href="contact-us.html" class="d-lg-show">{% trans "Biz bilan bog'laning" %}</a>
-                <a href="my-account.html" class="d-lg-show">{% trans "Mening profilim" %}</a>
+                <a href="{% url 'blog:list' %}" class="d-lg-show">{% trans "Blog" %}</a>
+                <a href="{% url 'contact' %}" class="d-lg-show">{% trans "Biz bilan bog'laning" %}</a>
+                <a href="{% url 'users:detail' user.username %}" class="d-lg-show">{% trans "Mening profilim" %}</a>
                 <a href="/accounts/login" class="d-lg-show login"><i
                         class="w-icon-account"></i>{% trans "Kirish" %}</a>
                 <span class="delimiter d-lg-show">/</span>
