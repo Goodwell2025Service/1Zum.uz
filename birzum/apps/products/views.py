@@ -22,8 +22,11 @@ class ProductList(ListView):
 
     def get_queryset(self, **kwargs):
         try:
+            print("##############################################")
+            print("Categoriya bo'yicha filtr qilindi")
             return self.queryset.filter(category__slug=self.kwargs['cat_slug'])
         except Exception as e:
+            print("##############################################")
             print("Did not filter by category because %s" % e)
             return self.queryset
 
@@ -40,11 +43,6 @@ class ProductDetail(DetailView):
     model = Product
     # pk_url_kwarg = 'slug'
     slug_field = 'slug'
-
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx['categories'] = Category.objects.select_related('parent').all()
-        return ctx
 
 
 product_detail_view = ProductDetail.as_view()

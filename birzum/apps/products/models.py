@@ -11,10 +11,29 @@ from ckeditor.fields import RichTextField
 User = get_user_model()
 
 
+class Brand(models.Model):
+    name = models.CharField(_("Brend nomi"), max_length=55)
+    icon = models.ImageField(_("Brend ikonkasi"), upload_to="brendlar/", blank=True)
+
+    class Meta:
+        verbose_name = _("brend")
+        verbose_name_plural = _("Brendlar")
+    
+    def __str__(self):
+        return self.name
+
+
 class Category(MPTTModel):
     name = models.CharField(_("Category"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    brand = models.ForeignKey(
+        Brand,
+        on_delete=models.SET_NULL,
+        null=True, blank=True,
+        verbose_name=_("Brend"),
+        related_name=_("categories")
+        )
     logo = models.ImageField(_("Logo"), upload_to="logo_image/", blank=True, null=True)
     image = models.ImageField(_("Rasmi"), upload_to="cat_image/", blank=True, null=True)
 
@@ -36,6 +55,13 @@ class Product(TimeStampedModel):
         blank=True, null=True, verbose_name="Categoriya"
         )
 
+    brand = models.ForeignKey(
+        Brand,
+        on_delete=models.SET_NULL,
+        verbose_name=_("Brend"),
+        blank=True, null=True,
+        related_name="products"
+        )
     title = models.CharField(_("Nomi"), max_length=255)
     slug = models.SlugField(_("Slag"), max_length=255, unique=True)
     description = models.TextField(_("Tafsif"), blank=True)
@@ -59,7 +85,7 @@ class Product(TimeStampedModel):
         return self.price.get(product__id=self.id).price
 
     def get_absolute_url(self):
-        return reverse('products:detail', kwargs={"slug": self.slug})
+        return reverse('products:detail', kwargs={"cat_slug": self.category.slug, "slug": self.slug})
 
     @property
     def available_for_credit(self):
@@ -89,3 +115,6 @@ class Image(models.Model):
 
     def __str__(self):
         return "Rasm - " + str(self.image.path)
+
+
+

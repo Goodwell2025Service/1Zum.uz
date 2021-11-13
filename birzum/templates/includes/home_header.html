@@ -201,13 +201,13 @@
                     <nav class="main-nav ml-4">
                         <ul class="menu">
                             <li>
-                                <a href="#">{% trans "Asosiy sahifa" %}</a>
+                                <a href="{% url 'home' %}">{% trans "Asosiy sahifa" %}</a>
                             </li>
                             <li>
-                                <a href="#">{% trans "Chegirmalar" %}</a>
+                                <a href="{% url 'products:list' %}?discounts">{% trans "Chegirmalar" %}</a>
                             </li>
                             <li>
-                                <a href="#">{% trans "Yangi mahsulotlar" %}</a>
+                                <a href="{% url 'products:list' %}?new">{% trans "Yangi mahsulotlar" %}</a>
                             </li>
                             <li>
                                 <a href="#">{% trans "Yo'riqnomalar" %}</a>
@@ -219,7 +219,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">{% trans "Kontaktlar / EKSS" %}</a>
+                                <a href="{% url 'contact' %}">{% trans "Kontaktlar / EKSS" %}</a>
                             </li>
                         </ul>
                     </nav>
