@@ -15,6 +15,7 @@ class Category(MPTTModel):
     name = models.CharField(_("Category"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    logo = models.ImageField(_("Logo"), upload_to="logo_image/", blank=True, null=True)
     image = models.ImageField(_("Rasmi"), upload_to="cat_image/", blank=True, null=True)
 
     class MPTTMeta:
