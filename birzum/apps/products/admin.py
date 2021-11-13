@@ -1,7 +1,11 @@
 from django.contrib import admin
-from .models import Category, Price, Image, Product
+from .models import Brand, Category, Price, Image, Product
 from mptt.admin import MPTTModelAdmin
 # Register your models here.
+
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Category)

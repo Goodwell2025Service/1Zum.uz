@@ -40,6 +40,14 @@ def get_secret(setting, default=None):
         return default
 
 
+RUSSIAN = 'ru'
+UZBEK = 'uz'
+
+LANGUAGES = (
+    (RUSSIAN, _("Русский")),
+    (UZBEK, _("O'zbek")),
+)
+
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
@@ -48,9 +56,9 @@ DEBUG = get_secret("DJANGO_DEBUG", False)
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
 # In Windows, this must be set to your system time zone.
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Tashkent"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "uz"
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
