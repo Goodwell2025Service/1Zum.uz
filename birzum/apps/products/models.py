@@ -37,6 +37,8 @@ class Category(MPTTModel):
     logo = models.ImageField(_("Logo"), upload_to="logo_image/", blank=True, null=True)
     image = models.ImageField(_("Rasmi"), upload_to="cat_image/", blank=True, null=True)
 
+    order = models.IntegerField(_("Tartib raqami"), default=10)
+
     class MPTTMeta:
         order_insertion_by = ['name']
 

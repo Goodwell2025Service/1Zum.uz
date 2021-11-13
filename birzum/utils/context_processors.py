@@ -9,5 +9,5 @@ def settings_context(_request):
     return {"DEBUG": settings.DEBUG}
 
 def categories(request):
-    categories = Category.objects.select_related('parent').all()
+    categories = Category.objects.select_related('parent').all().order_by('order')
     return {'categories': categories}
