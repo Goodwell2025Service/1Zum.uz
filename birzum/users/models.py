@@ -19,8 +19,8 @@ class User(AbstractUser):
     phone = models.CharField(_("Телефон"), max_length=50, blank=True, null=True)
     birth_date = models.DateField(_("Birth date"), blank=True, null=True, default=timezone.now)
     gender = models.CharField(
-        _("Gender"), 
-        choices=GenderChoices.choices, 
+        _("Gender"),
+        choices=GenderChoices.choices,
         default=GenderChoices.HIDDEN,
         max_length=55)
 
