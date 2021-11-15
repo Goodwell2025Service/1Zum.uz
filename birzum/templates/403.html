@@ -3,7 +3,11 @@
 {% block title %}Forbidden (403){% endblock %}
 
 {% block content %}
-<h1>Forbidden (403)</h1>
-
-<p>{% if exception %}{{ exception }}{% else %}You're not allowed to access this page.{% endif %}</p>
+{% include 'includes/home_header.html' %}
+	<div class="row justify-content-center mt-10 mb-10">
+		<div class="col-md-6">
+			<h1>Forbidden (403)</h1>
+			<p>{% if exception %}{{ exception }}{% else %}You're not allowed to access this page.{% endif %}</p>
+		</div>
+	</div>
 {% endblock content %}

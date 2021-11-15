@@ -3,9 +3,12 @@
 {% block title %}Server Error{% endblock %}
 
 {% block content %}
-<h1>Ooops!!! 500</h1>
-
-<h3>Looks like something went wrong!</h3>
-
-<p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
+{% include 'includes/home_header.html' %}
+	<div class="row justify-content-center mt-10 mb-10">
+		<div class="col-md-6">
+			<h1>Ooops!!! 500</h1>
+			<h3>Looks like something went wrong!</h3>
+			<p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
+		</div>
+	</div>
 {% endblock content %}
