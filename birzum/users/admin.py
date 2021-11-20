@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 from birzum.users.forms import UserChangeForm, UserCreationForm
+from .models import Profile
 
 User = get_user_model()
 
@@ -32,3 +33,8 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["username", "is_superuser"]
     search_fields = ["username", "first_name"]
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    pass
