@@ -118,7 +118,9 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "birzum.users.apps.UsersConfig",
-    "birzum.apps.products.apps.ProductsConfig"
+    "birzum.apps.products.apps.ProductsConfig",
+    "birzum.apps.smallapps.compare.apps.CompareConfig",
+    "birzum.apps.smallapps.whishlist.apps.WhishlistConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
