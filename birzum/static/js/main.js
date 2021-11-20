@@ -1159,10 +1159,10 @@ window.Wolmart = {};
 
 
     /**
-     * initPopup
+     * 
      *
      */
-    // Wolmart.initPopup = function (options, preset) {
+    // Wolmart. = function (options, preset) {
 
     //     // Newsletter popup
     //     if (Wolmart.$body.hasClass('home') && Wolmart.getCookie('hideNewsletterPopup') !== 'false') {
@@ -3587,7 +3587,7 @@ window.Wolmart = {};
         Wolmart.initNavFilter('.nav-filters .nav-filter')                   // Initialize Isotope Navigation Filters
         Wolmart.calendar('.calendar-container');                            // Initialize Calendar
         Wolmart.countDown('.product-countdown, .countdown');                // Initialize CountDown
-        Wolmart.initPopup();                                                // Initialize Popup
+        // Wolmart.initPopup();                                                // Initialize Popup
         Wolmart.initNotificationAlert();                                    // Initialize Notification Alert
         Wolmart.countTo('.count-to');                                       // Initialize CountTo 
         Wolmart.initCartAction('.cart-offcanvas .cart-toggle');             // Initialize Product Cart
