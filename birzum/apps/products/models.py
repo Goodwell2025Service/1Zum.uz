@@ -41,6 +41,8 @@ class Category(MPTTModel):
 
     class MPTTMeta:
         order_insertion_by = ['name']
+        verbose_name = _("kategoriya")
+        verbose_name_plural = _("Kategoriyalar")
 
     def __str__(self):
         return self.name
@@ -77,6 +79,10 @@ class Product(TimeStampedModel):
     discount_price = models.DecimalField(_("Chegirma narx"), max_digits=10, decimal_places=2, blank=True)
     credit_price = models.DecimalField(_("Kredit narx"), max_digits=10, decimal_places=2, blank=True)
 
+    class Meta:
+        verbose_name = _("mahsulot")
+        verbose_name_plural = _("Mahsulotlar")
+
     def __str__(self):
         return self.name
 
@@ -102,6 +108,10 @@ class Price(TimeStampedModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='prices')
     price = models.DecimalField(_("Narx"), max_digits=10, decimal_places=2)
     changed_by = models.ForeignKey(User, related_name="my_prices", on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        verbose_name = _("narx")
+        verbose_name_plural = _("Narxlar")
 
     def __str__(self):
         return f"{self.product}: {self.price} ({self.changed_by})"
