@@ -253,11 +253,13 @@
                             <div class="product text-center">
                                 <figure class="product-media">
                                     <a href="product-default.html">
-                                        <img src="{{ p.image.url }}" alt="{{ p.name }}" width="300"
-                                            height="338" />
+                                    {% thumbnail p.get_first_image "268x268" crop="center" as im %}
+                                        <img src="{{ im.url }}" alt="{{ p.name }}" width="im.width"
+                                            height="im.height"/>
+                                    {% endthumbnail %}
                                     </a>
                                     <div class="product-action-horizontal">
-                                        <a href="#" class="btn-product-icon btn-cart w-icon-cart"
+                                        <a href="{% url 'cart:add' id=p.id %}" class="btn-product-icon btn-cart w-icon-cart"
                                             title="Add to cart"></a>
                                         <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                             title="Wishlist"></a>

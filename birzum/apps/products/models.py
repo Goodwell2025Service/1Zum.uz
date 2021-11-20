@@ -76,21 +76,21 @@ class Product(TimeStampedModel):
     new = models.BooleanField("Yangi", default=False)
 
     price = models.DecimalField(_("Narx"), max_digits=10, decimal_places=2, blank=True)
-    discount_price = models.DecimalField(_("Chegirma narx"), max_digits=10, decimal_places=2, blank=True)
-    credit_price = models.DecimalField(_("Kredit narx"), max_digits=10, decimal_places=2, blank=True)
+    discount_price = models.DecimalField(_("Chegirma narx"), max_digits=10, decimal_places=2, null=True, blank=True)
+    credit_price = models.DecimalField(_("Kredit narx"), max_digits=10, decimal_places=2, null=True, blank=True)
 
     class Meta:
         verbose_name = _("mahsulot")
         verbose_name_plural = _("Mahsulotlar")
 
     def __str__(self):
-        return self.name
+        return self.title
 
-    def get_first_image_url(self):
-        return self.image.first().image.url
+    def get_first_image(self):
+        return self.image.first().image
 
     def get_price(self):
-        return self.price.get(product__id=self.id).price
+        return self.price
 
     def get_absolute_url(self):
         return reverse('products:detail', kwargs={"cat_slug": self.category.slug, "slug": self.slug})

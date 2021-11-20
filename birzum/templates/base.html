@@ -366,8 +366,14 @@
         </div>
     </div>
     <!-- End of Quick view -->
+    <span id="success_msg">{% trans "mahsulot qo'shildi" %}</span>
+    <span id="cartLink">{% url 'cart:detail' %}</span>
+    <span id="compareLink">{% url 'compare:compare' %}</span>
+    <span id="whishlistLink">{% url 'whishlist:whishlist' %}</span>
+    <span id="cartText">{% trans "Savatni ko'rsatish" %}</span>
 
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/project.js' %}"></script>
     <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'vendor/parallax/parallax.min.js' %}"></script>
     <script src="{% static 'vendor/jquery.plugin/jquery.plugin.min.js' %}"></script>

@@ -48,7 +48,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE, verbose_name=_("buyurtma"))
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, verbose_name=_("Mahsulot"))
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, verbose_name=_("Mahsulot"))
     price = models.DecimalField(_('narx'),max_digits=10, decimal_places=2, blank=True, null=True)
     quantity = models.PositiveIntegerField(
         _('Soni'),default='1', validators=[MaxValueValidator(1000), MinValueValidator(1)])

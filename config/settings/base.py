@@ -319,7 +319,10 @@ SOCIALACCOUNT_ADAPTER = "birzum.users.adapters.SocialAccountAdapter"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# cart configs
+CART_SESSION_ID = "cart"
 
+#-------------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_FILENAME_GENERATOR = 'config.utils.get_filename'
