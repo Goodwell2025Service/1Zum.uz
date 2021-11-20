@@ -119,6 +119,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "birzum.users.apps.UsersConfig",
     "birzum.apps.products.apps.ProductsConfig",
+    "birzum.apps.order.apps.OrderConfig",
     "birzum.apps.smallapps.compare.apps.CompareConfig",
     "birzum.apps.smallapps.whishlist.apps.WhishlistConfig"
     # Your stuff: custom apps go here
