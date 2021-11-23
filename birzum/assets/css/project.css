@@ -11,3 +11,11 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+.filter-items a.active {
+  color: #ed711b;
+}
+
+.form-group {
+  margin-top: 20px;
+}

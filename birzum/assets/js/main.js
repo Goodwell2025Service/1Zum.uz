@@ -1162,67 +1162,67 @@ window.Wolmart = {};
      * initPopup
      *
      */
-    Wolmart.initPopup = function (options, preset) {
+    // Wolmart.initPopup = function (options, preset) {
 
-        // Newsletter popup
-        if (Wolmart.$body.hasClass('home') && Wolmart.getCookie('hideNewsletterPopup') !== 'true') {
-            setTimeout(function () {
-                Wolmart.popup({
-                    items: {
-                        src: ".newsletter-popup"
-                    },
-                    type: 'inline',
-                    tLoading: '',
-                    mainClass: 'mfp-newsletter mfp-fadein-popup',
-                    callbacks: {
-                        beforeClose: function () {
-                            // if "do not show" is checked
-                            $('#hide-newsletter-popup')[0].checked && Wolmart.setCookie('hideNewsletterPopup', true, 7);
-                        }
-                    },
-                });
-            }, 7500);
-        }
+    //     // Newsletter popup
+    //     if (Wolmart.$body.hasClass('home') && Wolmart.getCookie('hideNewsletterPopup') !== 'false') {
+    //         setTimeout(function () {
+    //             Wolmart.popup({
+    //                 items: {
+    //                     src: ".newsletter-popup"
+    //                 },
+    //                 type: 'inline',
+    //                 tLoading: '',
+    //                 mainClass: 'mfp-newsletter mfp-fadein-popup',
+    //                 callbacks: {
+    //                     beforeClose: function () {
+    //                         // if "do not show" is checked
+    //                         $('#hide-newsletter-popup')[0].checked && Wolmart.setCookie('hideNewsletterPopup', false, 7);
+    //                     }
+    //                 },
+    //             });
+    //         }, 75000);
+    //     }
 
-        // Video popup
-        Wolmart.$body.on('click', '.btn-iframe', function (e) {
-            e.preventDefault();
-            Wolmart.popup({
-                items: {
-                    src: '<video src="' + $(e.currentTarget).attr('href') + '" autoplay loop controls>',
-                    type: "inline"
-                },
-                mainClass: "mfp-video-popup"
-            }, "video")
-        });
+    //     // Video popup
+    //     Wolmart.$body.on('click', '.btn-iframe', function (e) {
+    //         e.preventDefault();
+    //         Wolmart.popup({
+    //             items: {
+    //                 src: '<video src="' + $(e.currentTarget).attr('href') + '" autoplay loop controls>',
+    //                 type: "inline"
+    //             },
+    //             mainClass: "mfp-video-popup"
+    //         }, "video")
+    //     });
 
-        // Login popup
-        Wolmart.$body
-            .on('click', '.sign-in', function (e) {
-                e.preventDefault();
+    //     // Login popup
+    //     Wolmart.$body
+    //         .on('click', '.sign-in', function (e) {
+    //             e.preventDefault();
 
-                Wolmart.popup({
-                    items: {
-                        src: $(e.currentTarget).attr('href')
-                    }
-                }, 'login')
-            })
+    //             Wolmart.popup({
+    //                 items: {
+    //                     src: $(e.currentTarget).attr('href')
+    //                 }
+    //             }, 'login')
+    //         })
 
-            .on('click', '.register', function (e) {
-                e.preventDefault();
-                Wolmart.popup({
-                    items: {
-                        src: $(e.currentTarget).attr('href')
-                    },
-                    callbacks: {
-                        ajaxContentAdded: function () {
-                            this.wrap.find('[href="#sign-up"]').click();
-                        }
-                    }
-                }, 'login')
-            });
+    //         .on('click', '.register', function (e) {
+    //             e.preventDefault();
+    //             Wolmart.popup({
+    //                 items: {
+    //                     src: $(e.currentTarget).attr('href')
+    //                 },
+    //                 callbacks: {
+    //                     ajaxContentAdded: function () {
+    //                         this.wrap.find('[href="#sign-up"]').click();
+    //                     }
+    //                 }
+    //             }, 'login')
+    //         });
 
-    }
+    // }
 
     /**
      * initNotificationAlert
@@ -2218,8 +2218,8 @@ window.Wolmart = {};
                     nameLink: $product.find('.product-name > a, .product-title > a').attr('href'),
                     imageSrc: $product.find('.product-media img, .product-image:first-child img').attr('src'),
                     imageLink: $product.find('.product-name > a').attr('href'),
-                    message: '<p>has been added to cart:</p>',
-                    actionTemplate: '<a href="cart.html" class="btn btn-rounded btn-sm">View Cart</a><a href="checkout.html" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
+                    message: `<p>${$("#success_msg").text()}:</p>`,
+                    actionTemplate: `<a href="${$("#cartLink").text()}" class="btn btn-rounded btn-sm">${$('#cartText').val()}</a>`
                 });
             }, 500);
         });
