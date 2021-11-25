@@ -26,8 +26,9 @@ def cart_add(request, id):
             count = 1
 
         # tekshiruv tugagandan song cartaga mahsulotni qo'shib yuboramiz
-        cart.add(product=obj, quantity=count, update_quantity=False)
-        
+        for item in range(count):
+            cart.add(product=obj, quantity=count, update_quantity=False)
+
         return JsonResponse({"success": True, "message": success_message}, safe=False)
 
     return JsonResponse({"success": False, "message": fail_message}, safe=False)
@@ -48,6 +49,6 @@ def cart_clear(request):
 
 def cart_detail(request):
     cart = Cart(request)
-    print("#############################")
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     print(cart.cart)
-    return render(request, 'cart/cart.html')
+    return render(request, 'cart/cart.html', {'cart': cart})

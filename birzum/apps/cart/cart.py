@@ -39,7 +39,7 @@ class Cart(object):
             self.cart[product_id]['quantity'] = quantity
         else:
             self.cart[product_id]['quantity'] += quantity
-
+        print("Product added to the cart")
         self.save()
 
     def save(self):
@@ -61,6 +61,7 @@ class Cart(object):
         from the database.
         """
         product_ids = self.cart.keys()
+        print("iteration is getting executed")
         # get the product objects and add them to the cart
         products = Product.objects.filter(id__in=product_ids)
         cart = self.cart.copy()
