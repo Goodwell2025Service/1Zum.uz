@@ -329,8 +329,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_FILENAME_GENERATOR = 'config.utils.get_filename'
 
 # -------------telegram notify----------------
-TELEGRAM_GROUP_ID = ('TELEGRAM_GROUP_ID', "")
-TELEGRAM_NOTIFY_BOT_ID = ('TELEGRAM_NOTIFY_BOT_ID', '')
+TELEGRAM_GROUP_ID = get_secret('TELEGRAM_GROUP_ID', "")
+TELEGRAM_NOTIFY_BOT_ID = get_secret('TELEGRAM_NOTIFY_BOT_ID', '')
 
 
 CKEDITOR_CONFIGS = {
