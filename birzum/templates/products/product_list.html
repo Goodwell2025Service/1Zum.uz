@@ -254,7 +254,7 @@
                                 <figure class="product-media">
                                     <a href="product-default.html">
                                     {% thumbnail p.get_first_image "268x268" crop="center" as im %}
-                                        <img src="{{ im.url }}" alt="{{ p.name }}" width="im.width"
+                                        <img src="{{ im.url }}" alt="{{ p.name }}" width="{{im.width}}"
                                             height="im.height"/>
                                     {% endthumbnail %}
                                     </a>

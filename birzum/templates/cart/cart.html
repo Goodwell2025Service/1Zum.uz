@@ -13,7 +13,7 @@
         <div class="container">
             <ul class="breadcrumb shop-breadcrumb bb-no">
                 <li class="active"><a href="{% url 'cart:detail' %}">{% trans "Xarid savatchasi" %}</a></li>
-                <li><a href="#">{% trans "Buyurtmani rasmiylashtirish" %}</a></li>
+                <li><a href="{% if cart|length > 0 %}{% url 'order:create' %}{% else %}#{% endif %}">{% trans "Buyurtmani rasmiylashtirish" %}</a></li>
                 <li><a href="#">{% trans "Buyurtma rasmiylashtirildi" %}</a></li>
             </ul>
         </div>
@@ -62,9 +62,9 @@
                                 <td class="product-price"><span class="amount">{{ product.price }} UZS</span></td>
                                 <td class="product-quantity">
                                     <div class="input-group">
-                                        <input class="quantity form-control" type="number" min="1" max="100000">
-                                        <button class="quantity-plus w-icon-plus"></button>
-                                        <button class="quantity-minus w-icon-minus"></button>
+                                        <input class="qty form-control" type="number" min="1" max="100000" value="{{ item.quantity }}">
+                                        <button class="quantity-plus w-icon-plus" url="{% url 'cart:update' %}" product-id="{{ product.id }}"></button>
+                                        <button class="quantity-minus w-icon-minus" url="{% url 'cart:update' %}" product-id="{{ product.id }}"></button>
                                     </div>
                                 </td>
                                 <td class="product-subtotal">
@@ -93,12 +93,14 @@
                             <h3 class="cart-title text-uppercase">{% trans "Savat malumotlari" %}</h3>
                             <div class="cart-subtotal d-flex align-items-center justify-content-between">
                                 <label class="ls-25">{% trans "Umumiy" %}</label>
-                                <span>$ Narx</span>
+                                {% if cart|length > 0 %}
+                                <span id="total-price">{{ cart.get_total_price }} UZS</span>
+                                {% endif %}
                             </div>
 
-                            <hr class="divider">
+                            {% comment %} <hr class="divider"> {% endcomment %}
 
-                            <ul class="shipping-methods mb-2">
+                            {% comment %} <ul class="shipping-methods mb-2">
                                 <li>
                                     <label
                                         class="shipping-title text-dark font-weight-bold">{% trans "Yetkazib berish" %}</label>
@@ -127,11 +129,10 @@
                                             $ narxi</label>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> {% endcomment %}
 
-                            <div class="shipping-calculator">
+                            {% comment %} <div class="shipping-calculator">
                                 <p class="shipping-destination lh-1">Shipping to <strong>CA</strong>.</p>
-                                {% if user.is_authenticated %}
                                 <form class="shipping-calculator-form">
                                     <div class="form-group">
                                         <div class="select-box">
@@ -166,51 +167,20 @@
                                     <button type="submit" class="btn btn-dark btn-outline btn-rounded">Update
                                         Totals</button>
                                 </form>
-                                {% else %}
-                                <form class="shipping-calculator-form">
-                                    <div class="form-group">
-                                        <div class="select-box">
-                                            <select name="country" class="form-control form-control-md">
-                                                <option value="default" selected="selected">United States
-                                                    (US)
-                                                </option>
-                                                <option value="us">United States</option>
-                                                <option value="uk">United Kingdom</option>
-                                                <option value="fr">France</option>
-                                                <option value="aus">Australia</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="select-box">
-                                            <select name="state" class="form-control form-control-md">
-                                                <option value="default" selected="selected">California
-                                                </option>
-                                                <option value="ohaio">Ohaio</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control form-control-md" type="text"
-                                            name="town-city" placeholder="Town / City">
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control form-control-md" type="text"
-                                            name="zipcode" placeholder="ZIP">
-                                    </div>
-                                    <button type="submit" class="btn btn-dark btn-outline btn-rounded">{% trans "Malumotlarni yangilash" %}</button>
-                                </form>
-                                {% endif %}
-                            </div>
+                                
+                            </div> {% endcomment %}
 
                             <hr class="divider mb-6">
-                            <div class="order-total d-flex justify-content-between align-items-center">
+                            {% comment %} <div class="order-total d-flex justify-content-between align-items-center">
                                 <label>{% trans "Umumiy" %}</label>
                                 <span class="ls-50">$ narx</span>
-                            </div>
-                            <a href="#"
+                            </div> {% endcomment %}
+                            {% comment %} {% if cart|length > 0 %} {% endcomment %}
+                            <a href="{% url 'order:create' %}"
                                 class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">
-                                {% trans "Buyurtmani rasmiylashtirish" %}<i class="w-icon-long-arrow-right"></i></a>
+                                {% trans "Buyurtmani rasmiylashtirish" %}<i class="w-icon-long-arrow-right"></i>
+                            </a>
+                            {% comment %} {% endif %} {% endcomment %}
                         </div>
                     </div>
                 </div>

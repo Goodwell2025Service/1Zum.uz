@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import whishlist_view
 
+from .views import whishlist_view
 
 app_name = "whishlist"
 

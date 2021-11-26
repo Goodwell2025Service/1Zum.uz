@@ -1,10 +1,9 @@
-from django.db import models
 from django.contrib.auth import get_user_model
-from django.utils.translation import gettext_lazy as _
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from birzum.apps.products.models import Product
-
 
 User = get_user_model()
 
@@ -17,7 +16,7 @@ class Order(models.Model):
         verbose_name=_("Buyurtma egasi"),
         related_name="orders",
         blank=True)
-    
+
     first_name = models.CharField(_("Ism"), max_length=255)
     last_name = models.CharField(_("Familiya"), max_length=255)
     # manzil malumotlari
@@ -52,6 +51,10 @@ class OrderItem(models.Model):
     price = models.DecimalField(_('narx'),max_digits=10, decimal_places=2, blank=True, null=True)
     quantity = models.PositiveIntegerField(
         _('Soni'),default='1', validators=[MaxValueValidator(1000), MinValueValidator(1)])
-    
+
     class Meta:
         verbose_name = _("buyurtma")
+        verbose_name_plural = _("Buyurtmalar")
+
+    def __str__(self):
+        return f"{self.id} sonli muyurtma mahsuloti"

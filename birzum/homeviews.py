@@ -1,8 +1,6 @@
 from django.views.generic import TemplateView
 
-from birzum.apps.products.models import Product, Category
-
-
+# from birzum.apps.products.models import Category, Product
 class HomeView(TemplateView):
     template_name = "pages/home.html"
 

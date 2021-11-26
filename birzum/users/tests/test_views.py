@@ -11,11 +11,7 @@ from django.urls import reverse
 from birzum.users.forms import UserChangeForm
 from birzum.users.models import User
 from birzum.users.tests.factories import UserFactory
-from birzum.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from birzum.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 

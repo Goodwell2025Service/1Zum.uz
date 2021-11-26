@@ -1,8 +1,8 @@
 from django.core.checks import messages
 from django.http.response import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views.decorators.http import require_POST
 from django.utils.translation import gettext_lazy as _
+from django.views.decorators.http import require_POST
 
 from birzum.apps.products.models import Product
 
@@ -27,7 +27,7 @@ def cart_add(request, id):
 
         # tekshiruv tugagandan song cartaga mahsulotni qo'shib yuboramiz
         for item in range(count):
-            cart.add(product=obj, quantity=count, update_quantity=False)
+            cart.add(product=obj, quantity=count)
 
         return JsonResponse({"success": True, "message": success_message}, safe=False)
 
@@ -49,6 +49,20 @@ def cart_clear(request):
 
 def cart_detail(request):
     cart = Cart(request)
-    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-    print(cart.cart)
     return render(request, 'cart/cart.html', {'cart': cart})
+
+
+def update(request):
+    cart = Cart(request)
+    count = request.GET.get('quantity')
+    id = int(request.GET.get('id'))
+
+    obj = Product.objects.filter(available=True, id=id).first()
+
+    if obj:
+        cart.cart.get(str(obj.id))['quantity'] = int(count)
+        cart.cart.get(str(obj.id))['price'] = str(obj.price * int(count))
+        data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
+        cart.save()
+
+    return JsonResponse(data)

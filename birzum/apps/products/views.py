@@ -1,5 +1,6 @@
-from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import get_object_or_404
+from django.views.generic import DetailView, ListView, TemplateView
+
 from .models import Category, Product
 
 # Create your views here.

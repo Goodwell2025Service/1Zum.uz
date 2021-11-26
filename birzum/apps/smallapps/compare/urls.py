@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import compare_view
 
+from .views import compare_view
 
 app_name = "compare"
 

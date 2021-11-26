@@ -1,12 +1,11 @@
 
+from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 from mptt.models import MPTTModel, TreeForeignKey
-from ckeditor.fields import RichTextField
-
 
 User = get_user_model()
 
@@ -21,6 +20,7 @@ class Brand(models.Model):
     
     def __str__(self):
         return self.name
+
 
 
 class Category(MPTTModel):
@@ -51,6 +51,26 @@ class Category(MPTTModel):
         return reverse('products:list_by_category', kwargs={"cat_slug": self.slug})
 
 
+class Chegirma(TimeStampedModel):
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        null=True, verbose_name="kategoriya",
+        related_name="discounts"
+    )
+    title = models.CharField(_("Mavzusi"), max_length=255)
+    description = models.CharField(_("Tavsifi"), max_length=255, blank=True)
+    hd_photo = models.ImageField(_("Banner rasmi"), upload_to="chegirmalar")
+    icon_photo = models.ImageField(_("Ikonka rasmi"), upload_to="chegirmalar")
+
+    class Meta:
+        verbose_name = _("chegirma")
+        verbose_name_plural = _("Chegirmalar")
+
+    def __str__(self):
+        return self.title
+
+
 class Product(TimeStampedModel):
     category = models.ForeignKey(
         Category,
@@ -78,6 +98,14 @@ class Product(TimeStampedModel):
     price = models.DecimalField(_("Narx"), max_digits=10, decimal_places=2, blank=True)
     discount_price = models.DecimalField(_("Chegirma narx"), max_digits=10, decimal_places=2, null=True, blank=True)
     credit_price = models.DecimalField(_("Kredit narx"), max_digits=10, decimal_places=2, null=True, blank=True)
+
+    chegirma = models.ForeignKey(
+        Chegirma,
+        on_delete=models.SET_NULL,
+        verbose_name=_("chegirma"),
+        related_name="products",
+        null=True, blank=True
+    )
 
     class Meta:
         verbose_name = _("mahsulot")
@@ -127,6 +155,3 @@ class Image(models.Model):
 
     def __str__(self):
         return "Rasm - " + str(self.image.path)
-
-
-

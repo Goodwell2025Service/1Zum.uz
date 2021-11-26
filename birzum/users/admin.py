@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 from birzum.users.forms import UserChangeForm, UserCreationForm
+
 from .models import Profile
 
 User = get_user_model()

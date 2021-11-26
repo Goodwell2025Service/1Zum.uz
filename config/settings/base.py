@@ -3,13 +3,12 @@ Base settings to build other settings files upon.
 """
 # from pathlib import Path
 
+import json
 import logging
 import os
-import json
 from pathlib import Path
 
 from django.core.exceptions import ImproperlyConfigured
-
 from django.utils.translation import gettext_lazy as _
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -121,7 +120,9 @@ LOCAL_APPS = [
     "birzum.apps.products.apps.ProductsConfig",
     "birzum.apps.order.apps.OrderConfig",
     "birzum.apps.smallapps.compare.apps.CompareConfig",
-    "birzum.apps.smallapps.whishlist.apps.WhishlistConfig"
+    "birzum.apps.smallapps.company.apps.CompanyConfig",
+    "birzum.apps.smallapps.whishlist.apps.WhishlistConfig",
+    "birzum.apps.smallapps.manuals.apps.ManualsConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -326,6 +327,10 @@ CART_SESSION_ID = "cart"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_FILENAME_GENERATOR = 'config.utils.get_filename'
+
+# -------------telegram notify----------------
+TELEGRAM_GROUP_ID = ('TELEGRAM_GROUP_ID', "")
+TELEGRAM_NOTIFY_BOT_ID = ('TELEGRAM_NOTIFY_BOT_ID', '')
 
 
 CKEDITOR_CONFIGS = {
