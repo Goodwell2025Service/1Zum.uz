@@ -50,6 +50,10 @@ product_list_view = ProductList.as_view()
 class ProductDetail(DetailView):
     model = Product
     slug_field = 'slug'
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['categories'] = Category.objects.select_related('parent').all()
+        return ctx
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

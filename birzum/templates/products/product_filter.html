@@ -274,7 +274,7 @@
                                         <a href="shop-banner-sidebar.html">{{ p.category.name }}</a>
                                     </div>
                                     <h3 class="product-name">
-                                        <a href="product-default.html">{{ p.name }}</a>
+                                        <a href="{% url 'products:detail' cat_slug=p.category.slug slug=p.slug %}">{{ p.title }}</a>
                                     </h3>
                                     <div class="ratings-container">
                                         <div class="ratings-full">
