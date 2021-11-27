@@ -15,19 +15,12 @@ def cart_add(request, id):
     fail_message = _("Mahsulot sotuvda qolmagan!")
 
     cart = Cart(request)
-    count = request.GET.get('count')
     obj = Product.objects.filter(available=True, id=id).first()
 
     # agar product bor bo'lsa get parametrdan uni countini tekshirib ko'ramiz
-    if obj:
-        try:
-            count = int(count)
-        except:
-            count = 1
-
+    if obj and obj.id not in [int(item) for item in cart.cart.keys()]:
         # tekshiruv tugagandan song cartaga mahsulotni qo'shib yuboramiz
-        for item in range(count):
-            cart.add(product=obj, quantity=count)
+        cart.add(product=obj, quantity=1)
 
         return JsonResponse({"success": True, "message": success_message}, safe=False)
 
@@ -60,9 +53,13 @@ def update(request):
     obj = Product.objects.filter(available=True, id=id).first()
 
     if obj:
-        cart.cart.get(str(obj.id))['quantity'] = int(count)
-        cart.cart.get(str(obj.id))['price'] = str(obj.price * int(count))
-        data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
-        cart.save()
-
+        if obj.id in [int(item) for item in cart.cart.keys()]:
+            cart.cart.get(str(obj.id))['quantity'] = int(count)
+            cart.cart.get(str(obj.id))['price'] = str(obj.price * int(count))
+            data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
+            cart.save()
+        else:
+            cart.add(product=obj, quantity=int(count))
+            data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
+    
     return JsonResponse(data)

@@ -570,17 +570,17 @@ window.Wolmart = {};
             e && setTimeout(this.refreshSize.bind(this), 50);
         }
 
-        StickyContent.prototype.wrap = function () {
+        .prototype.wrap = function () {
             this.$el.wrap('<div class="sticky-content-wrapper"></div>');
             this.isWrap = true;
         }
 
-        StickyContent.prototype.unwrap = function () {
+        .prototype.unwrap = function () {
             this.$el.unwrap('.sticky-content-wrapper');
             this.isWrap = false;
         }
 
-        StickyContent.prototype.refresh = function (e, data) {
+        .prototype.refresh = function (e, data) {
             var pageYOffset = window.pageYOffset + data.offsetTop;
             var $el = this.$el;
 
