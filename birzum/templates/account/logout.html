@@ -1,19 +1,26 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}{% translate "Sign Out" %}{% endblock %}
 
-{% block inner %}
-<h1>{% translate "Sign Out" %}</h1>
+{% block content %}
+{% include 'includes/home_header.html' %}
+<div class="row justify-content-center mt-10 mb-10">
+  <div class="col-md-6">
+    <h1>{% translate "Tizimdan chiqish" %}</h1>
 
-<p>{% translate 'Are you sure you want to sign out?' %}</p>
+    <p>{% translate 'Tizimdan chiqishga ishonchingiz komilmi?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button class="btn btn-danger" type="submit">{% translate 'Sign Out' %}</button>
-</form>
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+      {% endif %}
+      <button class="btn btn-danger" type="submit">{% translate 'Chiqish' %}</button>
+    </form>
+  </div>
+</div>
 {% endblock %}

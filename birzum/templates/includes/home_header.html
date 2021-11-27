@@ -42,7 +42,7 @@
                 <a href="/accounts/login" class="d-lg-show login"><i
                         class="w-icon-account"></i>{% trans "Kirish" %}</a>
                 <span class="delimiter d-lg-show">/</span>
-                <a href="/accounts/signup" class="ml-0 d-lg-show login">{% trans "Ro'yhatdan o'tish" %}</a>
+                <a href="{{ get_language_code }}/accounts/signup" class="ml-0 d-lg-show login">{% trans "Ro'yhatdan o'tish" %}</a>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
                 <form method="get" action="#" class="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
                     <div class="select-box">
                         <select id="category" name="category">
-                            <option value="0">{% trans "Barcha kategoriyalar" %}</option>
+                            <option value="0">{% trans "Barchasi" %}</option>
                             {% recursetree categories %}
                             <option value="{{ node.id }}">{{ node.name }}</option>
                             {% endrecursetree %}
