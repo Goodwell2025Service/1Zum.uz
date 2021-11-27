@@ -15,15 +15,17 @@ def cart_add(request, id):
     fail_message = _("Mahsulot sotuvda qolmagan!")
 
     cart = Cart(request)
+    count = request.GET.get('count', 1)
     obj = Product.objects.filter(available=True, id=id).first()
 
     # agar product bor bo'lsa get parametrdan uni countini tekshirib ko'ramiz
-    if obj and obj.id not in [int(item) for item in cart.cart.keys()]:
+    if obj:
+        print("Cartaga qoshildi")
         # tekshiruv tugagandan song cartaga mahsulotni qo'shib yuboramiz
-        cart.add(product=obj, quantity=1)
+        cart.add(product=obj, quantity=int(count))
 
-        return JsonResponse({"success": True, "message": success_message}, safe=False)
-
+        return JsonResponse({"success": True, "message": success_message, 'count': count}, safe=False)
+    print("qoshilmadi")
     return JsonResponse({"success": False, "message": fail_message}, safe=False)
 
 
@@ -51,7 +53,7 @@ def update(request):
     id = int(request.GET.get('id'))
 
     obj = Product.objects.filter(available=True, id=id).first()
-
+    print([int(item) for item in cart.cart.keys()], obj.id)
     if obj:
         if obj.id in [int(item) for item in cart.cart.keys()]:
             cart.cart.get(str(obj.id))['quantity'] = int(count)

@@ -28,6 +28,7 @@ urlpatterns = (
         path("blog/", include('birzum.apps.blog.urls', namespace='blog')),
         path("whishlist/", include('birzum.apps.smallapps.whishlist.urls', namespace='whishlist')),
         path("compare/", include('birzum.apps.smallapps.compare.urls', namespace='compare')),
+        path("company/", include('birzum.apps.smallapps.company.urls', namespace='company')),
         path("order/", include('birzum.apps.order.urls', namespace='order')),
         path("", include('birzum.apps.products.urls', namespace="products")),
     ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -161,16 +161,16 @@
                                     <div class="product-form container">
                                         <div class="product-qty-form">
                                             <div class="input-group">
-                                                <input class="quantity form-control" type="number" min="1"
-                                                    max="10000000">
-                                                <button class="quantity-plus w-icon-plus" url="{% url 'cart:update' %}" product-id="{{ product.id }}"></button>
-                                                <button class="quantity-minus w-icon-minus" url="{% url 'cart:update' %}" product-id="{{ product.id }}"></button>
+                                                <input class="qty form-control" type="number" min="1"
+                                                    max="20" value="1">
+                                                <button class="quantity-plus w-icon-plus"></button>
+                                                <button class="quantity-minus w-icon-minus"></button>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary btn-cart">
+                                        <a href="{% url 'cart:add' id=object.id %}" class="btn btn-primary btn-cart">
                                             <i class="w-icon-cart"></i>
-                                            <span>Add to Cart</span>
-                                        </button>
+                                            <span>{% trans "Savatga qo'shish" %}</span>
+                                        </a>
                                     </div>
                                 </div>
 

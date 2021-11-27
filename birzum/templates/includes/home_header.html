@@ -53,22 +53,16 @@
             <div class="header-left mr-md-4">
                 <a href="#" class="mobile-menu-toggle w-icon-hamburger" aria-label="menu-toggle">
                 </a>
-                <a href="/" class="logo ml-lg-0">
-                    <img src="{% static 'images/logo.png' %}" alt="logo" width="144" height="45" />
+                <a href="{% url 'home' %}" class="logo ml-lg-0">
+                    <img src="{% static 'images/logo.png' %}" alt="{% trans "1zum logo" %}" width="144" height="45" />
                 </a>
                 <form method="get" action="#" class="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
                     <div class="select-box">
                         <select id="category" name="category">
-                            <option value="">{% trans "Barcha kategoriyalar" %}</option>
-                            <option value="4">Fashion</option>
-                            <option value="5">Furniture</option>
-                            <option value="6">Shoes</option>
-                            <option value="7">Sports</option>
-                            <option value="8">Games</option>
-                            <option value="9">Computers</option>
-                            <option value="10">Electronics</option>
-                            <option value="11">Kitchen</option>
-                            <option value="12">Clothing</option>
+                            <option value="0">{% trans "Barcha kategoriyalar" %}</option>
+                            {% recursetree categories %}
+                            <option value="{{ node.id }}">{{ node.name }}</option>
+                            {% endrecursetree %}
                         </select>
                     </div>
                     <input type="text" class="form-control" name="search" id="search"
@@ -98,7 +92,7 @@
                     <div class="cart-overlay"></div>
                     <a href="{% url 'cart:detail' %}" class="cart-toggle label-down link">
                         <i class="w-icon-cart">
-                            <span class="cart-count">{{ cart|length }}</span>
+                            <span class="cart-count" id="header-cart">{{ cart|length }}</span>
                         </i>
                         <span class="cart-label">{% trans "Savat" %}</span>
                     </a>
@@ -168,10 +162,19 @@
 
                         <div class="dropdown-box mt-0">
                             <ul class="menu vertical-menu category-menu bg-white text-default">
+                                <li>
+                                    
+                                    <a href="{% url 'products:list' %}" class="d-flex align-items-center">
+                                        <i class="w-icon-grid mr-2"></i>
+                                        {% trans "Barcha mahsulotlar" %}
+                                    </a>
+                                </li>
                                 {% recursetree categories %}
                                 <li>
                                     <a href="{{ node.get_absolute_url }}">
-                                        
+                                        {% if node.logo %}
+                                        <img src="{{ node.logo.url }}" width="20px" class="mr-1">
+                                        {% endif %}
                                         {{ node.name }}
                                     </a>
                                     {% if not node.is_leaf_node %}
@@ -187,7 +190,7 @@
                     <nav class="main-nav ml-4">
                         <ul class="menu">
                             <li>
-                                <a href="{% url 'about' %}">{% trans "Biz haqimizda" %}</a>
+                                <a href="{% url 'company:about' %}">{% trans "Biz haqimizda" %}</a>
                             </li>
                             <li>
                                 <a href="{% url 'products:list' %}?discounts">{% trans "Chegirmalar" %}</a>
@@ -210,10 +213,10 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="header-right">
+                {% comment %} <div class="header-right">
                     <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>{% trans "Buyurtmani kuzatish" %}</a>
                     <a href="#"><i class="w-icon-sale"></i>{% trans "Kunlik ulashuvlar" %}</a>
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
     </div>

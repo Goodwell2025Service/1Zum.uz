@@ -4,14 +4,17 @@ $(document).ready(function() {
     // adding to cart functionality
     $('.btn-cart').off().on('click', function(e){
         e.preventDefault();
-        console.log("fucking shit")
+        let count = $('.qty').val()
+        console.log('clicked', count, $('.cart-count'))
         $.ajax({
             method: "GET",
             url: $(this).attr("href"),
+            data: {'count': count},
             dataType: 'json',
             success: function (data) {
-                if (data) {
-                   console.log(data.success) 
+                if (data.success) {
+                    console.log('count')
+                    $('#header-cart').text(data.count)
                 }
             }
         });
@@ -49,7 +52,6 @@ $(document).ready(function() {
                 if (data) {
                     elem.parent().parent().next().children('.amount').text(data.product_price)
                     $("#total-price").text(`${data.total_price} UZS`)
-                    return
                 }
             }
         });
@@ -74,7 +76,6 @@ $(document).ready(function() {
                 if (data) {
                     elem.parent().parent().next().children('.amount').text(`${data.product_price} UZS`)
                     $("#total-price").text(`${data.total_price} UZS`)
-                    return
                 }
             }
         });

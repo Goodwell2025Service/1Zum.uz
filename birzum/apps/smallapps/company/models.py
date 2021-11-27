@@ -12,9 +12,18 @@ class AboutUs(TimeStampedModel):
 
     # xizmat turlari bo'limi
     show_features = models.BooleanField(_("Xizlat turlari haqida malumotni ko'rsatish"), default=True)
-    first_feature = models.TextField(_("Birinchi xizmat turi"), max_length=512)
-    second_feature = models.TextField(_("Uchinchi xizmat turi"), max_length=512)
-    third_feature = models.TextField(_("Ikkinchi xizmat turi"), max_length=512)
+    first_feature = models.TextField(
+        _("Birinchi xizmat turi"),
+        help_text=_("Xaridorlarga xizmat ko'rsatish haqida"),
+        max_length=512)
+    second_feature = models.TextField(
+        _("Uchinchi xizmat turi"),
+        help_text=_("Onlayn qo'llab quvvatlash haqida"),
+        max_length=512)
+    third_feature = models.TextField(
+        _("Ikkinchi xizmat turi"),
+        help_text=_("Xarid bo'yicha konsultatsiya haqida"),
+        max_length=512)
 
     feature_image = models.ImageField(_("Xizmat turlariga oid rasm"), blank=True)
 
