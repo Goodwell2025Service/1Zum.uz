@@ -252,7 +252,7 @@
                         <div class="product-wrap">
                             <div class="product text-center">
                                 <figure class="product-media">
-                                    <a href="product-default.html">
+                                    <a href="{{ p.get_absolute_url }}">
                                     {% thumbnail p.get_first_image "268x268" crop="center" as im %}
                                         <img src="{{ im.url }}" alt="{{ p.name }}" width="{{im.width}}"
                                             height="im.height"/>

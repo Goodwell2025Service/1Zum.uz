@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView, TemplateView
 
+from birzum.apps.smallapps.company.models import Features
 from .models import Category, Product
 
 # Create your views here.
@@ -45,6 +46,12 @@ product_list_view = ProductList.as_view()
 class ProductDetail(DetailView):
     model = Product
     slug_field = 'slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["features"] = Features.objects.all()
+        return context
+    
 
 
 product_detail_view = ProductDetail.as_view()
