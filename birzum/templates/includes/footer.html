@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="widget widget-about mt-0">
-                        <a href="demo7.html" class="logo-footer">
+                        <a href="{% url 'home' %}" class="logo-footer">
                             <img src="{% static 'images/logo.png' %}" alt="logo-footer" width="145"
                                 height="45" />
                         </a>
@@ -58,12 +58,10 @@
                     <div class="widget">
                         <h3 class="widget-title">{% trans "Korxona" %}</h3>
                         <ul class="widget-body">
-                            <li><a href="#">{% trans "Korxona haqida" %}</a></li>
-                            <li><a href="#">{% trans "Jamoa" %}</a></li>
-                            <li><a href="#">{% trans "karyera" %}</a></li>
-                            <li><a href="#">{% trans "Bog'lanish" %}</a></li>
-                            <li><a href="#">{% trans "Hissangizni qo'shing" %}</a></li>
-                            <li><a href="#">{% trans "Buyurtmalar" %}</a></li>
+                            <li><a href="{% url 'company:about' %}">{% trans "Biz haqimizda" %}</a></li>
+                            <li><a href="{% url 'products:list' %}?discount=1">{% trans "Chegirmalar" %}</a></li>
+                            <li><a href="{% url 'products:list' %}?new=1">{% trans "Yangi mahsulotlar" %}</a></li>
+                            <li><a href="{% url 'company:contact' %}">{% trans "Bog'lanish" %}</a></li>
                         </ul>
                     </div>
                 </div>

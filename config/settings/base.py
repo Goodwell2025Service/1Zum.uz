@@ -119,6 +119,7 @@ LOCAL_APPS = [
     "birzum.users.apps.UsersConfig",
     "birzum.apps.products.apps.ProductsConfig",
     "birzum.apps.order.apps.OrderConfig",
+    "birzum.apps.blog.apps.BlogConfig",
     "birzum.apps.smallapps.compare.apps.CompareConfig",
     "birzum.apps.smallapps.company.apps.CompanyConfig",
     "birzum.apps.smallapps.whishlist.apps.WhishlistConfig",

@@ -11,12 +11,6 @@ from birzum.homeviews import HomeView
 urlpatterns = (
     i18n_patterns(
         path("", HomeView.as_view(), name="home"),
-        path(
-            "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
-        ),
-        path(
-            "contact/", TemplateView.as_view(template_name="pages/contact.html"), name="contact"
-        ),
         # Django Admin, use {% url 'admin:index' %}
         path(settings.ADMIN_URL, admin.site.urls),
         # User management

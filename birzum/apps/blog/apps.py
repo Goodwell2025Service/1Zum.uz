@@ -4,4 +4,4 @@ from django.utils.translation import gettext_lazy as _
 
 class BlogConfig(AppConfig):
     name = 'birzum.apps.blog'
-    verbose_name = _("Yangiliklar")
+    verbose_name = _("Blog")

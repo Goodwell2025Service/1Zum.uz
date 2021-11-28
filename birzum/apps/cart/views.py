@@ -44,6 +44,8 @@ def cart_clear(request):
 
 def cart_detail(request):
     cart = Cart(request)
+    print("THis ios a cart total price", cart.get_total_price())
+    print([cart.cart[item]['price'] for item in cart.cart.keys()])
     return render(request, 'cart/cart.html', {'cart': cart})
 
 
@@ -53,15 +55,17 @@ def update(request):
     id = int(request.GET.get('id'))
 
     obj = Product.objects.filter(available=True, id=id).first()
-    print([int(item) for item in cart.cart.keys()], obj.id)
+
     if obj:
         if obj.id in [int(item) for item in cart.cart.keys()]:
-            cart.cart.get(str(obj.id))['quantity'] = int(count)
-            cart.cart.get(str(obj.id))['price'] = str(obj.price * int(count))
-            data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
+            cart.cart[str(obj.id)]['quantity'] = int(count)
+            cart.cart[str(obj.id)]['price'] = str(obj.price * int(count))
             cart.save()
+            data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
+            return JsonResponse(data)
         else:
             cart.add(product=obj, quantity=int(count))
             data = {'product_price': obj.price * int(count), "total_price": cart.get_total_price()}
-    
-    return JsonResponse(data)
+            return JsonResponse(data)
+
+    return JsonResponse({"success": False})

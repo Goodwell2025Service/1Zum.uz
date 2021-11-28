@@ -10,13 +10,13 @@ class New(TimeStampedModel):
     title = models.CharField(_('Nomi'), max_length=200, db_index=True)
     slug = models.SlugField(_('slug'), max_length=200, db_index=True, blank=True)
     body = models.TextField(_('Tavsifi'), blank=True)
-    image = models.ImageField(_('rasm'), size=[300, 300], default='default.apng', blank=True, null=True)
+    image = models.ImageField(_('rasm'), default='default.apng', blank=True, null=True)
     news = models.BooleanField(_('Yangilik'), default=False)
     stock = models.BooleanField(_('Chegirma'), default=False)
 
     class Meta:
-        verbose_name_plural = _('Posts')
-        verbose_name = _('post')
+        verbose_name_plural = _('Yangiliklar')
+        verbose_name = _('yangilik')
 
     def __str__(self):
         return self.title
@@ -29,8 +29,9 @@ class Partner(TimeStampedModel):
     site_url = models.URLField(_('Websayt urli'), max_length=255)
 
     class Meta:
-        ordering = ('-published',)
-        verbose_name_plural = _('Partners')
+        ordering = ('-created',)
+        verbose_name_plural = _('Hamkorlar')
+        verbose_name = _('hamkor')
 
     def __str__(self):
         return self.title
@@ -39,7 +40,7 @@ class Partner(TimeStampedModel):
 class Savollar(TimeStampedModel):
     question = models.CharField(_("Savol"), max_length=512)
     answer = models.CharField(_("Javob"), max_length=512)
-    order = models.PositiveIntegerField(_("Tartib"), default=0, max_length=10)
+    order = models.PositiveIntegerField(_("Tartib"), default=0)
 
     class Meta:
         ordering = ('order',)

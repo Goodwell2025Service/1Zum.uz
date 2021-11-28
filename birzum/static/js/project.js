@@ -34,12 +34,14 @@ $(document).ready(function() {
 
     // update quantity and price functions
     $('.quantity-plus').off().click(function(e){
+        e.preventDefault()
         let productId = $(this).attr("product-id")
+        console.log($(this).attr('class'), productId)
         let productQuantity = $(this).prev('.qty')
         if (Number(productQuantity.val()) < 20) {
             productQuantity.val(Number(productQuantity.val()) + 1);
         }
-        console.log($(this).attr("url"))
+        console.log("quantity now", productQuantity.val())
 
         let elem = $(this)
 
@@ -59,13 +61,16 @@ $(document).ready(function() {
 
     // update quantity and price functions
     $('.quantity-minus').off().click(function(e){
+        e.preventDefault()
         let productId = $(this).attr("product-id")
+        console.log($(this).attr('class'), productId)
         let productQuantity = $(this).prev().prev()
         if (Number(productQuantity.val()) > 1) {
             productQuantity.val(Number(productQuantity.val()) - 1);
         }
         
-        console.log($(this).attr("url"))
+        console.log("quantity now", productQuantity.val())
+
         let elem = $(this)
         $.ajax({
             method: "GET",
