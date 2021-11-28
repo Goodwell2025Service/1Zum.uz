@@ -124,53 +124,44 @@
                 </div>
             </div>
             <!-- End of Shop Category -->
-
+            
             <!-- Start of Shop Content -->
             <div class="shop-content row gutter-lg mb-10">
+                
                 <!-- Start of Sidebar, Shop Sidebar -->
                 <aside class="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
                     <!-- Start of Sidebar Overlay -->
                     <div class="sidebar-overlay"></div>
                     <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
-
+                    <form action="{% url 'products:list' %}" id="left-filter">
                     <!-- Start of Sidebar Content -->
                     <div class="sidebar-content scrollable">
                         <!-- Start of Sticky Sidebar -->
                         <div class="sticky-sidebar">
                             <div class="filter-actions">
-                                <label>Filter :</label>
-                                <a href="#" class="btn btn-dark btn-link filter-clean">Clean All</a>
+                                <label>{% trans "Saralash" %} :</label>
+                                <a href="{% url 'products:list' %}" class="btn btn-dark btn-link filter-clean">{% trans "Bekor qilish" %}</a>
                             </div>
                             <!-- Start of Collapsible widget -->
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title"><label>{% trans "Barcha kategoriyalar" %}</label></h3>
-                                <ul class="widget-body filter-items search-ul">
-                                {% for item in categories %}
-                                    {% if not item.is_leaf_node %}
-                                    <li><a href="{{ item.get_absolute_url }}" class="activ">{{ item.name }}</a></li>
-                                    {% endif %}
-                                {% endfor %}
-                                </ul>
+                                <div class="widget-body">
+                                    {{ filter.form.category }}
+                                </div>
                             </div>
                             <!-- End of Collapsible Widget -->
 
                             <!-- Start of Collapsible Widget -->
                             <div class="widget widget-collapsible">
-                                <h3 class="widget-title"><label>Price</label></h3>
+                                <h3 class="widget-title"><label>{% trans "Narx" %}</label></h3>
                                 <div class="widget-body">
-                                    <ul class="filter-items search-ul">
-                                        <li><a href="#">0.00 UZS - 500 000  UZS</a></li>
-                                        <li><a href="#">500 000 UZS - 1 000 000 UZS</a></li>
-                                        <li><a href="#">1 000 000 UZS - 3 000 000 UZS</a></li>
-                                        <li><a href="#">3 000 000 UZS - 5 000 000 UZS</a></li>
-                                        <li><a href="#">5 000 000 UZS +</a></li>
-                                    </ul>
-                                    <form class="price-range">
+                                    
+                                    <div class="price-range d-flex">
                                         <input type="number" name="min_price" class="min_price text-center"
-                                            placeholder="min"><span class="delimiter">-</span><input
-                                            type="number" name="max_price" class="max_price text-center"
-                                            placeholder="max">
-                                    </form>
+                                            placeholder="min" {% if filter.get_selected_min_price %}value="{{ filter.get_selected_min_price }}"{% endif %}><span class="delimiter">-</span>
+                                        <input type="number" name="max_price" class="max_price text-center"
+                                            placeholder="max" {% if filter.get_selected_max_price %}value="{{ filter.get_selected_max_price }}"{% endif %}>
+                                    </div>
                                 </div>
                             </div>
                             <!-- End of Collapsible Widget -->
@@ -178,15 +169,9 @@
                             <!-- Start of Collapsible Widget -->
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title"><label>{% trans "Brend" %}</label></h3>
-                                <ul class="widget-body filter-items item-check mt-1">
-                                    <li><a href="#">Elegant Auto Group</a></li>
-                                    <li><a href="#">Green Grass</a></li>
-                                    <li><a href="#">Node Js</a></li>
-                                    <li><a href="#">NS8</a></li>
-                                    <li><a href="#">Red</a></li>
-                                    <li><a href="#">Skysuite Tech</a></li>
-                                    <li><a href="#">Sterling</a></li>
-                                </ul>
+                                <div class="widget-body">
+                                    {{ filter.form.brand }}
+                                </div>
                             </div>
                             <!-- End of Collapsible Widget -->
 
@@ -194,28 +179,40 @@
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title"><label>{% trans "Qo'shimcha" %}</label></h3>
                                 <ul class="widget-body filter-items item-check mt-1">
-                                    <li><a href="#">{% trans "Rassrochka" %}</a></li>
-                                    <li><a href="#">{% trans "Chegirma" %}</a></li>
+                                   <li class="mb-2">
+                                        <label class="d-flex align-items-center">
+                                            <input type="checkbox" name="discount" class="mr-2" {% if filter.get_selected_discount %}checked{% endif %}>
+                                            {% trans "Chegirma" %}
+                                        <label>
+                                    <li>
+                                       <label class="d-flex align-items-center">
+                                            <input type="checkbox" name="lising" class="mr-2" {% if filter.get_selected_lising %}checked{% endif %}>
+                                            {% trans "Rassrochka" %}
+                                        <label> 
+                                    </li>
                                 </ul>
                             </div>
                             <!-- End of Collapsible Widget -->
-
+                            <input type="submit" class="btn btn-send" value="{% trans "Saralash" %}">
                         </div>
                         <!-- End of Sidebar Content -->
                     </div>
                     <!-- End of Sidebar Content -->
+                    {% comment %} </form> {% endcomment %}
                 </aside>
                 <!-- End of Shop Sidebar -->
-
+               
                 <!-- Start of Shop Main Content -->
                 <div class="main-content">
                     {% comment %} filter in navbar {% endcomment %}
+                    {% comment %} <form action"." class="" id="top-filter"> {% endcomment %}
                     <nav class="toolbox sticky-toolbox sticky-content fix-top">
+                        
                         <div class="toolbox-left">
                             <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
-                                btn-icon-left d-block d-lg-none"><i
-                                    class="w-icon-category"></i><span>Filters</span></a>
-                            <div class="toolbox-item toolbox-sort select-box text-dark">
+                                btn-icon-left d-block d-lg-none">
+                                <i class="w-icon-category"></i><span>Filters</span></a>
+                            {% comment %} <div class="toolbox-item toolbox-sort select-box text-dark">
                                 <label>Sort By :</label>
                                 <select name="orderby" class="form-control">
                                     <option value="default" selected="selected">Default sorting</option>
@@ -225,27 +222,30 @@
                                     <option value="price-low">Sort by pric: low to high</option>
                                     <option value="price-high">Sort by price: high to low</option>
                                 </select>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                         <div class="toolbox-right">
                             <div class="toolbox-item toolbox-show select-box">
-                                <select name="count" class="form-control">
-                                    <option value="9">Show 9</option>
-                                    <option value="12" selected="selected">Show 12</option>
-                                    <option value="24">Show 24</option>
-                                    <option value="36">Show 36</option>
+                                <label>{% trans "Safidagi natijalar soni" %}</label>
+                                <select name="paginate" class="form-control">
+                                    <option value="9" {% if request.GET.paginate == '9' %}selected{% endif %}>{% trans "9 ta" %}</option>
+                                    <option value="12" {% if request.GET.paginate == '12' %}selected{% endif %}>{% trans "12 ta" %}</option>
+                                    <option value="20" {% if request.GET.paginate == '20' %}selected{% endif %}>{% trans "20 ta" %}</option>
+                                    <option value="30" {% if request.GET.paginate == '30' %}selected{% endif %}>{% trans "30 ta" %}</option>
                                 </select>
                             </div>
-                            <div class="toolbox-item toolbox-layout">
+                            {% comment %} <div class="toolbox-item toolbox-layout">
                                 <a href="shop-banner-sidebar.html" class="icon-mode-grid btn-layout active">
                                     <i class="w-icon-grid"></i>
                                 </a>
                                 <a href="shop-list.html" class="icon-mode-list btn-layout">
                                     <i class="w-icon-list"></i>
                                 </a>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
+                        
                     </nav>
+                    </form>
                     {% comment %} proiduct items {% endcomment %}
                     <div class="product-wrapper row cols-md-3 cols-sm-2 cols-2">
                         {% for p in object_list %}
@@ -298,6 +298,7 @@
 
                 </div>
                 <!-- End of Shop Main Content -->
+            
             </div>
             <!-- End of Shop Content -->
         </div>

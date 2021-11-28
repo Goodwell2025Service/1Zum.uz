@@ -84,7 +84,21 @@ $(document).ready(function() {
                 }
             }
         });
+    });
 
+    // submit pagination form
+    $('select[name="paginate"]').off().on('change', function(e) {
+        console.log("changed");
+        $("#left-filter").submit();
+    });
+
+    $('input[type="checkbox"]').off().on('click', function(e) {
+        console.log("changed");
+        $("#left-filter").submit();
+    });
+
+    $('input[name="min_price"], input[name="max_price"]').on('focusout', function(e){
+        $("#left-filter").submit();
     })
 
 })

@@ -94,6 +94,8 @@ class Product(TimeStampedModel):
     available = models.BooleanField("Sotuvda mavjud", default=True)
     bestseller = models.BooleanField("Eng ko'p sotiladigan mahsulot", default=False)
     new = models.BooleanField("Yangi", default=False)
+    discount = models.BooleanField("Chegirma", default=False)
+    lising = models.BooleanField("Lising", default=False)
 
     price = models.DecimalField(_("Narx"), max_digits=10, decimal_places=2, blank=True)
     discount_price = models.DecimalField(_("Chegirma narx"), max_digits=10, decimal_places=2, null=True, blank=True)

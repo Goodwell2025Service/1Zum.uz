@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView, TemplateView
+from django_filters.views import FilterView
 
 from birzum.apps.smallapps.company.models import Features
-from .models import Category, Product
-
+from .models import Category, Product, Brand
+from .filters import ProductFilter
 # Create your views here.
 
 
@@ -19,12 +20,15 @@ class Home(TemplateView):
 home_view = Home.as_view()
 
 
-class ProductList(ListView):
-    queryset = Product.objects.prefetch_related('image').all()
+class ProductList(FilterView):
+    queryset = Product.objects.select_related('category', 'brand').prefetch_related('image').all()
+    filterset_class = ProductFilter
+    paginate_by = 30
 
     def get_queryset(self, **kwargs):
         cat_slug = self.kwargs.get('cat_slug', None)
-        print("cat_slug", cat_slug)
+        paginate = self.request.GET.get('paginate', 30)
+        self.paginate_by = paginate
         if cat_slug:
             categories = get_object_or_404(Category, slug=cat_slug)
         try:
@@ -36,7 +40,7 @@ class ProductList(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['categories'] = Category.objects.select_related('parent').all()
+        ctx['brands'] = Brand.objects.all()
         return ctx
 
 
