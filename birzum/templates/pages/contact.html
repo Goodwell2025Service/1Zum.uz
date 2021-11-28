@@ -131,22 +131,7 @@
                         <form class="form contact-us-form" action="." method="POST">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            {% comment %} <div class="form-group">
-                                <label for="username">Your Name</label>
-                                <input type="text" id="username" name="username"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email_1">Your Email</label>
-                                <input type="email" id="email_1" name="email_1"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" name="message" cols="30" rows="5"
-                                    class="form-control"></textarea>
-                            </div> {% endcomment %}
-                            <button type="submit" class="btn btn-dark btn-rounded">Send Now</button>
+                            <button type="submit" class="btn btn-dark btn-rounded">{% trans "Yuborish" %}</button>
                         </form>
                     </div>
                 </div>
