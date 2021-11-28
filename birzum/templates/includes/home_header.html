@@ -107,14 +107,14 @@
                             {% with product=item.product %}
                             <div class="product product-cart">
                                 <div class="product-detail">
-                                    <a href="product-default.html" class="product-name">{{ product.title }}</a>
+                                    <a href="#" class="product-name">{{ product.title }}</a>
                                     <div class="price-box">
                                         <span class="product-quantity">{{ item.quantity }}</span>
                                         <span class="product-price">{{ item.price }} UZS</span>
                                     </div>
                                 </div>
                                 <figure class="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         {% thumbnail product.get_first_image "80x80" crop="center" as im %}
                                         <img src="{{ im.url }}" alt="product" height="{{im.height}}" width="{{im.width}}"/>
                                         {% endthumbnail %}
@@ -201,10 +201,10 @@
                             <li>
                                 <a href="#">{% trans "Yo'riqnomalar" %}</a>
                                 <ul>
-                                    <li><a href="element-accordions.html">{% trans "Yetkazib berish" %}</a></li>
-                                    <li><a href="element-alerts.html">{% trans "Mahsulotni qaytarib olish yoki almashtirish" %}</a></li>
-                                    <li><a href="element-blog-posts.html">{% trans "Variantga olish shartlari" %}</a></li>
-                                    <li><a href="element-buttons.html">{% trans "Publichnaya" %}</a></li>
+                                    <li><a href="#">{% trans "Yetkazib berish" %}</a></li>
+                                    <li><a href="#">{% trans "Mahsulotni qaytarib olish yoki almashtirish" %}</a></li>
+                                    <li><a href="#">{% trans "Variantga olish shartlari" %}</a></li>
+                                    <li><a href="#">{% trans "Publichnaya" %}</a></li>
                                 </ul>
                             </li>
                             <li>
