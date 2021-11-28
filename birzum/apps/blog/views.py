@@ -1,16 +1,18 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView, DetailView
 
+from .models import New
 
 # Create your views here.
-class BlogListView(TemplateView):
-    template_name = "blog/blog_list.html"
+class BlogListView(ListView):
+    model = New
 
 
 list_view = BlogListView.as_view()
 
 
-class BlogDetailView(TemplateView):
-    template_name = "blog/blog_detail.html"
+class BlogDetailView(DetailView):
+    model = New
+    slug_field = "slug"
 
 
 detail_view = BlogDetailView.as_view()

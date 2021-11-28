@@ -317,11 +317,11 @@
         </div>
     </div>
     <!-- End of Quick view -->
-    <span id="success_msg">{% trans "mahsulot qo'shildi" %}</span>
-    <span id="cartLink">{% url 'cart:detail' %}</span>
-    <span id="compareLink">{% url 'compare:compare' %}</span>
-    <span id="whishlistLink">{% url 'whishlist:whishlist' %}</span>
-    <span id="cartText">{% trans "Savat" %}</span>
+    <span id="success_msg" class="d-none">{% trans "mahsulot qo'shildi" %}</span>
+    <span id="cartLink" class="d-none">{% url 'cart:detail' %}</span>
+    <span id="compareLink" class="d-none">{% url 'compare:compare' %}</span>
+    <span id="whishlistLink" class="d-none">{% url 'whishlist:whishlist' %}</span>
+    <span id="cartText" class="d-none">{% trans "Savat" %}</span>
 
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'js/project.js' %}"></script>

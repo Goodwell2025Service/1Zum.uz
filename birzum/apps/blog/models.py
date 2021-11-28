@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
+from django.urls import reverse
 
 User = get_user_model()
 
@@ -20,6 +21,10 @@ class New(TimeStampedModel):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("blog:detail", kwargs={"slug": self.slug})
+    
 
 
 class Partner(TimeStampedModel):
