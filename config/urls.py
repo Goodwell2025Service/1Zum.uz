@@ -13,6 +13,7 @@ urlpatterns = (
         path("", HomeView.as_view(), name="home"),
         # Django Admin, use {% url 'admin:index' %}
         path(settings.ADMIN_URL, admin.site.urls),
+        path("translations/", include("rosetta.urls")),
         # User management
         path("users/", include("birzum.users.urls", namespace="users")),
         path("accounts/", include("allauth.urls")),

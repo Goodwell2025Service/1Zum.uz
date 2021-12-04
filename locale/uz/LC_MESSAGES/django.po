@@ -1,0 +1,1514 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-04 20:20+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: birzum/apps/blog/apps.py:7 birzum/templates/includes/home_header.html:38
+msgid "Blog"
+msgstr ""
+
+#: birzum/apps/blog/models.py:11 birzum/apps/blog/models.py:31
+#: birzum/apps/products/models.py:89
+msgid "Nomi"
+msgstr ""
+
+#: birzum/apps/blog/models.py:12 birzum/apps/blog/models.py:32
+msgid "slug"
+msgstr ""
+
+#: birzum/apps/blog/models.py:13 birzum/apps/products/models.py:62
+msgid "Tavsifi"
+msgstr ""
+
+#: birzum/apps/blog/models.py:14
+msgid "rasm"
+msgstr ""
+
+#: birzum/apps/blog/models.py:15
+msgid "Yangilik"
+msgstr ""
+
+#: birzum/apps/blog/models.py:16
+#: birzum/templates/products/product_filter.html:185
+msgid "Chegirma"
+msgstr ""
+
+#: birzum/apps/blog/models.py:19 birzum/templates/blog/new_detail.html:24
+#: birzum/templates/blog/new_list.html:14
+#: birzum/templates/blog/new_list.html:24
+msgid "Yangiliklar"
+msgstr ""
+
+#: birzum/apps/blog/models.py:20
+msgid "yangilik"
+msgstr ""
+
+#: birzum/apps/blog/models.py:33
+msgid "Hamkor logosi"
+msgstr ""
+
+#: birzum/apps/blog/models.py:34
+msgid "Websayt urli"
+msgstr ""
+
+#: birzum/apps/blog/models.py:38
+msgid "Hamkorlar"
+msgstr ""
+
+#: birzum/apps/blog/models.py:39
+msgid "hamkor"
+msgstr ""
+
+#: birzum/apps/blog/models.py:46 birzum/apps/blog/models.py:52
+msgid "Savol"
+msgstr ""
+
+#: birzum/apps/blog/models.py:47
+msgid "Javob"
+msgstr ""
+
+#: birzum/apps/blog/models.py:48
+msgid "Tartib"
+msgstr ""
+
+#: birzum/apps/blog/models.py:53
+msgid "Savollar"
+msgstr ""
+
+#: birzum/apps/cart/views.py:14
+msgid "Mahsulot muvoffaqiyatli qo'shildi!"
+msgstr ""
+
+#: birzum/apps/cart/views.py:15
+msgid "Mahsulot sotuvda qolmagan!"
+msgstr ""
+
+#: birzum/apps/order/apps.py:7 birzum/apps/order/models.py:39
+#: birzum/apps/order/models.py:57 birzum/templates/users/user_detail.html:40
+#: birzum/templates/users/user_detail.html:79
+msgid "Buyurtmalar"
+msgstr ""
+
+#: birzum/apps/order/models.py:16
+msgid "Buyurtma egasi"
+msgstr ""
+
+#: birzum/apps/order/models.py:20
+msgid "Ism"
+msgstr ""
+
+#: birzum/apps/order/models.py:21
+msgid "Familiya"
+msgstr ""
+
+#: birzum/apps/order/models.py:23 birzum/users/models.py:43
+msgid "Viloyat"
+msgstr ""
+
+#: birzum/apps/order/models.py:24 birzum/users/models.py:44
+msgid "Tuman/Shahar"
+msgstr ""
+
+#: birzum/apps/order/models.py:25 birzum/users/models.py:45
+msgid "Ko'cha"
+msgstr ""
+
+#: birzum/apps/order/models.py:26 birzum/users/models.py:46
+msgid "Massiv, Daha, Kvarta, uy nomeri"
+msgstr ""
+
+#: birzum/apps/order/models.py:27
+msgid "Pochta indexi"
+msgstr ""
+
+#: birzum/apps/order/models.py:28
+msgid "E-pochta"
+msgstr ""
+
+#: birzum/apps/order/models.py:29 birzum/users/models.py:48
+msgid "Telefon"
+msgstr ""
+
+#: birzum/apps/order/models.py:31
+msgid "Qo'shimcha xabar"
+msgstr ""
+
+#: birzum/apps/order/models.py:33 birzum/templates/order/order_create.html:256
+msgid "To'lov turi"
+msgstr ""
+
+#: birzum/apps/order/models.py:35
+#: birzum/templates/includes/default_header.html:588
+#: birzum/templates/includes/footer.html:89
+#: birzum/templates/includes/home_header.html:205
+#: birzum/templates/includes/mobile-menu.html:43
+#: birzum/templates/order/order_create.html:222
+msgid "Yetkazib berish"
+msgstr ""
+
+#: birzum/apps/order/models.py:38 birzum/apps/order/models.py:49
+#: birzum/apps/order/models.py:56
+msgid "buyurtma"
+msgstr ""
+
+#: birzum/apps/order/models.py:50 birzum/templates/cart/cart.html:30
+#: birzum/templates/order/order_create.html:197
+#: birzum/templates/smallapps/compare/compare.html:33
+msgid "Mahsulot"
+msgstr ""
+
+#: birzum/apps/order/models.py:51 birzum/apps/products/models.py:143
+msgid "narx"
+msgstr ""
+
+#: birzum/apps/order/models.py:53
+msgid "Soni"
+msgstr ""
+
+#: birzum/apps/products/apps.py:8 birzum/apps/products/models.py:114
+#: birzum/templates/products/product_detail.html:15
+#: birzum/templates/smallapps/whishlist/whishlist.html:31
+msgid "Mahsulotlar"
+msgstr ""
+
+#: birzum/apps/products/models.py:14
+msgid "Brend nomi"
+msgstr ""
+
+#: birzum/apps/products/models.py:15
+msgid "Brend ikonkasi"
+msgstr ""
+
+#: birzum/apps/products/models.py:18
+msgid "brend"
+msgstr ""
+
+#: birzum/apps/products/models.py:19
+msgid "Brendlar"
+msgstr ""
+
+#: birzum/apps/products/models.py:27
+msgid "Category"
+msgstr ""
+
+#: birzum/apps/products/models.py:28
+msgid "Slug"
+msgstr ""
+
+#: birzum/apps/products/models.py:34 birzum/apps/products/models.py:85
+#: birzum/templates/products/product_filter.html:171
+msgid "Brend"
+msgstr ""
+
+#: birzum/apps/products/models.py:35
+msgid "categories"
+msgstr ""
+
+#: birzum/apps/products/models.py:37
+msgid "Logo"
+msgstr ""
+
+#: birzum/apps/products/models.py:38
+msgid "Rasmi"
+msgstr ""
+
+#: birzum/apps/products/models.py:40
+msgid "Tartib raqami"
+msgstr ""
+
+#: birzum/apps/products/models.py:44
+msgid "kategoriya"
+msgstr ""
+
+#: birzum/apps/products/models.py:45
+#: birzum/templates/includes/default_header.html:179
+#: birzum/templates/includes/home_header.html:161
+#: birzum/templates/includes/mobile-menu.html:26
+msgid "Kategoriyalar"
+msgstr ""
+
+#: birzum/apps/products/models.py:61
+msgid "Mavzusi"
+msgstr ""
+
+#: birzum/apps/products/models.py:63
+msgid "Banner rasmi"
+msgstr ""
+
+#: birzum/apps/products/models.py:64
+msgid "Ikonka rasmi"
+msgstr ""
+
+#: birzum/apps/products/models.py:67 birzum/apps/products/models.py:107
+msgid "chegirma"
+msgstr ""
+
+#: birzum/apps/products/models.py:68
+#: birzum/templates/includes/default_header.html:577
+#: birzum/templates/includes/footer.html:62
+#: birzum/templates/includes/home_header.html:197
+#: birzum/templates/includes/mobile-menu.html:35
+msgid "Chegirmalar"
+msgstr ""
+
+#: birzum/apps/products/models.py:90
+msgid "Slag"
+msgstr ""
+
+#: birzum/apps/products/models.py:91
+msgid "Tafsif"
+msgstr ""
+
+#: birzum/apps/products/models.py:93
+msgid "Xarakteristika"
+msgstr ""
+
+#: birzum/apps/products/models.py:100 birzum/apps/products/models.py:139
+#: birzum/templates/products/product_filter.html:156
+msgid "Narx"
+msgstr ""
+
+#: birzum/apps/products/models.py:101
+msgid "Chegirma narx"
+msgstr ""
+
+#: birzum/apps/products/models.py:102
+msgid "Kredit narx"
+msgstr ""
+
+#: birzum/apps/products/models.py:113
+msgid "mahsulot"
+msgstr ""
+
+#: birzum/apps/products/models.py:144
+msgid "Narxlar"
+msgstr ""
+
+#: birzum/apps/products/models.py:152
+msgid "Masulot rasmi"
+msgstr ""
+
+#: birzum/apps/products/models.py:155
+msgid "mahsulot rasmi"
+msgstr ""
+
+#: birzum/apps/products/models.py:156
+msgid "Mahsulotlar rasmlari"
+msgstr ""
+
+#: birzum/apps/smallapps/company/apps.py:7
+msgid "Tashkilot malumotlari"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:9
+#: birzum/apps/smallapps/reklama/models.py:27
+#: birzum/apps/smallapps/reklama/models.py:42
+#: birzum/apps/smallapps/reklama/models.py:57
+#: birzum/apps/smallapps/reklama/models.py:72
+msgid "Sarlavha"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:10
+#: birzum/templates/products/product_detail.html:270
+msgid "Tavsif"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:12
+msgid "Birinchi HD rasm"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:15
+msgid "Xizlat turlari haqida malumotni ko'rsatish"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:17
+msgid "Birinchi xizmat turi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:18
+msgid "Xaridorlarga xizmat ko'rsatish haqida"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:21
+msgid "Uchinchi xizmat turi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:22
+msgid "Onlayn qo'llab quvvatlash haqida"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:25
+msgid "Ikkinchi xizmat turi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:26
+msgid "Xarid bo'yicha konsultatsiya haqida"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:29
+msgid "Xizmat turlariga oid rasm"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:32
+msgid "Statistika bo'limini ko'rsatish"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:34
+msgid "Sotuvdagi productlar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:35
+msgid "Sotuvdagi mahsulotlar tavsifi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:37
+#: birzum/templates/pages/about.html:122
+msgid "Jamoa jamg'armasi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:38
+#: birzum/apps/smallapps/company/models.py:47
+#: birzum/apps/smallapps/company/models.py:59
+#: birzum/apps/smallapps/company/models.py:76
+#: birzum/apps/smallapps/reklama/models.py:12
+msgid "Qisqacha tavsif"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:40
+#: birzum/templates/pages/about.html:130
+msgid "Xaridorlar soni"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:41
+msgid "Xaridorlar haqida qisqacha tavsif"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:44
+msgid "Xaridorlar haqida qaygurish bo'limini ko'rsatish"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:46
+msgid "Xaridorlar haqida o'ylaymiz rasmi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:50
+#: birzum/apps/smallapps/company/models.py:67
+#: birzum/apps/smallapps/reklama/models.py:33
+#: birzum/apps/smallapps/reklama/models.py:48
+#: birzum/apps/smallapps/reklama/models.py:63
+#: birzum/apps/smallapps/reklama/models.py:78
+msgid "malumot"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:51
+msgid "Kompaniya haqida"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:58
+msgid "Aloqa sarlavhasi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:61
+msgid "E.pochta"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:62
+#: birzum/apps/smallapps/company/models.py:120
+msgid "Telefon raqam"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:63
+#: birzum/templates/users/user_detail.html:43
+#: birzum/templates/users/user_detail.html:92 birzum/users/models.py:41
+#: birzum/users/models.py:47
+msgid "Manzil"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:64
+msgid "Fax raqami"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:68
+#: birzum/templates/includes/default_header.html:595
+msgid "Kontaktlar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:75
+msgid "Xususiyat nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:77
+msgid "Ikonka nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:80
+msgid "xususiyat"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:81
+#: birzum/templates/products/product_detail.html:273
+msgid "Xususiyatlar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:88
+msgid "Yutuq nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:89
+msgid "Yutuq rasmi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:92
+msgid "yutuq"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:93
+#: birzum/templates/pages/about.html:161
+msgid "Yutuqlar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:100
+msgid "Xodimning ismi sharfi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:101
+msgid "Lavozimi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:103
+msgid "Facebookdagi foydalanuvchi nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:104
+msgid "Twitterdagi foydalanuvchi nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:105
+msgid "Instagram foydalanuvchi nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:106
+msgid "Telegram foydalanuvchi nomi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:108
+msgid "Xodim rasmi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:111
+msgid "xodim"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:112
+msgid "Xodimlar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:119
+msgid "To'liq ism"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:121
+msgid "Xabar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:124
+msgid "xabar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/models.py:125
+msgid "Xabarlar"
+msgstr ""
+
+#: birzum/apps/smallapps/company/views.py:44
+msgid "Sizning xabaringiz yuborildi"
+msgstr ""
+
+#: birzum/apps/smallapps/company/views.py:48
+msgid "Quyidagi xatolarni to'g'irlang!"
+msgstr ""
+
+#: birzum/apps/smallapps/manuals/apps.py:7
+#: birzum/templates/includes/default_header.html:586
+#: birzum/templates/includes/home_header.html:203
+#: birzum/templates/includes/mobile-menu.html:41
+msgid "Yo'riqnomalar"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/apps.py:7
+msgid "Reklama bannerlari"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:8
+msgid "Banner turi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:10
+#: birzum/templates/products/product_detail.html:108
+msgid "Kategoriya"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:11
+msgid "Banner Kategoriyasi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:13
+msgid "Banner tugmasi uchun havola"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:14
+msgid "Banner katta rasmi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:15
+msgid "Banner kichik rasmi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:18
+msgid "banner"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:19
+msgid "Bosh sahifa bannerlari"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:26
+msgid "Chegirma miqdori (%)"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:28
+#: birzum/apps/smallapps/reklama/models.py:43
+#: birzum/apps/smallapps/reklama/models.py:58
+#: birzum/apps/smallapps/reklama/models.py:73
+msgid "Qisqa tavsif"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:29
+msgid "Reklama havolasi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:30
+#: birzum/apps/smallapps/reklama/models.py:45
+#: birzum/apps/smallapps/reklama/models.py:60
+#: birzum/apps/smallapps/reklama/models.py:75
+msgid "Reklama banneri"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:34
+msgid "Gorizontal uzun reklama banneri"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:41
+#: birzum/apps/smallapps/reklama/models.py:56
+#: birzum/apps/smallapps/reklama/models.py:71
+msgid "Reklama turi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:44
+#: birzum/apps/smallapps/reklama/models.py:59
+#: birzum/apps/smallapps/reklama/models.py:74
+msgid "Reklama hovolasi"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:49
+msgid "Sahifa yarmini oluvchi reklama banneri"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:64
+msgid "Mahsulotlar bo'limida o'ng yondagi kichik reklama banneri"
+msgstr ""
+
+#: birzum/apps/smallapps/reklama/models.py:79
+msgid "Mahsus malumotlari bo'limi [chapdagi uzun vertikal reklama]"
+msgstr ""
+
+#: birzum/templates/account/account_inactive.html:5
+#: birzum/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr ""
+
+#: birzum/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr ""
+
+#: birzum/templates/account/email.html:7
+msgid "Account"
+msgstr ""
+
+#: birzum/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr ""
+
+#: birzum/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+
+#: birzum/templates/account/email.html:27
+msgid "Verified"
+msgstr ""
+
+#: birzum/templates/account/email.html:29
+msgid "Unverified"
+msgstr ""
+
+#: birzum/templates/account/email.html:31
+msgid "Primary"
+msgstr ""
+
+#: birzum/templates/account/email.html:37
+msgid "Make Primary"
+msgstr ""
+
+#: birzum/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr ""
+
+#: birzum/templates/account/email.html:39
+msgid "Remove"
+msgstr ""
+
+#: birzum/templates/account/email.html:46
+msgid "Warning:"
+msgstr ""
+
+#: birzum/templates/account/email.html:46
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: birzum/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr ""
+
+#: birzum/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr ""
+
+#: birzum/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+
+#: birzum/templates/account/email_confirm.html:6
+#: birzum/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: birzum/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: birzum/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr ""
+
+#: birzum/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: birzum/templates/account/login.html:7
+msgid "Sign In"
+msgstr ""
+
+#: birzum/templates/account/login.html:13
+msgid "Tizimga kirish"
+msgstr ""
+
+#: birzum/templates/account/login.html:17
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"\t\t\tof your existing third party accounts. Or, <a href=\"%(signup_url)s"
+"\">sign up</a>\n"
+"\t\t\tfor a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: birzum/templates/account/login.html:25
+msgid "or"
+msgstr ""
+
+#: birzum/templates/account/login.html:31
+#, python-format
+msgid ""
+"Agar akkauntingiz yo'q bo'lsa iltimos avval \n"
+"\t\t\t<a href=\"%(signup_url)s\">ro'yhatdan o'ting</a>."
+msgstr ""
+
+#: birzum/templates/account/login.html:41
+msgid "Parolingizni unutdingizmi?"
+msgstr ""
+
+#: birzum/templates/account/login.html:42
+#: birzum/templates/includes/default_header.html:41
+#: birzum/templates/includes/footer.html:74
+#: birzum/templates/includes/home_header.html:44
+msgid "Kirish"
+msgstr ""
+
+#: birzum/templates/account/logout.html:7
+msgid "Sign Out"
+msgstr ""
+
+#: birzum/templates/account/logout.html:13
+msgid "Tizimdan chiqish"
+msgstr ""
+
+#: birzum/templates/account/logout.html:15
+msgid "Tizimdan chiqishga ishonchingiz komilmi?"
+msgstr ""
+
+#: birzum/templates/account/logout.html:22
+#: birzum/templates/users/user_detail.html:128
+msgid "Chiqish"
+msgstr ""
+
+#: birzum/templates/account/password_change.html:6
+#: birzum/templates/account/password_change.html:9
+#: birzum/templates/account/password_change.html:14
+#: birzum/templates/account/password_reset_from_key.html:5
+#: birzum/templates/account/password_reset_from_key.html:8
+#: birzum/templates/account/password_reset_from_key_done.html:4
+#: birzum/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr ""
+
+#: birzum/templates/account/password_reset.html:7
+#: birzum/templates/account/password_reset.html:11
+#: birzum/templates/account/password_reset_done.html:6
+#: birzum/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr ""
+
+#: birzum/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+
+#: birzum/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr ""
+
+#: birzum/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: birzum/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: birzum/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr ""
+
+#: birzum/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: birzum/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr ""
+
+#: birzum/templates/account/password_reset_from_key.html:21
+#: birzum/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr ""
+
+#: birzum/templates/account/password_set.html:6
+#: birzum/templates/account/password_set.html:9
+#: birzum/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr ""
+
+#: birzum/templates/account/signup.html:5
+#: birzum/templates/account/signup.html:11
+#: birzum/templates/account/signup.html:21
+#: birzum/templates/includes/default_header.html:43
+#: birzum/templates/includes/home_header.html:46
+msgid "Ro'yhatdan o'tish"
+msgstr ""
+
+#: birzum/templates/account/signup.html:13
+#, python-format
+msgid ""
+"Agar akkauntingiz bo'lsa iltimos tizimga <a href=\"%(login_url)s\">kiring</"
+"a>."
+msgstr ""
+
+#: birzum/templates/account/signup_closed.html:5
+#: birzum/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr ""
+
+#: birzum/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: birzum/templates/account/verification_sent.html:5
+#: birzum/templates/account/verification_sent.html:8
+#: birzum/templates/account/verified_email_required.html:5
+#: birzum/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: birzum/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: birzum/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: birzum/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: birzum/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+
+#: birzum/templates/base.html:8
+msgid "1ZUM.UZ | ONLINE DO'KON"
+msgstr ""
+
+#: birzum/templates/base.html:84 birzum/templates/blog/new_detail.html:23
+#: birzum/templates/includes/default_header.html:574
+#: birzum/templates/pages/about.html:23 birzum/templates/pages/contact.html:21
+#: birzum/templates/products/product_detail.html:14
+#: birzum/templates/smallapps/compare/compare.html:21
+#: birzum/templates/smallapps/whishlist/whishlist.html:21
+#: birzum/templates/users/user_detail.html:24
+msgid "Asosiy sahifa"
+msgstr ""
+
+#: birzum/templates/base.html:88
+msgid "Xarid"
+msgstr ""
+
+#: birzum/templates/base.html:93 birzum/templates/base.html:98
+msgid "Profilim"
+msgstr ""
+
+#: birzum/templates/base.html:320
+msgid "mahsulot qo'shildi"
+msgstr ""
+
+#: birzum/templates/base.html:324
+#: birzum/templates/includes/default_header.html:101
+#: birzum/templates/includes/home_header.html:98
+#: birzum/templates/includes/home_header.html:141
+msgid "Savat"
+msgstr ""
+
+#: birzum/templates/blog/new_list.html:23
+msgid "Bosh sahifa"
+msgstr ""
+
+#: birzum/templates/blog/new_list.html:55
+#: birzum/templates/products/product_detail.html:1132
+msgid "Batafsil"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:15
+#: birzum/templates/includes/default_header.html:105
+#: birzum/templates/includes/home_header.html:102
+#: birzum/templates/order/order_create.html:15
+#: birzum/templates/order/success.html:14
+msgid "Xarid savatchasi"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:16 birzum/templates/cart/cart.html:187
+#: birzum/templates/order/order_create.html:16
+#: birzum/templates/order/order_create.html:303
+#: birzum/templates/order/success.html:15
+msgid "Buyurtmani rasmiylashtirish"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:17
+#: birzum/templates/order/order_create.html:17
+#: birzum/templates/order/success.html:16
+msgid "Buyurtma rasmiylashtirildi"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:32
+#: birzum/templates/products/product_detail.html:158
+msgid "Narxi"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:33
+msgid "Miqdori"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:34 birzum/templates/cart/cart.html:96
+#: birzum/templates/includes/home_header.html:134
+#: birzum/templates/order/order_create.html:212
+msgid "Umumiy"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:80
+msgid "Xarid qilishda davom etish"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:81
+msgid "Savatni tozalash"
+msgstr ""
+
+#: birzum/templates/cart/cart.html:94
+msgid "Savat malumotlari"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:7
+#: birzum/templates/includes/home_header.html:7
+msgid "1zum do'koniga xush kelibsiz!"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:38
+#: birzum/templates/includes/home_header.html:39
+#: birzum/templates/pages/contact.html:12
+#: birzum/templates/pages/contact.html:22
+msgid "Biz bilan bog'laning"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:39
+#: birzum/templates/includes/footer.html:70
+#: birzum/templates/includes/home_header.html:41
+#: birzum/templates/users/user_detail.html:15
+#: birzum/templates/users/user_detail.html:25
+msgid "Mening profilim"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:60
+#: birzum/templates/products/product_filter.html:147
+msgid "Barcha kategoriyalar"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:73
+#: birzum/templates/includes/home_header.html:70
+msgid "dan qidirish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:83
+#: birzum/templates/includes/footer.html:64
+#: birzum/templates/includes/home_header.html:80
+msgid "Bog'lanish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:89
+#: birzum/templates/includes/home_header.html:86
+#: birzum/templates/users/user_detail.html:116
+msgid "Sevimlilar"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:93
+#: birzum/templates/includes/home_header.html:90
+msgid "Taqqoslash"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:106
+#: birzum/templates/includes/home_header.html:103
+msgid "Yopish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:159
+msgid "Kartani ko'rsatish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:160
+msgid "Rasmiylashtirish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:565
+msgid "Kategoriyalar oynasi"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:580
+#: birzum/templates/includes/footer.html:63
+#: birzum/templates/includes/home_header.html:200
+#: birzum/templates/includes/mobile-menu.html:38
+msgid "Yangi mahsulotlar"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:583
+msgid "EKKS"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:589
+#: birzum/templates/includes/home_header.html:206
+#: birzum/templates/includes/mobile-menu.html:44
+msgid "Mahsulotni qaytarib olish yoki almashtirish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:590
+#: birzum/templates/includes/home_header.html:207
+#: birzum/templates/includes/mobile-menu.html:45
+msgid "Variantga olish shartlari"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:591
+#: birzum/templates/includes/home_header.html:208
+msgid "Publichnaya"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:601
+#: birzum/templates/includes/footer.html:72
+msgid "Buyurtmani kuzatish"
+msgstr ""
+
+#: birzum/templates/includes/default_header.html:602
+msgid "Kunlik ulashuvlar"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:14
+msgid "Bizning yangiliklarimizga obuna bo'ling"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:15
+msgid "So'ngiz yangiliklardan xabardor bo'ling"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:24
+msgid "Elektron pochtangiz"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:25
+msgid "Obuna bo'lish"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:42
+msgid "Savolingiz bormi? 24/7 bizga qo'ng'iroq qiling"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:44
+msgid "Hoziroq ro'yhatdan o'ting va birinchi bo'lib buyurtma bering !"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:59
+msgid "Korxona"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:61
+#: birzum/templates/includes/home_header.html:194
+#: birzum/templates/pages/about.html:24 birzum/templates/pages/about.html:42
+msgid "Biz haqimizda"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:73
+msgid "Savatni"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:75
+msgid "Yordam"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:76
+#: birzum/templates/smallapps/whishlist/whishlist.html:12
+#: birzum/templates/smallapps/whishlist/whishlist.html:22
+msgid "Sevimli mahsulotlar"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:77
+msgid "Mahfiylik siyosati"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:83
+msgid "Mijozga xizmat"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:85
+msgid "To'lov turlari"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:86
+msgid "Pulingiz qaytarib beriladi"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:87
+msgid "Mahsulotni qaytarish"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:88
+msgid "Qo'llab quvvatlash"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:90
+msgid "Foydalanish shartlari"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:174
+msgid "Copyright © 2021 | 1zum do'koni. Barcha huquqlar himoyalangan"
+msgstr ""
+
+#: birzum/templates/includes/footer.html:177
+msgid "Havfsiz to'lovlar"
+msgstr ""
+
+#: birzum/templates/includes/home_header.html:58
+msgid "1zum logo"
+msgstr ""
+
+#: birzum/templates/includes/home_header.html:63
+msgid "Barchasi"
+msgstr ""
+
+#: birzum/templates/includes/home_header.html:170
+msgid "Barcha mahsulotlar"
+msgstr ""
+
+#: birzum/templates/includes/home_header.html:212
+#: birzum/templates/includes/mobile-menu.html:50
+msgid "Kontaktlar / EKSS"
+msgstr ""
+
+#: birzum/templates/includes/mobile-menu.html:23
+msgid "Menyu"
+msgstr ""
+
+#: birzum/templates/includes/mobile-menu.html:33
+msgid "Asosiy Sahifa"
+msgstr ""
+
+#: birzum/templates/includes/mobile-menu.html:46
+msgid "Publichnaya oferta"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:28
+msgid "Akkauntingiz bormi"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:29
+msgid "Akkauntingizga kiring"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:191
+msgid "Sizning buyurtmangiz"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:230
+msgid "Bepul yetkazib berish"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:238
+msgid "Olib ketish"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:246
+msgid "Pullik yetkazib berish"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:260
+msgid "Bank orqali o'tkazish"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:270
+msgid "Chek orqali to'lash"
+msgstr ""
+
+#: birzum/templates/order/order_create.html:280
+msgid "Yetkazib berilgandan keyin naqt to'lash"
+msgstr ""
+
+#: birzum/templates/order/success.html:27
+msgid ""
+"Rahmat ! Sizning buyurtmangiz qabul qilindi, biz siz bilan tez orada "
+"bog'lanamiz"
+msgstr ""
+
+#: birzum/templates/order/success.html:31
+msgid "Xarid qilishda davom eting"
+msgstr ""
+
+#: birzum/templates/pages/about.html:14
+msgid "Tashkilot haqida"
+msgstr ""
+
+#: birzum/templates/pages/about.html:51
+msgid "Biz xaridorlarga doimiy &amp; sifatli xizmat ko'rsatamiz"
+msgstr ""
+
+#: birzum/templates/pages/about.html:55
+msgid "Xaridorga xizmat ko'rsatish"
+msgstr ""
+
+#: birzum/templates/pages/about.html:65
+msgid "Onlayn qo'llab quvvatlash"
+msgstr ""
+
+#: birzum/templates/pages/about.html:75
+msgid "Xarid bo'yicha konsultatsiya"
+msgstr ""
+
+#: birzum/templates/pages/about.html:113
+msgid "Sotuvdagi mahsulotlar"
+msgstr ""
+
+#: birzum/templates/pages/about.html:146
+msgid "Mijozlar haqida qayguramiz"
+msgstr ""
+
+#: birzum/templates/pages/about.html:152
+msgid "Biz xaridorlar haqida qayg'uramiz"
+msgstr ""
+
+#: birzum/templates/pages/about.html:201
+msgid "Bizning jamoa"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:70
+msgid "Pochta manzilimiz"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:79
+msgid "Aloqa raqamimiz"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:88
+msgid "Manzilimiz"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:98
+msgid "Fax raqamimiz"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:113
+msgid "Eng ko'p so'raladigan savollar"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:130
+msgid "Xabar yuborish"
+msgstr ""
+
+#: birzum/templates/pages/contact.html:134
+msgid "Yuborish"
+msgstr ""
+
+#: birzum/templates/products/_includes/pagination.html:9
+msgid "Avalgi sahifa"
+msgstr ""
+
+#: birzum/templates/products/_includes/pagination.html:20
+msgid "Keyingi sahifa"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:112
+msgid "Model"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:126
+msgid "reyting"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:173
+msgid "Savatga qo'shish"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:276
+msgid "Ishlab chiqaruvchi haqida malumot"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:279
+#: birzum/templates/products/product_detail.html:1142
+msgid "Izohlar"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:1094
+msgid "Ushbu kategoriyadagi mahsulotlar"
+msgstr ""
+
+#: birzum/templates/products/product_detail.html:1095
+#: birzum/templates/products/product_detail.html:1205
+msgid "Ko'proq mahsulotlar"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:142
+#: birzum/templates/products/product_filter.html:196
+msgid "Saralash"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:143
+msgid "Bekor qilish"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:180
+msgid "Qo'shimcha"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:190
+msgid "Rassrochka"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:233
+msgid "Safidagi natijalar soni"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:235
+msgid "9 ta"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:236
+msgid "12 ta"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:237
+msgid "20 ta"
+msgstr ""
+
+#: birzum/templates/products/product_filter.html:238
+msgid "30 ta"
+msgstr ""
+
+#: birzum/templates/smallapps/compare/compare.html:12
+#: birzum/templates/smallapps/compare/compare.html:22
+msgid "Taqqoslash oynasi"
+msgstr ""
+
+#: birzum/templates/smallapps/compare/compare.html:77
+msgid "images/products/elements/3.jpg"
+msgstr ""
+
+#: birzum/templates/smallapps/compare/compare.html:96
+msgid "images/products/elements/4-1.jpg"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:37
+msgid "Menu"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:46
+#: birzum/templates/users/user_detail.html:104
+msgid "Profil malumotlari"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:53
+msgid "Salom"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:55
+msgid "emasmisiz?"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:56
+msgid "Chiqing"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:60
+msgid "Siz menudan turib "
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:61
+msgid "buyurtmalaringizni ko'rishingiz mumkin"
+msgstr ""
+
+#: birzum/templates/users/user_detail.html:62
+msgid ""
+"\n"
+"                                <a href=\"#account-addresses\" class=\"text-"
+"primary link-to-tab\">Yashash va yetkazib berish \n"
+"                                manzillarini</a> o'zgartirishingiz mumkin, "
+"va\n"
+"                                <a href=\"#account-details\" class=\"text-"
+"primary link-to-tab\">profil.</a>\n"
+"                                malumotlarini o'zgartirishingiz mumkin\n"
+"                                "
+msgstr ""
+
+#: birzum/users/admin.py:20
+msgid "Personal info"
+msgstr ""
+
+#: birzum/users/admin.py:22
+msgid "Permissions"
+msgstr ""
+
+#: birzum/users/admin.py:33
+msgid "Important dates"
+msgstr ""
+
+#: birzum/users/apps.py:7
+msgid "Users"
+msgstr ""
+
+#: birzum/users/forms.py:18 birzum/users/tests/test_forms.py:39
+msgid "This username has already been taken."
+msgstr ""
+
+#: birzum/users/models.py:10
+msgid "Hidden"
+msgstr ""
+
+#: birzum/users/models.py:11
+msgid "Male"
+msgstr ""
+
+#: birzum/users/models.py:12
+msgid "Female"
+msgstr ""
+
+#: birzum/users/models.py:42
+msgid "Davlat"
+msgstr ""
+
+#: birzum/users/models.py:49
+msgid "Tug'ilgan sana"
+msgstr ""
+
+#: birzum/users/models.py:51
+msgid "Jins"
+msgstr ""
+
+#: birzum/users/models.py:57
+msgid "Profil"
+msgstr ""
+
+#: birzum/users/models.py:58
+msgid "Foydalanuvchilar Profillari"
+msgstr ""
+
+#: birzum/users/views.py:25
+msgid "Information successfully updated"
+msgstr ""
+
+#: config/settings/base.py:46
+msgid "Русский"
+msgstr ""
+
+#: config/settings/base.py:47
+msgid "O'zbek"
+msgstr ""
