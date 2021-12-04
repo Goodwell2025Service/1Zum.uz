@@ -334,6 +334,20 @@ CKEDITOR_FILENAME_GENERATOR = 'config.utils.get_filename'
 TELEGRAM_GROUP_ID = get_secret('TELEGRAM_GROUP_ID', "")
 TELEGRAM_NOTIFY_BOT_ID = get_secret('TELEGRAM_NOTIFY_BOT_ID', '')
 
+# ---------------------------------------------
+# rosetta options
+ROSETTA_SHOW_AT_ADMIN_PANEL = True
+
+# ----------------------------------------------
+# hijack configs
+HIJACK_LOGOUT_REDIRECT_URL = "/ru/1M81ioxmGOqSvt5nMAw85SD/users/user/"
+HIJACK_LOGIN_REDIRECT_URL = '/'
+HIJACK_ALLOW_GET_REQUESTS = True
+HIJACK_REGISTER_ADMIN = False
+
+HIJACK_USE_BOOTSTRAP = True
+
+
 
 CKEDITOR_CONFIGS = {
     'default': {
