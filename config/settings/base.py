@@ -123,7 +123,8 @@ LOCAL_APPS = [
     "birzum.apps.smallapps.compare.apps.CompareConfig",
     "birzum.apps.smallapps.company.apps.CompanyConfig",
     "birzum.apps.smallapps.whishlist.apps.WhishlistConfig",
-    "birzum.apps.smallapps.manuals.apps.ManualsConfig"
+    "birzum.apps.smallapps.manuals.apps.ManualsConfig",
+    "birzum.apps.smallapps.reklama.apps.ReklamaConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
