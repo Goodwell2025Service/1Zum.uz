@@ -2,6 +2,8 @@
 
 {% load static i18n thumbnail %}
 
+{% load humanize %}
+
 {% block content %}
 
 {% include 'includes/home_header.html' %}
@@ -255,7 +257,7 @@
                                     <a href="{{ p.get_absolute_url }}">
                                     {% thumbnail p.get_first_image "268x268" crop="center" as im %}
                                         <img src="{{ im.url }}" alt="{{ p.name }}" width="{{im.width}}"
-                                            height="im.height"/>
+                                            height="{{ im.height }}"/>
                                     {% endthumbnail %}
                                     </a>
                                     <div class="product-action-horizontal">
@@ -285,7 +287,7 @@
                                     </div>
                                     <div class="product-pa-wrapper">
                                         <div class="product-price">
-                                            {{ p.price }}
+                                            {{ p.price|intcomma }}
                                         </div>
                                     </div>
                                 </div>
