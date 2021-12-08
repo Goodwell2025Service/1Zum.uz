@@ -1,5 +1,8 @@
 from .base import *  # noqa
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 # from .base import env
 
 # GENERAL
@@ -125,10 +128,13 @@ ANYMAIL = {}
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
+
+# ---------------------------------------------------------
+# logging
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
@@ -136,31 +142,47 @@ LOGGING = {
         }
     },
     "handlers": {
-        "mail_admins": {
-            "level": "ERROR",
-            "filters": ["require_debug_false"],
-            "class": "django.utils.log.AdminEmailHandler",
-        },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
             "formatter": "verbose",
-        },
+        }
     },
     "root": {"level": "INFO", "handlers": ["console"]},
     "loggers": {
-        "django.request": {
-            "handlers": ["mail_admins"],
+        "django.db.backends": {
             "level": "ERROR",
-            "propagate": True,
+            "handlers": ["console"],
+            "propagate": False,
         },
+        # Errors logged by the SDK itself
+        "sentry_sdk": {"level": "ERROR", "handlers": ["console"], "propagate": False},
         "django.security.DisallowedHost": {
             "level": "ERROR",
-            "handlers": ["console", "mail_admins"],
-            "propagate": True,
+            "handlers": ["console"],
+            "propagate": False,
         },
     },
 }
 
-# Your stuff...
-# ------------------------------------------------------------------------------
+
+# ---------------------------------------------------------
+# sentry integration
+
+sentry_sdk.init(
+    dsn="https://29a849ccef31449996ab39622182257d@o1086705.ingest.sentry.io/6099080",
+    integrations=[DjangoIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=0.3,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
+
+
+# ---------------------------------------------------------
+# your stuff ...

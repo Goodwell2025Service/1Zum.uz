@@ -30,6 +30,9 @@ urlpatterns = (
     ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 )
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.
@@ -39,6 +42,7 @@ if settings.DEBUG:
             default_views.bad_request,
             kwargs={"exception": Exception("Bad Request!")},
         ),
+        path('sentry-debug/', trigger_error),
         path(
             "403/",
             default_views.permission_denied,

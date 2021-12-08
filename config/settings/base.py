@@ -11,6 +11,7 @@ from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
 
+
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # # birzum/
 APPS_DIR = ROOT_DIR / "birzum"
