@@ -8,6 +8,10 @@ from django.views.generic import TemplateView
 
 from birzum.homeviews import HomeView
 
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = (
     i18n_patterns(
         path("", HomeView.as_view(), name="home"),
@@ -30,8 +34,6 @@ urlpatterns = (
     ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 )
 
-def trigger_error(request):
-    division_by_zero = 1 / 0
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
@@ -42,7 +44,6 @@ if settings.DEBUG:
             default_views.bad_request,
             kwargs={"exception": Exception("Bad Request!")},
         ),
-        path('sentry-debug/', trigger_error),
         path(
             "403/",
             default_views.permission_denied,
