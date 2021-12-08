@@ -273,7 +273,7 @@
                                 </figure>
                                 <div class="product-details">
                                     <div class="product-cat">
-                                        <a href="shop-banner-sidebar.html">{{ p.category.name }}</a>
+                                        <a href="{{ p.category.get_absolute_url }}">{{ p.category.name }}</a>
                                     </div>
                                     <h3 class="product-name">
                                         <a href="{% url 'products:detail' cat_slug=p.category.slug slug=p.slug %}">{{ p.title }}</a>
@@ -283,7 +283,7 @@
                                             <span class="ratings" style="width: 100%;"></span>
                                             <span class="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                        <a href="{{ p.get_absolute_url }}" class="rating-reviews">(3 reviews)</a>
                                     </div>
                                     <div class="product-pa-wrapper">
                                         <div class="product-price">
