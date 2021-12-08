@@ -13,7 +13,7 @@
 }
 
 .filter-items a.active {
-  color: #ed711b;
+  color: #f9bd01;
 }
 
 .form-group {
@@ -68,3 +68,6 @@ input[type="checkbox"] {
   /* line-height: 1.3em; */
 }
 
+.swiper-slide {
+  justify-content: center;
+}
