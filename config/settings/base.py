@@ -234,7 +234,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "birzum.utils.context_processors.settings_context",
-                "birzum.utils.context_processors.categories",
+                "birzum.utils.context_processors.categories_context",
             ],
         },
     }

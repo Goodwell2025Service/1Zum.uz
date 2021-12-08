@@ -9,6 +9,6 @@ def settings_context(_request):
     # to prevent accidental leaking of sensitive information
     return {"DEBUG": settings.DEBUG}
 
-def categories(request):
+def categories_context(request):
     categories = Category.objects.select_related('parent').all()
     return {'categories': categories}

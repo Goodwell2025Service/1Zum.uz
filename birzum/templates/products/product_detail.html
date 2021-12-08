@@ -1101,7 +1101,7 @@
                                 }
                             }
                         }">
-                            {% with category=object.category %}
+                            {% comment %} {% with category=object.category %}
                             <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
                                 {% for prod in category.products.all.3 %}
                                 <div class="swiper-slide product">
@@ -1134,13 +1134,13 @@
                                             <a href="#" class="rating-reviews">{% trans "Izohlar" %}</a>
                                         </div>
                                         <div class="product-pa-wrapper">
-                                            <div class="product-price">{{ product.price }}</div>
+                                            <div class="product-price">{{ prod.price }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 {% endfor %}
                             </div>
-                            {% endwith %}
+                            {% endwith %} {% endcomment %}
                         </div>
                     </section>
                 </div>
