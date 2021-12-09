@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-from hijack_admin.admin import HijackUserAdminMixin
+# from hijack_admin.admin import HijackUserAdminMixin
 
 from birzum.users.forms import UserChangeForm, UserCreationForm
 
@@ -12,7 +12,7 @@ User = get_user_model()
 
 
 @admin.register(User)
-class UserAdmin(auth_admin.UserAdmin, HijackUserAdminMixin):
+class UserAdmin(auth_admin.UserAdmin):
 
     form = UserChangeForm
     add_form = UserCreationForm
@@ -33,7 +33,7 @@ class UserAdmin(auth_admin.UserAdmin, HijackUserAdminMixin):
         ),
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
-    list_display = ["username", "is_superuser", "hijack_field"]
+    list_display = ["username", "is_superuser"]
     search_fields = ["username", "first_name"]
 
 
