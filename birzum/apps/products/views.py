@@ -57,7 +57,6 @@ class ProductDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["paired"] = Product.objects.filter(category=2)[:3] #TODO fix this
         context["features"] = Features.objects.all()
         return context
     
