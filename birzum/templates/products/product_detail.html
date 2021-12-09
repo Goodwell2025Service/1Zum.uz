@@ -1204,16 +1204,18 @@
                                     }">
                                         <div class="swiper-wrapper">
                                             <div class="widget-col swiper-slide">
-                                                {% for item in 'model' %}
+                                                {% for item in paired %}
                                                 {% if forloop.counter == 4 %}
                                                 </div>
                                                 <div class="widget-col swiper-slide">
                                                 {% endif %}
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="{% static 'images/shop/13.jpg' %}" alt="Product"
-                                                                width="100" height="113" />
+                                                        <a href="{{ item.get_absolute_url }}">
+                                                            {% thumbnail item.get_first_image "300x338" as im %}
+                                                                <img src="{{ im.url }}" alt="{{ item.title }}"
+                                                                    width="{{ im.width }}" height="{{ im.height }}" />
+                                                            {% endthumbnail %}
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -1226,7 +1228,7 @@
                                                                 <span class="tooltiptext tooltip-top"></span>
                                                             </div>
                                                         </div>
-                                                        <div class="product-price">1 000 000 UZS</div>
+                                                        <div class="product-price">{{ item.price }}</div>
                                                     </div>
                                                 </div>
                                                 {% endfor %}

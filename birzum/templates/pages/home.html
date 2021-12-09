@@ -8,7 +8,7 @@
 
 {% include 'includes/intro.html' %}
 <!-- start of .main -->
-<div class="main">
+<main class="main">
     <div class="page-content">
         <div class="container">
             <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white mb-10"
@@ -111,10 +111,10 @@
                                             </div>
                                             <div class="product-price">
                                                 {% if p.discount_price %}
-                                                    <ins class="new-price">${{ p.discount_price }}</ins><del class="old-price">${{ p.price }}</del>
+                                                    <ins class="new-price">{{ p.discount_price }}</ins><del class="old-price">{{ p.price }}</del>
                                                 {% endif %}
                                                 {% if not p.discount_price %}
-                                                    <ins class="new-price">${{ p.price }}</ins>
+                                                    <ins class="new-price">{{ p.price }}</ins>
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -201,10 +201,10 @@
                                             </div>
                                             <div class="product-price">
                                                 {% if p.discount_price %}
-                                                    <ins class="new-price">${{ p.discount_price }}</ins><del class="old-price">${{ p.price }}</del>
+                                                    <ins class="new-price">{{ p.discount_price }}</ins><del class="old-price">{{ p.price }}</del>
                                                 {% endif %}
                                                 {% if not p.discount_price %}
-                                                    <ins class="new-price">${{ p.price }}</ins>
+                                                    <ins class="new-price">{{ p.price }}</ins>
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -280,11 +280,11 @@
                                     </div>
                                     <div class="product-price">
                                         {% if p.discount_price %}
-                                            <ins class="new-price">${{ p.discount_price }}</ins>
-                                            <del class="old-price">${{ p.price }}</del>
+                                            <ins class="new-price">{{ p.discount_price }}</ins>
+                                            <del class="old-price">{{ p.price }}</del>
                                         {% endif %}
                                         {% if not p.discount_price %}
-                                            <ins class="new-price">${{ p.discount_price }}</ins>
+                                            <ins class="new-price">{{ p.discount_price }}</ins>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -475,11 +475,11 @@
                                     </div>
                                     <div class="product-price">
                                         {% if p.discount_price %}
-                                            <ins class="new-price">${{ p.discount_price }}</ins>
-                                            <del class="old-price">${{ p.price }}</del>
+                                            <ins class="new-price">{{ p.discount_price }}</ins>
+                                            <del class="old-price">{{ p.price }}</del>
                                         {% endif %}
                                         {% if not p.discount_price %}
-                                            <ins class="new-price">${{ p.discount_price }}</ins>
+                                            <ins class="new-price">{{ p.discount_price }}</ins>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -533,5 +533,5 @@
         </div>
         <!-- End of Container -->
     </div>
-</div>
+</main>
 {% endblock content %}
