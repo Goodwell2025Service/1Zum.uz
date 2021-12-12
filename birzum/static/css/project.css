@@ -68,6 +68,19 @@ input[type="checkbox"] {
   /* line-height: 1.3em; */
 }
 
-.swiper-slide {
+.intro-slider .swiper-slide {
   justify-content: center;
+  box-shadow: inset 100px 100px 400px #333333, inset -100px -100px 400px #333333;
+}
+.intro-slide1 .banner-title, .intro-slide1 .banner-subtitle {
+  color: white;
+}
+
+.swiper-slide .btn-dark.btn-outline {
+  color: white;
+  border-color: white;
+}
+
+.swiper-wrapper {
+  justify-content: flex-start;
 }
