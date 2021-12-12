@@ -110,6 +110,7 @@ class Product(TimeStampedModel):
     )
 
     class Meta:
+        ordering = ('created',)
         verbose_name = _("mahsulot")
         verbose_name_plural = _("Mahsulotlar")
 
