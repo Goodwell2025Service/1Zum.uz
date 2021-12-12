@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('.btn-cart').off().on('click', function(e){
         e.preventDefault();
         let count = $('.qty').val()
-        console.log('clicked', count, $('.cart-count'))
+        // console.log('clicked', count, $('.cart-count'))
         $.ajax({
             method: "GET",
             url: $(this).attr("href"),
@@ -15,8 +15,11 @@ $(document).ready(function() {
                 if (data.success) {
                     console.log(data.message)
                     $('#header-cart').text(data.count)
+                    $('#success_msg').text(data.message)
                 } else {
                     console.log(data.message)
+                    $('#success_msg').text(data.message)
+                    $('#success_msg').css('color', 'red')
                 }
             }
         });
