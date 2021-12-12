@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static i18n %}
+{% load static i18n thumbnail %}
 
 {% block content %}
 
@@ -35,42 +35,17 @@
                     }
                 }}">
                 <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                    {% for item in features %}
                     <div class="swiper-slide icon-box icon-box-side text-dark">
-                        <span class="icon-box-icon icon-shipping">
-                            <i class="w-icon-truck"></i>
+                        <span class="icon-box-icon">
+                            <i class="w-icon-{{ item.icon_class }}"></i>
                         </span>
                         <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder ls-normal">Free Shipping & Returns</h4>
-                            <p class="text-default">For all orders over $99</p>
+                            <h4 class="icon-box-title font-weight-bolder ls-normal">{{ item.title }}</h4>
+                            <p class="text-default">{{ item.description }}</p>
                         </div>
                     </div>
-                    <div class="swiper-slide icon-box icon-box-side text-dark">
-                        <span class="icon-box-icon icon-payment">
-                            <i class="w-icon-bag"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder ls-normal">Secure Payment</h4>
-                            <p class="text-default">We ensure secure payment</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide icon-box icon-box-side text-dark icon-box-money">
-                        <span class="icon-box-icon icon-money">
-                            <i class="w-icon-money"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder ls-normal">Money Back Guarantee</h4>
-                            <p class="text-default">Any back within 30 days</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-                        <span class="icon-box-icon icon-chat">
-                            <i class="w-icon-chat"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder ls-normal">Customer Support</h4>
-                            <p class="text-default">Call or email us 24/7</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <!-- End of Iocn Box Wrapper -->
@@ -88,7 +63,7 @@
                     }
                 }
             }">
-                <div class="swiper-wrapper row cols-lg-3 cols-sm-2 cols-1">
+                {% comment %} <div class="swiper-wrapper row cols-lg-3 cols-sm-2 cols-1">
                     <div class="swiper-slide banner banner-fixed br-xs">
                         <figure>
                             <img src="{% static 'images/demos/demo7/category/1-1.jpg' %}" alt="Category Banner" width="440"
@@ -137,113 +112,67 @@
                         </div>
                     </div>
                     <!-- End of Categpry Banner -->
-                </div>
+                </div> {% endcomment %}
                 <div class="swiper-pagination"></div>
             </div>
             <!-- End of Category Banner 3Cols -->
 
             <div class="title-link-wrapper title-deals appear-animate">
-                <h2 class="title">Deals Hot Of The Day</h2>
-                <a href="shop-boxed-banner.html" class="font-weight-bold ls-25">More Products<i
+                <h2 class="title">{% trans "Kunning eng yaxshi sotuvlari" %}</h2>
+                <a href="#" class="font-weight-bold ls-25">{% trans "Barcha mahsulotlar" %}<i
                         class="w-icon-long-arrow-right"></i></a>
             </div>
             <div class="row appear-animate">
+                {% for item in last %}
                 <div class="col-lg-6 mb-4">
                     <div class="product product-list br-xs mb-0">
                         <figure class="product-media">
                             <a href="product-default.html">
-                                <img src="{% static 'images/demos/demo7/products/1-1.jpg' %}" alt="Product" width="315"
-                                    height="355">
+                                {% thumbnail item.get_first_image '315x355' as im %}
+                                <img src="{{ im.url }}" alt="{{ item.title }}" width="{{ im.width }}"
+                                    height="{{ im.height }}">
+                                {% endthumbnail %}
                             </a>
                             <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                                    title="Quick View"></a>
+                                {% comment %} <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                    title="Quick View"></a> {% endcomment %}
                             </div>
                             <div class="product-countdown-container">
-                                <div class="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                <div class="product-countdown countdown-compact" data-until="2021, 12, 30"
                                     data-format="DHMS" data-compact="false"
-                                    data-labels-short="Days, Hours, Mins, Secs">
-                                    00:00:00:00</div>
+                                    data-labels-short="{% trans "Kun, Soat, Min, Sek" %}">
+                                    {{ item.created }}</div>
                             </div>
                         </figure>
                         <div class="product-details">
                             <h4 class="product-name">
-                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
+                                <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                             </h4>
                             <div class="ratings-container">
                                 <div class="ratings-full">
                                     <span class="ratings" style="width: 100%;"></span>
                                     <span class="tooltiptext tooltip-top"></span>
                                 </div>
-                                <a href="#" class="rating-reviews">(3 Reviews)</a>
+                                <a href="#" class="rating-reviews">(3{% trans " izohlar)" %}</a>
                             </div>
-                            <div class="product-price">$235.35 - $85.05</div>
-                            <ul class="product-desc">
-                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                <li>Ultrices eros in cursus turpis massa.</li>
-                            </ul>
+                            <div class="product-price">{{ item.price }} UZS</div>
+                            <p>{{ item.description|truncatewords_html:20 }}</p>
                             <div class="product-action">
                                 <a href="#" class="btn-product btn-cart" title="Add to Cart"><i
-                                        class="w-icon-cart"></i> Add To Cart</a>
+                                        class="w-icon-cart"></i> {% trans "Savatga" %}</a>
                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                    title="Add to wishlist"></a>
+                                    title="{% trans "Sevimlilarga qo'shish" %}"></a>
                                 <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                    title="Compare"></a>
+                                    title="{% trans "Taqqoslash" %}"></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="product product-list br-xs mb-0">
-                        <figure class="product-media">
-                            <a href="product-default.html">
-                                <img src="{% static 'images/demos/demo7/products/1-2.jpg' %}" alt="Product" width="315"
-                                    height="355">
-                            </a>
-                            <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                                    title="Quick View"></a>
-                            </div>
-                            <div class="product-countdown-container">
-                                <div class="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                    data-format="DHMS" data-compact="false"
-                                    data-labels-short="Days, Hours, Mins, Secs">
-                                    00:00:00:00</div>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <h4 class="product-name">
-                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                            </h4>
-                            <div class="ratings-container">
-                                <div class="ratings-full">
-                                    <span class="ratings" style="width: 100%;"></span>
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <a href="#" class="rating-reviews">(3 Reviews)</a>
-                            </div>
-                            <div class="product-price">$235.35 - $85.05</div>
-                            <ul class="product-desc">
-                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                <li>Ultrices eros in cursus turpis massa.</li>
-                            </ul>
-                            <div class="product-action">
-                                <a href="#" class="btn-product btn-cart" title="Add to Cart"><i
-                                        class="w-icon-cart"></i> Add To Cart</a>
-                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                    title="Add to wishlist"></a>
-                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                    title="Compare"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <!-- End of Product List -->
 
-            <div class="row cols-xl-4 cols-lg-3 cols-sm-2 cols-1 mb-10 appear-animate">
+            {% comment %} <div class="row cols-xl-4 cols-lg-3 cols-sm-2 cols-1 mb-10 appear-animate">
                 <div class="product-widget-wrap">
                     <div class="product product-widget">
                         <figure class="product-media">
@@ -444,20 +373,20 @@
                     </div>
                 </div>
                 <!-- End of Product Widget -->
-            </div>
+            </div> {% endcomment %}
             <!-- End of Product Widget -->
 
-            <div class="notification-wrapper bg-dark br-sm mb-10 appear-animate justify-content-center"
+            {% comment %} <div class="notification-wrapper bg-dark br-sm mb-10 appear-animate justify-content-center"
                 style="animation-duration: 1.2s;">
                 <i class="w-icon-mobile"></i>
                 <p>Download our new app today! Dont Miss our mobile-only offers and shop with Android Play.</p>
                 <a href="#"
                     class="btn btn-white btn-outline btn-rounded btn-sm btn-icon-right font-weight-normal text-capitalize">
                     Download<i class="w-icon-long-arrow-down"></i></a>
-            </div>
+            </div> {% endcomment %}
             <!-- End of Notificateion Wrapper -->
 
-            <h2 class="title title-underline pt-1 mb-4 appear-animate">Top Weekly Vendors</h2>
+            {% comment %} <h2 class="title title-underline pt-1 mb-4 appear-animate">Top Weekly Vendors</h2> {% endcomment %}
             <div class="swiper-container swiper-theme shadow-swiper vendor-wrapper appear-animate"
                 data-swiper-options="{
                 'spaceBetween': 20,
@@ -474,7 +403,7 @@
                     }
                 }
             }">
-                <div class="swiper-wrapper row cols-xl-4 cols-md-3 cols-sm-2 cols-1">
+                {% comment %} <div class="swiper-wrapper row cols-xl-4 cols-md-3 cols-sm-2 cols-1">
                     <div class="swiper-slide vendor-widget mb-0">
                         <div class="vendor-widget-banner border-no">
                             <figure class="vendor-banner">
@@ -711,12 +640,12 @@
                         </div>
                         <!-- End of Vendor Widget Banner -->
                     </div>
-                </div>
+                </div> {% endcomment %}
                 <div class="swiper-pagination"></div>
             </div>
             <!-- End of Vendor -->
 
-            <div class="title-link-wrapper mb-4 appear-animate">
+            {% comment %} <div class="title-link-wrapper mb-4 appear-animate">
                 <h2 class="title">Top Categories</h2>
                 <a href="shop-boxed-banner.html" class="text-capitalize font-weight-bold">More Products<i
                         class="w-icon-long-arrow-right"></i></a>
@@ -1090,10 +1019,10 @@
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <!-- End of Category Products -->
 
-            <div class="row category-banner-2cols appear-animate">
+            {% comment %} <div class="row category-banner-2cols appear-animate">
                 <div class="col-md-6 mb-4">
                     <div class="banner banner-fixed br-xs">
                         <figure>
@@ -1130,10 +1059,10 @@
                     </div>
                     <!-- End of Banner -->
                 </div>
-            </div>
+            </div> {% endcomment %}
             <!-- End of Category Banner 2Cosl -->
 
-            <div class="title-links-wrapper title-underline mb-4 d-flex align-items-center appear-animate">
+            {% comment %} <div class="title-links-wrapper title-underline mb-4 d-flex align-items-center appear-animate">
                 <h2 class="title">Consumer Electronics</h2>
                 <ul
                     class="nav-links list-style-none d-flex align-items-center flex-wrap justify-content-center">
@@ -1499,10 +1428,10 @@
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <!-- End of Banner Product Wrapper -->
 
-            <div class="title-links-wrapper title-underline mb-4 d-flex align-items-center appear-animate">
+            {% comment %} <div class="title-links-wrapper title-underline mb-4 d-flex align-items-center appear-animate">
                 <h2 class="title">Clothing &amp; Apparel</h2>
                 <ul
                     class="nav-links list-style-none d-flex align-items-center flex-wrap justify-content-center">
@@ -1868,27 +1797,27 @@
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <!-- End of Banner Product Wrapper -->
 
             <div class="sale-banner banner br-sm mb-10 appear-animate">
                 <div class="banner-content">
                     <h4
                         class="content-left banner-subtitle text-uppercase mb-8 mb-md-0 mr-0 mr-md-4 text-primary ls-25">
-                        <span class="text-dark font-weight-bold lh-1 ls-normal mr-1">Up
-                            <br>To</span>70% Sale!</h4>
+                        <span class="text-dark font-weight-bold lh-1 ls-normal mr-1">
+                            <br></span>70% {% trans "chegirma" %}!</h4>
                     <div class="content-right bg-dark">
                         <h3
                             class="banner-title text-uppercase font-weight-normal mb-4 mb-md-0 ls-25 text-white">
-                            <span>Shop By The
-                                <strong class="mr-10 pr-lg-10">Most Popular Brand Now!</strong>
-                                Shop By The
-                                <strong class="mr-10 pr-lg-10">Most Popular Brand Now!</strong>
-                                Shop By The
-                                <strong class="mr-10 pr-lg-10">Most Popular Brand Now!</strong>
+                            <span>Goodwell
+                                <strong class="mr-10 pr-lg-10">{% trans "Eng taniqli brend!" %}</strong>
+                                {% trans "Sotib oling" %}
+                                <strong class="mr-10 pr-lg-10">{% trans "Eng taniqli brend!" %}</strong>
+                                {% trans "Sotib oling" %}
+                                <strong class="mr-10 pr-lg-10">{% trans "Eng taniqli brend!" %}</strong>
                             </span>
                         </h3>
-                        <a href="shop-banner-sidebar.html" class="btn btn-white btn-rounded">Shop Now
+                        <a href="{% url 'products:list' %}" class="btn btn-white btn-rounded">{% trans "Xarid qiling" %}
                             <i class="w-icon-long-arrow-right"></i>
                         </a>
                     </div>
@@ -1897,19 +1826,22 @@
             <!-- End of Sale Banner -->
 
             <div class="row mb-4 appear-animate">
-                <div class="col-lg-3 col-sm-6 mb-6">
-                    <h4 class="title title-underline mb-2 pt-1">Best Selling</h4>
+                <div class="col-lg-4 col-sm-4 mb-6">
+                    <h4 class="title title-underline mb-2 pt-1">{% trans "Bozorgir mahsulotlar" %}</h4>
                     <div class="widget widget-products">
+                        {% for item in products %}
                         <div class="product product-widget">
                             <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-1.jpg' %}" alt="Product"
-                                        width="124" height="140">
+                                <a href="{{ item.get_absolute_url }}">
+                                    {% thumbnail item.get_first_image "124x140" as im %}
+                                    <img src="{{ im.url }}" alt="Product"
+                                        width="{{ item.width }}" height="{{ im.height }}">
+                                    {% endthumbnail %}
                                 </a>
                             </figure>
                             <div class="product-details">
                                 <h4 class="product-name">
-                                    <a href="product-default.html">Dark Blue Sneaker</a>
+                                    <a href="product-default.html">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -1918,64 +1850,19 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <ins class="new-price">$23.58 - $45.62</ins>
+                                    <ins class="new-price">{{ item.price }} UZS</ins>
                                 </div>
                             </div>
                         </div>
                         <!-- End of Product Widget -->
-                        <div class="product product-widget">
-                            <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-2.jpg' %}" alt="Product"
-                                        width="124" height="140">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name">
-                                    <a href="product-default.html">Women's Handbag</a>
-                                </h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$25.70</ins>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Product Widget -->
-                        <div class="product product-widget">
-                            <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-3.jpg' %}" alt="Product"
-                                        width="124" height="140">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name">
-                                    <a href="product-default.html">Perfect Classic Hat</a>
-                                </h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$69.99</ins><del class="old-price">$84.16</del>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Product Widget -->
+                        {% endfor %}
                     </div>
                     <!-- End of Widget Products -->
                 </div>
                 <!-- End of Col -->
 
-                <div class="col-lg-3 col-sm-6 mb-6">
-                    <h4 class="title title-underline mb-2 pt-1">Sale Products</h4>
+                {% comment %} <div class="col-lg-3 col-sm-6 mb-6">
+                    <h4 class="title title-underline mb-2 pt-1">{% trans "Sotuvdagi mahsulotlar" %}</h4>
                     <div class="widget widget-products">
                         <div class="product product-widget">
                             <figure class="product-media">
@@ -2049,21 +1936,24 @@
                     </div>
                     <!-- End of Widget Products -->
                 </div>
-                <!-- End of Col -->
+                <!-- End of Col --> {% endcomment %}
 
-                <div class="col-lg-3 col-sm-6 mb-6">
-                    <h4 class="title title-underline mb-2 pt-1">Featured Products</h4>
+                <div class="col-lg-4 col-sm-4 mb-6">
+                    <h4 class="title title-underline mb-2 pt-1">{% trans "Sevimli mahsulotlar" %}</h4>
                     <div class="widget widget-products">
+                        {% for item in best %}
                         <div class="product product-widget">
                             <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-7.jpg' %}" alt="Product"
-                                        width="124" height="140">
+                                <a href="{{ item.get_absolute_url }}">
+                                    {% thumbnail item.get_first_image "124x140" as im %}
+                                    <img src="{{ im.url }}" alt="Product"
+                                        width="{{ item.width }}" height="{{ im.height }}">
+                                    {% endthumbnail %}
                                 </a>
                             </figure>
                             <div class="product-details">
                                 <h4 class="product-name">
-                                    <a href="product-default.html">T-Shirt</a>
+                                    <a href="product-default.html">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -2072,75 +1962,34 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <ins class="new-price">$20.00</ins>
+                                    <ins class="new-price">{{ item.price }} UZS</ins>
                                 </div>
                             </div>
                         </div>
                         <!-- End of Product Widget -->
-                        <div class="product product-widget">
-                            <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-8.jpg' %}" alt="Product"
-                                        width="124" height="140">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name">
-                                    <a href="product-default.html">Whiter Training Shoes</a>
-                                </h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$25.00 - $45.00</ins>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Product Widget -->
-                        <div class="product product-widget">
-                            <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-9.jpg' %}" alt="Product"
-                                        width="124" height="140">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name">
-                                    <a href="product-default.html">Grey Calotte</a>
-                                </h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$320.00</ins>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                         <!-- End of Product Widget -->
                     </div>
                     <!-- End of Widget Products -->
                 </div>
                 <!-- End of Col -->
 
-                <div class="col-lg-3 col-sm-6 mb-6">
-                    <h4 class="title title-underline mb-2 pt-1">Latest Products</h4>
+                <div class="col-lg-4 col-sm-4 mb-6">
+                    <h4 class="title title-underline mb-2 pt-1">{% trans "Yangli mahsulotlar" %}</h4>
                     <div class="widget widget-products">
+                        {% for item in last %}
                         <div class="product product-widget">
                             <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-10.jpg' %}" alt="Product"
-                                        width="124" height="140">
+                                <a href="{{ item.get_absolute_url }}">
+                                    {% thumbnail item.get_first_image "124x140" as im %}
+                                    <img src="{{ im.url }}" alt="Product"
+                                        width="{{ item.width }}" height="{{ im.height }}">
+                                    {% endthumbnail %}
                                 </a>
                             </figure>
                             <div class="product-details">
                                 <h4 class="product-name">
-                                    <a href="product-default.html">Women's Training Shoes</a>
+                                    <a href="product-default.html">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -2149,56 +1998,12 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <ins class="new-price">$48.00</ins><del class="old-price">$54.00</del>
+                                    <ins class="new-price">{{ item.price }} UZS</ins>
                                 </div>
                             </div>
                         </div>
                         <!-- End of Product Widget -->
-                        <div class="product product-widget">
-                            <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-11.jpg' %}" alt="Product"
-                                        width="124" height="140">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name">
-                                    <a href="product-default.html">Multi Function Watch</a>
-                                </h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$75.00</ins><del class="old-price">$95.68</del>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Product Widget -->
-                        <div class="product product-widget">
-                            <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="{% static 'images/demos/demo7/products/7-12.jpg' %}" alt="Product"
-                                        width="124" height="140">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name">
-                                    <a href="product-default.html">Top Men's Hiking Hat</a>
-                                </h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$32.36</ins><del class="old-price">$37.00</del>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                         <!-- End of Product Widget -->
                     </div>
                     <!-- End of Widget Products -->
@@ -2207,6 +2012,8 @@
             </div>
             <!-- End of Row -->
 
+            {% comment %} partners slider {% endcomment %}
+            {% if partners %}
             <div class="swiper-container swiper-theme brands-wrapper br-sm mb-10 appear-animate" data-swiper-options="{
                 'loop': true,
                 'spaceBetween': 20,
@@ -2231,53 +2038,21 @@
                 }
             }">
                 <div class="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-sm-3 cols-2">
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/1.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
+                    {% for item in partners %}
+                    <div class="swiper-slide partners">
+                        {% thumbnail item.icon "80x80" as im %}
+                        <img src="{{ im.url }}" alt="{{ item.title }}" width="{{ im.width }}px" height="{{ im.height }}px"/>
+                        {% endthumbnail %}
                     </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/2.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/3.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/4.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/5.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/6.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/7.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
-                    <div class="swiper-slide">
-                        <figure>
-                            <img src="{% static 'images/demos/demo2/brands/8.png' %}" alt="Brand" width="290" height="100" />
-                        </figure>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
+            {% endif %}
             <!-- End of Brands Wrapper -->
 
             <div class="title-link-wrapper title-post mb-4 appear-animate">
-                <h2 class="title ls-normal mb-0">From Our Blog</h2>
-                <a href="blog-listing.html" class="font-weight-bold font-size-normal mb-2">View All Articles<i
+                <h2 class="title ls-normal mb-0">{% trans "Bizning blogimiz" %}</h2>
+                <a href="blog-listing.html" class="font-weight-bold font-size-normal mb-2">{% trans "Barcha maqolalar" %}<i
                         class="w-icon-long-arrow-right"></i></a>
             </div>
             <div class="swiper-container swiper-theme post-wrapper mb-8 mb-lg-4 appear-animate"
@@ -2297,86 +2072,36 @@
                 }
             }">
                 <div class="swiper-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-1">
+                    {% for item in posts %}
                     <div class="swiper-slide post text-center overlay-zoom">
                         <figure class="post-media br-sm">
-                            <a href="post-single.html">
-                                <img src="{% static 'images/demos/demo7/blog/1.jpg' %}" alt="Post" width="325" height="214"
+                            <a href="{{ item.get_absolute_url }}">
+                                {% thumbnail item.image '325x214' as im %}
+                                <img src="{{ im.url }}" alt="{{ item.title }}" width="{{ im.width }}" height="{{ im.height }}"
                                     style="background-color: #b8bfc4;" />
+                                {% endthumbnail %}
                             </a>
                         </figure>
                         <div class="post-details">
                             <div class="post-meta">
-                                by <a href="#" class="post-author">John Doe</a>
-                                - <a href="#" class="post-date mr-0">03.05.2021</a>
+                                {% comment %} by <a href="#" class="post-author">John Doe</a> {% endcomment %}
+                                - <a href="#" class="post-date mr-0">{{ item.modified }}</a>
                             </div>
-                            <h4 class="post-title"><a href="post-single.html">Comes a cool blog post with Images</a>
+                            <h4 class="post-title"><a href="post-single.html">{{ item.title }}</a>
                             </h4>
-                            <a href="post-single.html" class="btn btn-link btn-dark btn-underline">Read More<i
+                            <a href="{{ item.get_absolute_url }}" class="btn btn-link btn-dark btn-underline">{% trans "To'liq o'qish" %}<i
                                     class="w-icon-long-arrow-right"></i></a>
                         </div>
                     </div>
-                    <div class="swiper-slide post text-center overlay-zoom">
-                        <figure class="post-media br-sm">
-                            <a href="post-single.html">
-                                <img src="{% static 'images/demos/demo7/blog/2.jpg' %}" alt="Post" width="325" height="214"
-                                    style="background-color: #596066;" />
-                            </a>
-                        </figure>
-                        <div class="post-details">
-                            <div class="post-meta">
-                                by <a href="#" class="post-author">John Doe</a>
-                                - <a href="#" class="post-date mr-0">03.05.2021</a>
-                            </div>
-                            <h4 class="post-title"><a href="post-single.html">Comes a cool blog post with Images</a>
-                            </h4>
-                            <a href="post-single.html" class="btn btn-link btn-dark btn-underline">Read More<i
-                                    class="w-icon-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide post text-center overlay-zoom">
-                        <figure class="post-media br-sm">
-                            <a href="post-single.html">
-                                <img src="{% static 'images/demos/demo7/blog/3.jpg' %}" alt="Post" width="325" height="214"
-                                    style="background-color: #eff3f4;" />
-                            </a>
-                        </figure>
-                        <div class="post-details">
-                            <div class="post-meta">
-                                by <a href="#" class="post-author">John Doe</a>
-                                - <a href="#" class="post-date mr-0">03.05.2021</a>
-                            </div>
-                            <h4 class="post-title"><a href="post-single.html">Comes a cool blog post with Images</a>
-                            </h4>
-                            <a href="post-single.html" class="btn btn-link btn-dark btn-underline">Read More<i
-                                    class="w-icon-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide post text-center overlay-zoom">
-                        <figure class="post-media br-sm">
-                            <a href="post-single.html">
-                                <img src="{% static 'images/demos/demo7/blog/4.jpg' %}" alt="Post" width="325" height="214"
-                                    style="background-color: #68605e;" />
-                            </a>
-                        </figure>
-                        <div class="post-details">
-                            <div class="post-meta">
-                                by <a href="#" class="post-author">John Doe</a>
-                                - <a href="#" class="post-date mr-0">03.05.2021</a>
-                            </div>
-                            <h4 class="post-title"><a href="post-single.html">Comes a cool blog post with Images</a>
-                            </h4>
-                            <a href="post-single.html" class="btn btn-link btn-dark btn-underline">Read More<i
-                                    class="w-icon-long-arrow-right"></i></a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
             <!-- End of Blog Post -->
 
             <div class="title-link-wrapper title-recent mb-4 appear-animate">
-                <h2 class="title ls-normal mb-0">Recently Viewed</h2>
-                <a href="shop-boxed-banner.html" class="font-weight-bold font-size-normal mb-2">More Products<i
+                <h2 class="title ls-normal mb-0">{% trans "Yaqinda ko'rilgan mahsuloatlar" %}</h2>
+                <a href="shop-boxed-banner.html" class="font-weight-bold font-size-normal mb-2">{% trans "Barcha mahsulotlar" %}<i
                         class="w-icon-long-arrow-right"></i></a>
             </div>
             <div class="swiper-container swiper-theme shadow-swiper appear-animate pb-2 mb-10 appear-animate"
@@ -2402,7 +2127,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-1.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2416,7 +2141,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-2.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2430,7 +2155,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-3.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2444,7 +2169,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-4.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2458,7 +2183,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-5.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2472,7 +2197,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-6.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2486,7 +2211,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-7.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
@@ -2500,7 +2225,7 @@
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defaproduct-default.html">
+                                <a href="#">
                                     <img src="{% static 'images/demos/demo7/products/8-8.jpg' %}" alt="Category image"
                                         width="152" height="171" style="background-color: #fff" />
                                 </a>
