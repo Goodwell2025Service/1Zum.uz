@@ -13,8 +13,10 @@ $(document).ready(function() {
             dataType: 'json',
             success: function (data) {
                 if (data.success) {
-                    console.log('count')
+                    console.log(data.message)
                     $('#header-cart').text(data.count)
+                } else {
+                    console.log(data.message)
                 }
             }
         });
@@ -103,4 +105,5 @@ $(document).ready(function() {
 
 })
 
+// https://app.slack.com/client/T02PM4HGUUX/C02Q41YLH2Q
 
