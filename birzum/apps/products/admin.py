@@ -1,6 +1,6 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
-
+from django.utils.translation import gettext_lazy as _
 from .models import Brand, Category, Image, Price, Product
 
 # Register your models here.
@@ -46,3 +46,12 @@ class ProductAdmin(admin.ModelAdmin):
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
+
+
+
+# login page title
+admin.site.site_header = _("1zum online do'koni")
+
+# admin index page title
+admin.site.index_title = _("SAYT BO'LIMLARI")
+
