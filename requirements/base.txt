@@ -17,3 +17,5 @@ django-redis==5.0.0  # https://github.com/jazzband/django-redis
 django-ckeditor==6.1.0  # https://pypi.org/project/django-ckeditor/
 django-mptt==0.13.4  # https://django-mptt.readthedocs.io/en/latest/install.html
 sorl-thumbnail==12.7.0  # https://github.com/jazzband/sorl-thumbnail
+django-hijack==2.1.10  # https://github.com/arteria/django-hijack/
+django-hijack-admin==2.1.10 # https://github.com/arteria/django-hijack-admin

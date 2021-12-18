@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 	
-{% load static i18n thumbnail %}
+{% load static i18n thumbnail humanize %}
 
 {% block content %}
 
@@ -285,7 +285,7 @@
                                     </div>
                                     <div class="product-pa-wrapper">
                                         <div class="product-price">
-                                            {{ p.price }}
+                                            {{ p.price|floatformat:-2|intcomma }} UZS
                                         </div>
                                     </div>
                                 </div>
