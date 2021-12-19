@@ -1,6 +1,7 @@
 from django.conf import settings
 
 from birzum.apps.products.models import Category
+from birzum.apps.cart.cart import Cart
 
 
 def settings_context(_request):

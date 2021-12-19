@@ -127,7 +127,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="product product-list br-xs mb-0">
                         <figure class="product-media">
-                            <a href="#">
+                            <a href="{{ item.get_absolute_url }}">
                                 {% thumbnail item.get_first_image '315x355' as im %}
                                 <img src="{{ im.url }}" alt="{{ item.title }}" width="{{ im.width }}"
                                     height="{{ im.height }}">
@@ -158,7 +158,7 @@
                             <div class="product-price">{{ item.price|floatformat:-2|intcomma }} UZS</div>
                             <p>{{ item.description|truncatewords_html:20 }}</p>
                             <div class="product-action">
-                                <a href="#" class="btn-product btn-cart" title="Add to Cart"><i
+                                <a href="{% url 'cart:add' id=item.id %}" class="btn-product btn-cart" title="Add to Cart"><i
                                         class="w-icon-cart"></i> {% trans "Savatga" %}</a>
                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                     title="{% trans "Sevimlilarga qo'shish" %}"></a>
@@ -1841,7 +1841,7 @@
                             </figure>
                             <div class="product-details">
                                 <h4 class="product-name">
-                                    <a href="#">{{ item.title }}</a>
+                                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -1953,7 +1953,7 @@
                             </figure>
                             <div class="product-details">
                                 <h4 class="product-name">
-                                    <a href="#">{{ item.title }}</a>
+                                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -1989,7 +1989,7 @@
                             </figure>
                             <div class="product-details">
                                 <h4 class="product-name">
-                                    <a href="#">{{ item.title }}</a>
+                                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">

@@ -98,16 +98,16 @@
                                 <h1 class="product-title">{{ object.title }}</h1>
                                 <div class="product-bm-wrapper">
                                     <figure class="brand">
-                                        {% thumbnail object.category.logo "100x80" as im %}
+                                        {% thumbnail object.brand.icon "100x80" as im %}
                                         <img src="{{ im.url }}" alt="{{ object.category }}"
                                             width="{{im.width}}" height="{{im.height}}" />
                                         {% endthumbnail %}
                                     </figure>
                                     <div class="product-meta">
-                                        <div class="product-categories">
+                                        {% comment %} <div class="product-categories">
                                             {% trans "Kategoriya" %}:
                                             <span class="product-category"><a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a></span>
-                                        </div>
+                                        </div> {% endcomment %}
                                         <div class="product-sku">
                                             {% trans "Model" %}: <span>{{ object.model|default_if_none:"-" }}</span>
                                         </div>
