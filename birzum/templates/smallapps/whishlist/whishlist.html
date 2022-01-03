@@ -29,9 +29,10 @@
     <div class="page-content">
         <div class="container">
             <h3 class="wishlist-title">{% trans "Mahsulotlar" %}</h3>
+            {% if products|length > 0 %}
             <table class="shop-table wishlist-table">
                 <thead>
-                    <tr>
+                    <tr class="text-left">
                         <th class="product-name"><span>Product</span></th>
                         <th></th>
                         <th class="product-price"><span>Price</span></th>
@@ -40,12 +41,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for item in products %}
                     <tr>
                         <td class="product-thumbnail">
                             <div class="p-relative">
-                                <a href="product-default.html">
+                                <a href="{% url 'whishlist:remove' product_id=item.id %}">
                                     <figure>
-                                        <img src="{% static 'images/shop/7-1.jpg' %}" alt="product" width="300"
+                                        <img src="{{ item.get_first_image.url }}" alt="product" width="300"
                                             height="338">
                                     </figure>
                                 </a>
@@ -54,94 +56,49 @@
                             </div>
                         </td>
                         <td class="product-name">
-                            <a href="product-default.html">
-                                Blue Sky Trunk
+                            <a href="{{ item.get_absolute_url }}">
+                                {{ item.title }}
                             </a>
                         </td>
                         <td class="product-price">
-                            <ins class="new-price">$85.00</ins>
+                            {% if item.discount %}
+                            <ins class="new-price">{{ item.discount_price }} UZS</ins> <br>
+                            <del class="old-price">{{ item.price }} UZS</del>
+                            {% else %}
+                            <ins class="new-price">{{ item.price }} UZS</ins>
+                            {% endif %}
                         </td>
                         <td class="product-stock-status">
-                            <span class="wishlist-in-stock">In Stock</span>
+                            {% if item.available %}
+                            <span class="wishlist-in-stock">{% trans "Sotuvda mavjud" %}</span> <br>
+                            {% endif %}
+                            {% if item.bestseller %}
+                            <span class="wishlist-in-stock">{% trans "Bestseller" %}</span><br>
+                            {% endif %}
+                            {% if item.discount %}
+                            <span class="wishlist-in-stock">{% trans "Chegirmada" %}</span><br>
+                            {% endif %}
+                            {% if item.lising %}
+                            <span class="wishlist-in-stock">{% trans "Lisingga mavjud" %}</span>
+                            {% endif %}
                         </td>
                         <td class="wishlist-action">
                             <div class="d-lg-flex">
-                                <a href="#"
-                                    class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                    View</a>
-                                <a href="#" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                    cart</a>
+                                <a href="{% url 'cart:add' id=item.id %}" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">{% trans "Savatga qo'shish" %}</a>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="product-thumbnail">
-                            <div class="p-relative">
-                                <a href="product-default.html">
-                                    <figure>
-                                        <img src="{% static 'images/shop/19-1.jpg' %}" alt="product" width="300"
-                                            height="338">
-                                    </figure>
-                                </a>
-                                <button type="submit" class="btn btn-close"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
-                        </td>
-                        <td class="product-name">
-                            <a href="product-default.html">
-                                Handmade Ring
-                            </a>
-                        </td>
-                        <td class="product-price"><ins class="new-price">$5.00</ins></td>
-                        <td class="product-stock-status">
-                            <span class="wishlist-in-stock">In Stock</span>
-                        </td>
-                        <td class="wishlist-action">
-                            <div class="d-lg-flex">
-                                <a href="#"
-                                    class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                    View</a>
-                                <a href="#" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                    cart</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="product-thumbnail">
-                            <div class="p-relative">
-                                <a href="product-default.html">
-                                    <figure>
-                                        <img src="{% static 'images/shop/20.jpg' %}" alt="product" width="300"
-                                            height="338">
-                                    </figure>
-                                </a>
-                                <button type="submit" class="btn btn-close"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
-                        </td>
-                        <td class="product-name">
-                            <a href="product-default.html">
-                                Pencil Case
-                            </a>
-                        </td>
-                        <td class="product-price"><ins class="new-price">$54.00</ins></td>
-                        <td class="product-stock-status">
-                            <span class="wishlist-in-stock">In Stock</span>
-                        </td>
-                        <td class="wishlist-action">
-                            <div class="d-lg-flex">
-                                <a href="#"
-                                    class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                    View</a>
-                                <a href="#" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                    cart</a>
-                            </div>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
+            {% else %}
+            <div class="text-center">
+                <h4 class="mt-5 mb-3">{% trans "Sevimli mahsulotlar hozircha yo'q" %}</h4>
+                <a href="{% url 'products:list' %}" class="btn btn-primary">{% trans "Mahsulotlar" %}</a>
+            </div>
+            {% endif %}
             <div class="social-links">
-                <label>Share On:</label>
+                <label>{% trans "Do'stlar bilan ulashing:" %}</label>
                 <div class="social-icons social-no-color border-thin">
                     <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
                     <a href="#" class="social-icon social-twitter w-icon-twitter"></a>

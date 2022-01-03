@@ -234,7 +234,9 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "birzum.utils.context_processors.settings_context",
-                "birzum.utils.context_processors.categories_context",
+                "birzum.utils.context_processors.local_context",
+                "birzum.apps.cart.context_processors.cart",
+                "birzum.apps.smallapps.compare.context_processors.compare_context",
             ],
         },
     }
@@ -324,7 +326,9 @@ SOCIALACCOUNT_ADAPTER = "birzum.users.adapters.SocialAccountAdapter"
 # Your stuff...
 # ------------------------------------------------------------------------------
 # cart configs
-CART_SESSION_ID = "cart"
+CART_SESSION_ID = "2"
+COMPARE_SESSION_ID = "1"
+WHISHLIST_SESSION_ID = "3"
 
 #-------------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"

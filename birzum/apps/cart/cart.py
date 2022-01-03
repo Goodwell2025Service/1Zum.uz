@@ -67,8 +67,8 @@ class Cart(object):
             cart[str(product.id)]['product'] = product
 
         for item in cart.values():
-            item['price'] = Decimal(item['price'])
-            item['total_price'] = Decimal(item['price']) * item['quantity']
+            item['price'] = str(Decimal(item['price']))
+            item['total_price'] = str(Decimal(item['price']) * item['quantity'])
             yield item
 
     def __len__(self):
@@ -78,7 +78,7 @@ class Cart(object):
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+        return str(sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values()))
 
     def clear(self):
         # remove box from session
