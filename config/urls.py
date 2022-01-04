@@ -30,6 +30,7 @@ urlpatterns = (
         path("compare/", include('birzum.apps.smallapps.compare.urls', namespace='compare')),
         path("company/", include('birzum.apps.smallapps.company.urls', namespace='company')),
         path("order/", include('birzum.apps.order.urls', namespace='order')),
+        path("rate/", include('birzum.apps.smallapps.rating.urls', namespace='rating')),
         path("", include('birzum.apps.products.urls', namespace="products")),
     ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 )
