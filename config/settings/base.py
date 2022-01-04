@@ -336,8 +336,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_FILENAME_GENERATOR = 'config.utils.get_filename'
 
 # -------------telegram notify----------------
-TELEGRAM_GROUP_ID = get_secret('TELEGRAM_GROUP_ID', "")
-TELEGRAM_NOTIFY_BOT_ID = get_secret('TELEGRAM_NOTIFY_BOT_ID', '')
+TELEGRAM_CHAT_ID = get_secret('TELEGRAM_CHAT_ID', "")
+TELEGRAM_BOT_TOKEN = get_secret('TELEGRAM_BOT_TOKEN', '')
 
 # ---------------------------------------------
 # rosetta options

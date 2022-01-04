@@ -1,3 +1,5 @@
+import requests
+
 from django.conf import settings
 from decimal import Decimal
 from .models import OrderItem
@@ -10,16 +12,21 @@ def replace_commas(number):
 
 def send_telegram_notify(message):
     if not settings.DEBUG:
-        group_id = settings.TELEGRAM_GROUP_ID
-        bot_token = settings.TELEGRAM_NOTIFY_BOT_ID
+        group_id = settings.TELEGRAM_CHAT_ID
+        bot_token = settings.TELEGRAM_BOT_TOKEN
+
+        print(bot_token, group_id)
 
         action = 'https://api.telegram.org/bot' + bot_token + \
                 '/sendMessage?chat_id=' + group_id + \
-                '&parse_mode=html&text=' + message
-
+                '&text=' + message
+        
+        response = requests.get(action)
+        print("success -", response.status_code)
 
 def create_order_items(obj, cart, request=None):
     products = ""
+    print("Telegramga jo'natmoqchi")
     for item in cart:
         price = replace_commas("{:,.2f}".format(Decimal(item['price'])))
         products += "Модель: " + str(item['product']['title']) + \
