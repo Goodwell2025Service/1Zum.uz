@@ -1,6 +1,7 @@
 from django.conf import settings
-
+from decimal import Decimal
 from .models import OrderItem
+from birzum.apps.products.models import Product
 
 
 def replace_commas(number):
@@ -20,15 +21,17 @@ def send_telegram_notify(message):
 def create_order_items(obj, cart, request=None):
     products = ""
     for item in cart:
-        price = replace_commas("{:,.2f}".format(item['price']))
-        products += "Модель: " + str(item['product'].title) + \
+        price = replace_commas("{:,.2f}".format(Decimal(item['price'])))
+        products += "Модель: " + str(item['product']['title']) + \
                 ",\nЦена: " + price + " сум,\nКоличество: " + \
                 str(item['quantity']) + ",\n" \
                 "\n------------\n"
 
+        product = Product.objects.filter(id=item['product']['id']).first()
+
         OrderItem.objects.create(
             order=obj,
-            product=item['product'],
+            product=product,
             price=item['price'],
             quantity=item['quantity']
         )

@@ -1,6 +1,7 @@
 import json
 from decimal import Decimal
 
+from django.core import serializers
 from django.conf import settings
 
 from birzum.apps.products.models import Product
@@ -61,12 +62,25 @@ class Cart(object):
         print("iteration is getting executed")
         # get the product objects and add them to the cart
         products = Product.objects.filter(id__in=product_ids)
+        products_list = []
+        for item in products:
+            products_list.append({
+                "id": item.id,
+                "title": item.title,
+                "image_url": item.get_first_image().url,
+                "price": str(item.price)
+            })
         cart = self.cart.copy()
-        # som = []
-        for product in products:
-            cart[str(product.id)]['product'] = product
+        som = []
+        for product in products_list:
+            # print("this is a product", product)
+            cart[str(product['id'])]['product'] = product
+
+        print("This is a cart", cart)
 
         for item in cart.values():
+            print("Cart elementlarni loop qivoman karochi")
+            print(type(item))
             item['price'] = str(Decimal(item['price']))
             item['total_price'] = str(Decimal(item['price']) * item['quantity'])
             yield item
@@ -75,9 +89,11 @@ class Cart(object):
         """
         Count all items in the cart.
         """
+        print("Len fiunction ishladi")
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
+        print("get total price ga keldi")
         return str(sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values()))
 
     def clear(self):

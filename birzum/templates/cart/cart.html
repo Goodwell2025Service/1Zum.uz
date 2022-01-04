@@ -42,12 +42,10 @@
                                 <td class="product-thumbnail">
                                     <div class="p-relative">
                                         <a href="product-default.html">
-                                            {% thumbnail product.get_first_image "300x300" as im %}
                                             <figure>
-                                                <img src="{{ im.url }}" alt="{{ product.title }}"
-                                                    width="{{ im.width }}" height="{{ im.height }}">
+                                                <img src="{{ product.image_url }}" alt="{{ product.title }}"
+                                                    width="" height="">
                                             </figure>
-                                            {% endthumbnail %}
                                         </a>
                                         <a href="{% url 'cart:remove' product_id=product.id %}">
                                             <button type="submit" class="btn btn-close"><i class="fas fa-times"></i></button>
