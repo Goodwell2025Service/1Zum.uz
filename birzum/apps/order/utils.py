@@ -19,7 +19,7 @@ def send_telegram_notify(message):
 
         action = 'https://api.telegram.org/bot' + bot_token + \
                 '/sendMessage?chat_id=' + group_id + \
-                '&text=' + message
+                '&parse_mode=html&text=' + message
         
         response = requests.get(action)
         print("success -", response.status_code)
@@ -27,6 +27,11 @@ def send_telegram_notify(message):
 def create_order_items(obj, cart, request=None):
     products = ""
     print("Telegramga jo'natmoqchi")
+
+    print(obj.first_name)
+    print()
+    print(cart)
+
     for item in cart:
         price = replace_commas("{:,.2f}".format(Decimal(item['price'])))
         products += "Модель: " + str(item['product']['title']) + \
@@ -44,13 +49,17 @@ def create_order_items(obj, cart, request=None):
         )
 
     sent = obj.id
-    link_order = '/ru/way2020passNum00/orders/order/' + str(sent) + '/change/'
+    link_order = request.get_host() + '/ru/1M81ioxmGOqSvt5nMAw85SD/order/order/' + str(sent) + '/change/'
     name, phone = f"{obj.first_name} {obj.last_name}", obj.phone
 
-    message = f"У вас новый заказ 🎉 \n\n" + \
-    "🧔 - {name}\n📞 - {phone}\n\n"+ \
-    "Продукты:\n{products}\n\n "+\
-    "Посмотреть заказ на сайте 👇 {link_order}"
+    print(link_order, name, phone, products)
+
+    message = "У вас новый заказ 🎉 \n\n" + \
+    "🧔 - " + name + "\n📞 - " + phone + "\n\n"+ \
+    "Продукты:\n" + products + "\n\n "+\
+    "Посмотреть заказ на сайте 👇" + link_order
+
+    print("Message", message)
 
     send_telegram_notify(message)
 
