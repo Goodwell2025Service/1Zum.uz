@@ -57,7 +57,7 @@ def create_order_items(obj, cart, request=None):
     message = "У вас новый заказ 🎉 \n\n" + \
     "🧔 - " + name + "\n📞 - " + phone + "\n\n"+ \
     "Продукты:\n" + products + "\n\n "+\
-    "Посмотреть заказ на сайте 👇" + link_order
+    "Посмотреть заказ на сайте 👇\n" + link_order
 
     print("Message", message)
 
