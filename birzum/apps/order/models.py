@@ -24,7 +24,7 @@ class Order(models.Model):
     district = models.CharField(_("Tuman/Shahar"), max_length=100)
     street = models.CharField(_("Ko'cha"), max_length=55)
     house = models.CharField(_("Massiv, Daha, Kvarta, uy nomeri"), max_length=255)
-    postcode = models.PositiveIntegerField(_("Pochta indexi"), blank=True)
+    postcode = models.PositiveIntegerField(_("Pochta indexi"), blank=True, null=True)
     email = models.EmailField(_("E-pochta"), blank=True)
     phone = models.CharField(_("Telefon"), max_length=13)
     # xaridor tomonidan qo'shimcha xabar
