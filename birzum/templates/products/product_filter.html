@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 	
-{% load static i18n thumbnail humanize %}
+{% load static i18n custom_tags thumbnail humanize %}
 
 {% block content %}
 
@@ -12,8 +12,8 @@
     <nav class="breadcrumb-nav">
         <div class="container mt-2 mb-2">
             <ul class="breadcrumb bb-no">
-                <li><a href="demo1.html">Home</a></li>
-                <li>Shop</li>
+                <li><a href="#">{% trans "Asosiy sahifa" %}</a></li>
+                <li>{% trans "Mahsulotlar" %}</li>
             </ul>
         </div>
     </nav>
@@ -62,7 +62,9 @@
                         {% for cat in categories %}
                         <div class="swiper-slide">
                             <figure>
-                                <img src="{% static 'images/brands/category/1.png' %}" alt="Brand" width="160" height="90" />
+                                {% thumbnail cat.image "160x90" as im %}
+                                <img src="{{ cat.image.url }}" alt="{{cat.name}}" width="{{im.width}}" height="{{im.height}}" />
+                                {% endthumbnail %}
                             </figure>
                         </div>
                         {% endfor %}
@@ -285,7 +287,7 @@
                                     </div>
                                     <div class="product-pa-wrapper">
                                         <div class="product-price">
-                                            {{ p.price|floatformat:-2|intcomma }} UZS
+                                            {{ p.price|sum|floatformat:-2|intcomma }} UZS
                                         </div>
                                     </div>
                                 </div>

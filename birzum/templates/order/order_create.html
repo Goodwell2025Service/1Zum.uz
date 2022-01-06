@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static i18n crispy_forms_tags humanize %}
+{% load static i18n crispy_forms_tags custom_tags humanize %}
 
 
 {% block content %}
@@ -203,7 +203,7 @@
                                             <td class="product-name">{{ item.product.title }} <i
                                                     class="fas fa-times"></i> <span
                                                     class="product-quantity">{{ item.quantity }}</span></td>
-                                            <td class="product-total">{{ item.price|floatformat:-2|intcomma }} UZS</td>
+                                            <td class="product-total">{{ item.price|sum|floatformat:-2|intcomma }} UZS</td>
                                         </tr>
                                         {% endfor %}
                                         <tr class="cart-subtotal bb-no">
@@ -211,7 +211,7 @@
                                                 <b>{% trans "Umumiy" %}</b>
                                             </td>
                                             <td>
-                                                <b>{{ cart.get_total_price|floatformat:-2|intcomma}} UZS</b>
+                                                <b>{{ cart.get_total_price|sum|floatformat:-2|intcomma}} UZS</b>
                                             </td>
                                         </tr>
                                     </tbody>

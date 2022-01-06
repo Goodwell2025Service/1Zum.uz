@@ -29,3 +29,13 @@ class Rating(models.Model):
 
     def __str__(self) -> str:
         return "# " + str(self.pk)
+
+
+class Currency(models.Model):
+    updated = models.DateTimeField(_('Yangilandi'), auto_now_add=True, editable=False)
+    currency = models.DecimalField(_('USD Reytingi'), max_digits=100, decimal_places=2, blank=True)
+
+    class Meta:
+        ordering = ('-updated',)
+        verbose_name = _('kurs')
+        verbose_name_plural = _('Dollar kursi')

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static i18n thumbnail humanize %}
+{% load static i18n thumbnail custom_tags humanize %}
 
 {% block content %}
 
@@ -116,7 +116,7 @@
 
                                 <hr class="product-divider">
 
-                                {% comment %} <div class="product-price"><ins class="new-price">{{ product.price|floatformat:-2|intcomma }} UZS</ins></div> {% endcomment %}
+                                {% comment %} <div class="product-price"><ins class="new-price">{{ product.price|sum|floatformat:-2|intcomma }} UZS</ins></div> {% endcomment %}
 
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -154,7 +154,7 @@
                                 </div> {% endcomment %}
 
                                 <div class="product-price">
-                                    <small>{% trans "Narxi" %}: {{ product.price|floatformat:-2|intcomma }} UZS</small></span>
+                                    <small>{% trans "Narxi" %}: {{ product.price|sum|floatformat:-2|intcomma }} UZS</small></span>
                                 </div>
 
                                 <div class="fix-bottom product-sticky-content sticky-content">

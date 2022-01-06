@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static i18n thumbnail humanize %}
+{% load static i18n thumbnail humanize custom_tags %}
 
 
 {% block content %}
@@ -57,7 +57,7 @@
                                         {{ product.title }}
                                     </a>
                                 </td>
-                                <td class="product-price"><span class="amount">{{ product.price|floatformat:-2|intcomma }} UZS</span></td>
+                                <td class="product-price"><span class="amount">{{ product.price|sum|floatformat:-2|intcomma }} UZS</span></td>
                                 <td class="product-quantity">
                                     <div class="input-group">
                                         <input class="qty form-control" type="number" min="1" max="20" value="{{ item.quantity }}">
@@ -66,7 +66,7 @@
                                     </div>
                                 </td>
                                 <td class="product-subtotal">
-                                    <span class="amount">{{ item.price|floatformat:-2|intcomma }} UZS</span>
+                                    <span class="amount">{{ item.price|sum|floatformat:-2|intcomma }} UZS</span>
                                 </td>
                             </tr>
                             {% endwith %}
@@ -92,7 +92,7 @@
                             <div class="cart-subtotal d-flex align-items-center justify-content-between">
                                 <label class="ls-25">{% trans "Umumiy" %}</label>
                                 {% if cart|length > 0 %}
-                                <span id="total-price">{{ cart.get_total_price|floatformat:-2|intcomma }} UZS</span>
+                                <span id="total-price">{{ cart.get_total_price|sum|floatformat:-2|intcomma }} UZS</span>
                                 {% endif %}
                             </div>
 

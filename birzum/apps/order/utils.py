@@ -7,7 +7,7 @@ from birzum.apps.products.models import Product
 
 
 def replace_commas(number):
-   return str(number).replace(',', '  ')
+   return str(number).replace(',', ' ')
 
 
 def send_telegram_notify(message):
@@ -26,14 +26,9 @@ def send_telegram_notify(message):
 
 def create_order_items(obj, cart, request=None):
     products = ""
-    print("Telegramga jo'natmoqchi")
-
-    print(obj.first_name)
-    print()
-    print(cart)
 
     for item in cart:
-        price = replace_commas("{:,.2f}".format(Decimal(item['price'])))
+        price = replace_commas("{:,.0f}".format(Decimal(item['price'])))
         products += "Модель: " + str(item['product']['title']) + \
                 ",\nЦена: " + price + " сум,\nКоличество: " + \
                 str(item['quantity']) + ",\n" \
@@ -52,14 +47,10 @@ def create_order_items(obj, cart, request=None):
     link_order = request.get_host() + '/ru/1M81ioxmGOqSvt5nMAw85SD/order/order/' + str(sent) + '/change/'
     name, phone = f"{obj.first_name} {obj.last_name}", obj.phone
 
-    print(link_order, name, phone, products)
-
     message = "У вас новый заказ 🎉 \n\n" + \
     "🧔 - " + name + "\n📞 - " + phone + "\n\n"+ \
     "Продукты:\n" + products + "\n\n "+\
     "Посмотреть заказ на сайте 👇\n" + link_order
-
-    print("Message", message)
 
     send_telegram_notify(message)
 

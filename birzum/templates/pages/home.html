@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static i18n thumbnail humanize %}
+{% load static i18n thumbnail custom_tags humanize %}
 
 {% block content %}
 
@@ -155,7 +155,7 @@
                                 </div>
                                 <a href="#" class="rating-reviews">(3{% trans " izohlar)" %}</a>
                             </div>
-                            <div class="product-price">{{ item.price|floatformat:-2|intcomma }} UZS</div>
+                            <div class="product-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</div>
                             <p>{{ item.description|truncatewords_html:20 }}</p>
                             <div class="product-action">
                                 <a href="{% url 'cart:add' id=item.id %}" class="btn-product btn-cart" title="Add to Cart"><i
@@ -1850,7 +1850,7 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <ins class="new-price">{{ item.price|floatformat:-2|intcomma }} UZS</ins>
+                                    <ins class="new-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</ins>
                                 </div>
                             </div>
                         </div>
@@ -1962,7 +1962,7 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <ins class="new-price">{{ item.price|floatformat:-2|intcomma }} UZS</ins>
+                                    <ins class="new-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</ins>
                                 </div>
                             </div>
                         </div>
@@ -1998,7 +1998,7 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <ins class="new-price">{{ item.price|floatformat:-2|intcomma }} UZS</ins>
+                                    <ins class="new-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</ins>
                                 </div>
                             </div>
                         </div>

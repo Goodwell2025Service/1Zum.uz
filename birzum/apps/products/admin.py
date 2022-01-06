@@ -1,7 +1,22 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from mptt.admin import MPTTModelAdmin
 from django.utils.translation import gettext_lazy as _
+from django.core.management import call_command
+
 from .models import Brand, Category, Image, Price, Product
+
+
+def sumdagi_narxlarni_yangilash(modeladmin, request, queryset):
+    """mahsulot narxlarini sumga almashtirish"""
+    try:
+        call_command("write_price_in_sum")
+        messages.add_message(request, messages.SUCCESS, "Mahsulotlarning sumdagi narxlari yangilandi!")
+    except Exception as e:
+        messages.add_message(request, messages.ERROR, "Operatsiyani bajarishda xatolik: " + str(e))
+    return
+
+
+sumdagi_narxlarni_yangilash.short_description = "Mahsulotlarning sumdagi narxlarini yangilash."
 
 # Register your models here.
 
@@ -43,6 +58,8 @@ class ProductAdmin(admin.ModelAdmin):
 
     search_fields = ['title']
     inlines = [PriceAdminInline, ImageAdminInline]
+    actions = [sumdagi_narxlarni_yangilash,]
+
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
