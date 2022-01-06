@@ -39,3 +39,6 @@ class Currency(models.Model):
         ordering = ('-updated',)
         verbose_name = _('kurs')
         verbose_name_plural = _('Dollar kursi')
+    
+    def __str__(self):
+        return f"{self.currency}"

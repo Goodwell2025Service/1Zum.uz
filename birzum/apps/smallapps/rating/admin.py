@@ -12,4 +12,5 @@ class RatingAdmin(admin.ModelAdmin):
 
 @admin.register(Currency)
 class CurrencyAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['currency', 'updated']
+    readonly_fields = ['currency']
