@@ -28,12 +28,12 @@ class Command(BaseCommand):
                 # item item has price field completed
                 # complete price_sum field as well according to usd rate
                 if item.price:
-                    item.price_sum = Decimal(int(item.price * self.usd_course.currency))
+                    item.price_sum = Decimal(item.price) * Decimal(self.usd_course.currency)
 
                 # item item has price field completed
                 # complete price_sum field as well according to usd rate
                 if item.discount_price:
-                    item.discount_price_sum = Decimal(int(item.discount_price * self.usd_course.currency))
+                    item.discount_price_sum = Decimal(item.discount_price) * Decimal(self.usd_course.currency)
 
                 item.save()
 
