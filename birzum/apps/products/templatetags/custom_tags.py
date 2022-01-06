@@ -23,6 +23,6 @@ def get_banner_info(info):
 def do_sum(number):
     price = Currency.objects.all().last()
     try:
-        return round(int((float(price.currency)* (1.03) * float(number))),-3)
+        return int((float(price.currency) * float(number)))
     except:
         return number
