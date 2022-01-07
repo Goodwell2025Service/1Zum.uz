@@ -58,8 +58,12 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["features"] = Features.objects.all()
+        context["products_from_this_vendor"] = Product.objects.filter(
+            brand=self.object.brand).exclude(id=self.object.id)[:3]
+        context["products_in_this_cat"] = Product.objects.filter(
+            category=self.object.category).exclude(id=self.object.id)[:3]
+        context["more"] = Product.objects.all().order_by('title')[:6]
         return context
     
-
 
 product_detail_view = ProductDetail.as_view()

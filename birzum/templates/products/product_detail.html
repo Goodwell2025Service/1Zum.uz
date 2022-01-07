@@ -216,7 +216,7 @@
                                     <h4 class="product-name">
                                         <a href="#">Electronics Black Wrist Watch</a>
                                     </h4>
-                                    <div class="product-price">$40.00</div>
+                                    <div class="product-price">40.00</div>
                                 </div>
                             </div>
                             <div class="product product-wrap text-center">
@@ -233,7 +233,7 @@
                                     <h4 class="product-name">
                                         <a href="#">Apple Laptop</a>
                                     </h4>
-                                    <div class="product-price">$1,800.00</div>
+                                    <div class="product-price">1,800.00</div>
                                 </div>
                             </div>
                             <div class="product product-wrap text-center">
@@ -250,11 +250,11 @@
                                     <h4 class="product-name">
                                         <a href="#">White Lenovo Headphone</a>
                                     </h4>
-                                    <div class="product-price">$34.00</div>
+                                    <div class="product-price">34.00</div>
                                 </div>
                             </div>
                             <div class="product-button">
-                                <div class="bought-price font-weight-bolder text-primary ls-50">$1,874.00</div>
+                                <div class="bought-price font-weight-bolder text-primary ls-50">1,874.00</div>
                                 <div class="bought-count">For 3 items</div>
                                 <a href="cart.html" class="btn btn-dark btn-rounded">Add All To Cart</a>
                             </div>
@@ -316,7 +316,7 @@
                                         <h5 class="sub-title font-weight-bold"><span class="mr-3">1.</span>Free
                                             Shipping &amp; Return</h5>
                                         <p class="detail pl-5">We offer free shipping for products on orders
-                                            above 50$ and offer free delivery for all orders in US.</p>
+                                            above 50 and offer free delivery for all orders in US.</p>
                                     </div>
                                     <div class="mb-3">
                                         <h5 class="sub-title font-weight-bold"><span>2.</span>Free and Easy
@@ -327,8 +327,8 @@
                                     <div class="mb-3">
                                         <h5 class="sub-title font-weight-bold"><span>3.</span>Special Financing
                                         </h5>
-                                        <p class="detail pl-5">Get 20%-50% off items over 50$ for a month or
-                                            over 250$ for a year with our special credit card.</p>
+                                        <p class="detail pl-5">Get 20%-50% off items over 50 for a month or
+                                            over 250 for a year with our special credit card.</p>
                                     </div>
                                 </div> -->
                             </div>
@@ -381,7 +381,7 @@
                                                         <span class="ratings" style="width: 90%;"></span>
                                                         <span class="tooltiptext tooltip-top"></span>
                                                     </div>
-                                                    <a href="#" class="rating-reviews">(32 Reviews)</a>
+                                                    <a href="#" class="rating-reviews">(32 ko'proq</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -439,7 +439,7 @@
                                                             <span class="ratings" style="width: 60%;"></span>
                                                             <span class="tooltiptext tooltip-top"></span>
                                                         </div>
-                                                        <a href="#" class="rating-reviews">(3 Reviews)</a>
+                                                        <a href="#" class="rating-reviews">(3 izohlar)</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -902,11 +902,11 @@
                     </div>
 
 
-                    {% comment %} products form this vendor center section {% endcomment %}
-                    {% comment %} <section class="vendor-product-section">
+                    {% if products_from_this_vendor %}
+                    <section class="vendor-product-section">
                         <div class="title-link-wrapper mb-4">
                             <h4 class="title text-left">{% trans "Ishlab chiqaruvchidan boshqa mahsulotlar" %}</h4>
-                            <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">{% trans "Ko'proq mahsulotlar" %}<i class="w-icon-long-arrow-right"></i></a>
+                            <a href="{{ object.category.get_absolute_url }}" class="btn btn-dark btn-link btn-slide-right btn-icon-right">{% trans "Ko'proq mahsulotlar" %}<i class="w-icon-long-arrow-right"></i></a>
                         </div>
                         <div class="swiper-container swiper-theme" data-swiper-options="{
                             'spaceBetween': 20,
@@ -924,186 +924,7 @@
                             }
                         }">
                             <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                                <div class="swiper-slide product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
-                                                width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
-                                        </div>
-                                        <h4 class="product-name"><a href="product-default.html">Sticky Pencil</a>
-                                        </h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$20.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
-                                                width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Electronics</a>
-                                        </div>
-                                        <h4 class="product-name"><a href="product-default.html">Mini
-                                                Multi-Functional Cooker</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 80%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">
-                                                <ins class="new-price">$480.00</ins><del
-                                                    class="old-price">$534.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
-                                                width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Sports</a></div>
-                                        <h4 class="product-name"><a href="product-default.html">Skate Pan</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">
-                                                <ins class="new-price">$278.00</ins><del
-                                                    class="old-price">$310.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
-                                                width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
-                                        </div>
-                                        <h4 class="product-name"><a href="product-default.html">Clip Attachment</a>
-                                        </h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$40.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> {% endcomment %}
-
-                    {% comment %} Bottom section for related products {% endcomment %}
-                    <section class="related-product-section">
-                        <div class="title-link-wrapper mb-4">
-                            <h4 class="title">{% trans "Ushbu kategoriyadagi mahsulotlar" %}</h4>
-                            <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">{% trans "Ko'proq mahsulotlar" %}<i class="w-icon-long-arrow-right"></i></a>
-                        </div>
-                        <div class="swiper-container swiper-theme" data-swiper-options="{
-                            'spaceBetween': 20,
-                            'slidesPerView': 2,
-                            'breakpoints': {
-                                '576': {
-                                    'slidesPerView': 3
-                                },
-                                '768': {
-                                    'slidesPerView': 4
-                                },
-                                '992': {
-                                    'slidesPerView': 3
-                                }
-                            }
-                        }">
-                            {% comment %} {% with category=object.category %}
-                            <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                                {% for prod in category.products.all.3 %}
+                                {% for prod in products_from_this_vendor %}
                                 <div class="swiper-slide product">
                                     <figure class="product-media">
                                         <a href="{{ prod.get_absolute_url }}">
@@ -1113,11 +934,77 @@
                                             {% endthumbnail %}
                                         </a>
                                         <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
+                                            <a href="{% url 'cart:add' id=prod.id %}" class="btn-product-icon btn-cart w-icon-cart"
                                                 title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                                            <a href="{% url 'whishlist:add' id=prod.id %}" class="btn-product-icon btn-wishlist w-icon-heart"
                                                 title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                            <a href="{% url 'compare:add' id=prod.id %}" class="btn-product-icon btn-compare w-icon-compare"
+                                                title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="{{ prod.get_absolute_url }}" class="btn-product" title="{% trans "Batafsil" %}">{% trans "Batafsil" %}</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat"><a href="#">{{ prod.brand }}</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="{{ prod.get_anbolute_url }}">{{ prod.title }}</a>
+                                        </h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="#" class="rating-reviews">(3 izohlar)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">{{ prod.price|sum|floatformat:-2|intcomma }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                    {% endif %}
+
+                    {% if products_in_this_cat %}
+                    <section class="related-product-section">
+                        <div class="title-link-wrapper mb-4">
+                            <h4 class="title">{% trans "Ushbu kategoriyadagi mahsulotlar" %}</h4>
+                            <a href="{{ object.category.get_absolute_url }}" class="btn btn-dark btn-link btn-slide-right btn-icon-right">{% trans "Ko'proq mahsulotlar" %}<i class="w-icon-long-arrow-right"></i></a>
+                        </div>
+                        <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'spaceBetween': 20,
+                            'slidesPerView': 2,
+                            'breakpoints': {
+                                '576': {
+                                    'slidesPerView': 3
+                                },
+                                '768': {
+                                    'slidesPerView': 4
+                                },
+                                '992': {
+                                    'slidesPerView': 3
+                                }
+                            }
+                        }">
+                            <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
+                                {% for prod in products_in_this_cat %}
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="{{ prod.get_absolute_url }}">
+                                            {% thumbnail prod.get_first_image "300x338" as im %}
+                                            <img src="{{ im.url }}" alt="{{ prod.title }}"
+                                                width="{{ im.width }}" height="{{ im.height }}" />
+                                            {% endthumbnail %}
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="{% url 'cart:add' id=prod.id %}" class="btn-product-icon btn-cart w-icon-cart"
+                                                title="Add to cart"></a>
+                                            <a href="{% url 'whishlist:add' id=prod.id %}" class="btn-product-icon btn-wishlist w-icon-heart"
+                                                title="Add to wishlist"></a>
+                                            <a href="{% url 'compare:add' id=prod.id %}" class="btn-product-icon btn-compare w-icon-compare"
                                                 title="Add to Compare"></a>
                                         </div>
                                         <div class="product-action">
@@ -1134,15 +1021,15 @@
                                             <a href="#" class="rating-reviews">{% trans "Izohlar" %}</a>
                                         </div>
                                         <div class="product-pa-wrapper">
-                                            <div class="product-price">{{ prod.price }}</div>
+                                            <div class="product-price">{{ prod.price|sum|floatformat:-2|intcomma }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 {% endfor %}
                             </div>
-                            {% endwith %} {% endcomment %}
                         </div>
                     </section>
+                    {% endif %}
                 </div>
                 <!-- End of Main Content -->
                 
@@ -1211,14 +1098,16 @@
                                                 {% endif %}
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
-                                                        <a href="#">
-                                                            <img src="{% static 'images/shop/13.jpg' %}" alt="Product"
-                                                                width="100" height="113" />
+                                                        <a href="{{ item.get_absolute_url }}">
+                                                            {% thumbnail item.get_first_image "100x113" as im %}
+                                                            <img src="{{ im.url }}" alt="{{ item.title }}"
+                                                                width="{{ im.width }}" height="{{ im.height }}" />
+                                                            {% endthumbnail %}
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
                                                         <h4 class="product-name">
-                                                            <a href="#">Aqlli soat</a>
+                                                            <a href="#">{{ item.title }}</a>
                                                         </h4>
                                                         <div class="ratings-container">
                                                             <div class="ratings-full">
@@ -1226,7 +1115,7 @@
                                                                 <span class="tooltiptext tooltip-top"></span>
                                                             </div>
                                                         </div>
-                                                        <div class="product-price">1 000 000 UZS</div>
+                                                        <div class="product-price">{{ item.price|sum|floatformat:-2|intcomma }}</div>
                                                     </div>
                                                 </div>
                                                 {% endfor %}
