@@ -96,3 +96,31 @@ input[type="checkbox"] {
   border: 1px solid #d9d4d4;
   border-radius: 3px;
 }
+
+.fa-star {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.rating .star-content {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.1rem;
+  color: #a9a9a9;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.rating .star-content .star {
+  position: relative;
+  display: block;
+  float: right;
+  width: 11px;
+  height: 20px;
+  margin: 1px;
+  overflow: hidden;
+  margin-top: -1px;
+}
+
+.checked {
+  color: firebrick;
+}

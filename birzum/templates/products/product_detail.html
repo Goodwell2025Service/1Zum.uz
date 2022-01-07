@@ -119,7 +119,7 @@
                                 {% comment %} <div class="product-price"><ins class="new-price">{{ product.price|sum|floatformat:-2|intcomma }} UZS</ins></div> {% endcomment %}
 
                                 <div class="ratings-container">
-                                    <div class="rating noClick">
+                                    <div class="rating mr-2">
                                         <div class="star-content" url="{% url 'rating:rate' object.id %}">
                                             {% for item in object.rating|mul:'i' %}
                                             <span class="fa fa-star checked"></span>
@@ -537,34 +537,27 @@
                                                             <span class="fa fa-star"></span>
                                                         </div>
                                                     </div>
-                                                    <select name="rating" id="rating" required=""
-                                                        style="display: none;">
-                                                        <option value="">Rate…</option>
-                                                        <option value="5">Perfect</option>
-                                                        <option value="4">Good</option>
-                                                        <option value="3">Average</option>
-                                                        <option value="2">Not that bad</option>
-                                                        <option value="1">Very poor</option>
-                                                    </select>
                                                 </div>
-                                                <textarea cols="30" rows="6"
-                                                    placeholder="Write Your Review Here..." class="form-control"
-                                                    id="review"></textarea>
-                                                <div class="row gutter-md">
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Your Name" id="author">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Your Email" id="email_1">
+                                                <div class="rating-author">
+                                                    <textarea cols="30" rows="6"
+                                                        placeholder="Write Your Review Here..." class="form-control"
+                                                        id="review"></textarea>
+                                                    <div class="row gutter-md">
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Your Name" id="author">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Your Email" id="email_1">
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="form-group">
                                                     <input type="checkbox" class="custom-checkbox"
                                                         id="save-checkbox">
-                                                    <label for="save-checkbox">Save my name, email, and website
-                                                        in this browser for the next time I comment.</label>
+                                                    <label for="save-checkbox" id="anonym">{% trans "Izohsiz baho berish" %}</label>
                                                 </div>
                                                 <button type="submit" class="btn btn-dark">Submit
                                                     Review</button>
