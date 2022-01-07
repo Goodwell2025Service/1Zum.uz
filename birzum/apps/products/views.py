@@ -23,11 +23,10 @@ home_view = Home.as_view()
 class ProductList(FilterView):
     queryset = Product.objects.select_related('category', 'brand').prefetch_related('image').all()
     filterset_class = ProductFilter
-    paginate_by = 1
 
     def get_queryset(self, **kwargs):
         cat_slug = self.kwargs.get('cat_slug', None)
-        paginate = self.request.GET.get('paginate', 1)
+        paginate = self.request.GET.get('paginate', 9)
         self.paginate_by = paginate
         if cat_slug:
             categories = get_object_or_404(Category, slug=cat_slug)
