@@ -1,47 +1,28 @@
-{% comment %} {% load i18n %}
+{% load i18n %}
 <div class="toolbox toolbox-pagination justify-content-between">
     <p class="showing-info mb-2 mb-sm-0">
     </p>
     <ul class="pagination">
-        {% if page.has_previous %}
+        {% if page_obj.has_previous %}
         <li class="prev disabled">
-            <a href="?page={{page.previous_page_number}}" aria-label="Previous" tabindex="-1" aria-disabled="true">
+            <a href="?page={{page_obj.previous_page_number}}" aria-label="Previous" tabindex="-1" aria-disabled="true">
                 <i class="w-icon-long-arrow-left"></i>{% trans "Avalgi sahifa" %}
             </a>
         </li>
         {% endif %}
-        {% for l in page.paginator.page_range %}
-            {% if l <= page.number|add:4 and l >= page.number|add:-4 %}
+        {% for l in page_obj.paginator.page_range %}
+            {% if l <= page_obj.number|add:4 and l >= page_obj.number|add:-4 %}
                 {% if forloop.counter > 1 %}
-                <li class="current-active"><a href="?page={{forloop.counter}}" class="disabled js-search-link">{{forloop.counter}}</a></li>
+                <li class="current-active"><a href="?page={{forloop.counter}}" class="disabled js-search-link">{{ forloop.counter }}</a></li>
                 {% endif %}
             {% endif %}
         {% endfor %}
-        {% if page.has_next %}
+        {% if page_obj.has_next %}
         <li class="next disabled">
-            <a href="?page={{page.next_page_number}}" aria-label="Next">
+            <a href="?page={{page_obj.next_page_number}}" aria-label="Next">
                 {% trans "Keyingi sahifa" %}<i class="w-icon-long-arrow-right"></i>
             </a>
         </li>
         {% endif %}
     </ul>
 </div>
-<li>
-    {% if page.has_previous %}
-    <a rel="prev" href="?page={{page.previous_page_number}}" class="previous disabled js-search-link" title="{% trans "Previous page" %}">
-        <i class="fa fa-angle-double-left" style="font-size: 1rem;"></i>
-    </a>
-    {% endif %}
-</li>
-{% for l in page.paginator.page_range %}
-{% if l <= page.number|add:4 and l >= page.number|add:-4 %}
-<li class="current-active"><a href="?page={{forloop.counter}}" class="disabled js-search-link">{{forloop.counter}}</a></li>
-{% endif %}
-{% endfor %}
-<li>
-    {% if page.has_next %}
-    <a rel="" href="?page={{page.next_page_number}}" class="disabled js-search-link" title="{% trans "Next page" %}">
-        <i class="fa fa-angle-double-right" style="font-size: 1rem;"></i>
-    </a>
-    {% endif %}
-</li> {% endcomment %}
