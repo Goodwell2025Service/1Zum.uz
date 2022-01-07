@@ -90,6 +90,8 @@ class Product(TimeStampedModel):
     slug = models.SlugField(_("Slag"), max_length=255, unique=True)
     description = models.TextField(_("Tafsif"), blank=True)
 
+    rating = models.IntegerField("Оценка", blank=True, default=0)
+
     specs = RichTextField(_("Xarakteristika"), blank=True)
     available = models.BooleanField("Sotuvda mavjud", default=True)
     bestseller = models.BooleanField("Eng ko'p sotiladigan mahsulot", default=False)

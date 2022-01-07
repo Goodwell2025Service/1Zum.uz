@@ -12,7 +12,7 @@
         {% endif %}
         {% for l in page_obj.paginator.page_range %}
             <li>
-                <a href="?page={{forloop.counter}}" class="disabled js-search-link paginator-item mr-1">
+                <a href="?page={{forloop.counter}}" class="paginator-item {% if request.GET.page == forloop.counter %}active{% endif %} js-search-link mr-1">
                     {{ forloop.counter }}
                 </a>
             </li>
@@ -25,4 +25,5 @@
         </li>
         {% endif %}
     </ul>
+    {{ request.GET.page }}
 </div>

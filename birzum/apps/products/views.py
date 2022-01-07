@@ -26,7 +26,7 @@ class ProductList(FilterView):
 
     def get_queryset(self, **kwargs):
         cat_slug = self.kwargs.get('cat_slug', None)
-        paginate = self.request.GET.get('paginate', 9)
+        paginate = self.request.GET.get('paginate', 1)
         self.paginate_by = paginate
         if cat_slug:
             categories = get_object_or_404(Category, slug=cat_slug)
