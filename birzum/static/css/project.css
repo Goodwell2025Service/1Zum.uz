@@ -90,3 +90,9 @@ input[type="checkbox"] {
   width: 80px;
   height: auto;
 }
+
+.paginator-item {
+  padding: 3px 13px;
+  border: 1px solid #d9d4d4;
+  border-radius: 3px;
+}
