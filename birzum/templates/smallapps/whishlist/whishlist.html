@@ -62,10 +62,10 @@
                         </td>
                         <td class="product-price">
                             {% if item.discount %}
-                            <ins class="new-price">{{ item.discount_price_sum|floatformat:-2|intcomma }} UZS</ins> <br>
-                            <del class="old-price">{{ item.price_sum|floatformat:-2|intcomma }} UZS</del>
+                            <ins class="new-price">{{ item.discount_price|sum|floatformat:-2|intcomma }} UZS</ins> <br>
+                            <del class="old-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</del>
                             {% else %}
-                            <ins class="new-price">{{ item.price_sum|floatformat:-2|intcomma }} UZS</ins>
+                            <ins class="new-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</ins>
                             {% endif %}
                         </td>
                         <td class="product-stock-status">

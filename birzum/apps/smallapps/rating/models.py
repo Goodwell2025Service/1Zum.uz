@@ -33,7 +33,7 @@ class Rating(models.Model):
 
 class Currency(models.Model):
     updated = models.DateTimeField(_('Yangilandi'), auto_now_add=True, editable=False)
-    currency = models.DecimalField(_('USD Reytingi'), max_digits=100, decimal_places=2, blank=True)
+    currency = models.DecimalField(_('USD Reytingi'), max_digits=13, decimal_places=2, blank=True)
 
     class Meta:
         ordering = ('-updated',)

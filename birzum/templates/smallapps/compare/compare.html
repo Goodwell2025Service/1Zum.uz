@@ -60,10 +60,10 @@
                     <div class="compare-col compare-value">
                         <div class="product-price">
                             {% if item.discount %}
-                            <span class="new-price">{{ item.discount_price_sum|floatformat:-2|intcomma }} UZS</span>
-                            <span class="old-price">{{ item.price_sum|floatformat:-2|intcomma }} UZS</span>
+                            <span class="new-price">{{ item.discount_price|sum|floatformat:-2|intcomma }} UZS</span>
+                            <span class="old-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</span>
                             {% else %}
-                            <span class="new-price">{{ item.price_sum|floatformat:-2|intcomma }} UZS</span>
+                            <span class="new-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</span>
                             {% endif %}
                         </div>
                     </div>
