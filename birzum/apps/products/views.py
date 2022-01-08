@@ -3,6 +3,7 @@ from django.views.generic import DetailView, ListView, TemplateView
 from django_filters.views import FilterView
 
 from birzum.apps.smallapps.company.models import Features
+from birzum.apps.smallapps.rating.models import Rating
 from .models import Category, Product, Brand
 from .filters import ProductFilter
 # Create your views here.
@@ -26,7 +27,7 @@ class ProductList(FilterView):
 
     def get_queryset(self, **kwargs):
         cat_slug = self.kwargs.get('cat_slug', None)
-        paginate = self.request.GET.get('paginate', 1)
+        paginate = self.request.GET.get('paginate', 9)
         self.paginate_by = paginate
         if cat_slug:
             categories = get_object_or_404(Category, slug=cat_slug)
@@ -62,6 +63,8 @@ class ProductDetail(DetailView):
         context["products_in_this_cat"] = Product.objects.filter(
             category=self.object.category).exclude(id=self.object.id)[:3]
         context["more"] = Product.objects.all().order_by('title')[:6]
+        context["comments"] = Rating.objects.filter(
+            product=self.object, published=True)
         return context
     
 

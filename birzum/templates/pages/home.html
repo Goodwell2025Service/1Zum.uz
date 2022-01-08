@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static i18n thumbnail custom_tags humanize %}
+{% load static i18n thumbnail mathfilters custom_tags humanize %}
 
 {% block content %}
 
@@ -149,9 +149,15 @@
                                 <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                             </h4>
                             <div class="ratings-container">
-                                <div class="ratings-full">
-                                    <span class="ratings" style="width: 100%;"></span>
-                                    <span class="tooltiptext tooltip-top"></span>
+                                <div class="rating mr-2 noClick">
+                                    <div class="star-content">
+                                        {% for item in item.rating|mul:'i' %}
+                                        <span class="fa fa-star checked"></span>
+                                        {% endfor %}
+                                        {% for item in 5|sub:item.rating|mul:'i' %}
+                                        <span class="fa fa-star"></span>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                                 <a href="#" class="rating-reviews">(3{% trans " izohlar)" %}</a>
                             </div>
@@ -1844,9 +1850,15 @@
                                     <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <div class="rating mr-2 noClick">
+                                        <div class="star-content">
+                                            {% for item in item.rating|mul:'i' %}
+                                            <span class="fa fa-star checked"></span>
+                                            {% endfor %}
+                                            {% for item in 5|sub:item.rating|mul:'i' %}
+                                            <span class="fa fa-star"></span>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="product-price">
@@ -1956,9 +1968,15 @@
                                     <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <div class="rating mr-2 noClick">
+                                        <div class="star-content">
+                                            {% for item in item.rating|mul:'i' %}
+                                            <span class="fa fa-star checked"></span>
+                                            {% endfor %}
+                                            {% for item in 5|sub:item.rating|mul:'i' %}
+                                            <span class="fa fa-star"></span>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="product-price">
@@ -1992,9 +2010,15 @@
                                     <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </h4>
                                 <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 100%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
+                                    <div class="rating mr-2 noClick">
+                                        <div class="star-content">
+                                            {% for item in item.rating|mul:'i' %}
+                                            <span class="fa fa-star checked"></span>
+                                            {% endfor %}
+                                            {% for item in 5|sub:item.rating|mul:'i' %}
+                                            <span class="fa fa-star"></span>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="product-price">

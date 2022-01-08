@@ -437,13 +437,19 @@
                                     <div class="col-xl-4 col-lg-5 mb-4">
                                         <div class="ratings-wrapper">
                                             <div class="avg-rating-container">
-                                                <h4 class="avg-mark font-weight-bolder ls-50">3.3</h4>
+                                                <h4 class="avg-mark font-weight-bolder ls-50">{{ object.rating }}</h4>
                                                 <div class="avg-rating">
                                                     <p class="text-dark mb-1">{% trans "Umumiy baho" %}</p>
                                                     <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: 60%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
+                                                        <div class="rating mr-2 noClick">
+                                                            <div class="star-content">
+                                                                {% for item in object.rating|mul:'i' %}
+                                                                <span class="fa fa-star checked"></span>
+                                                                {% endfor %}
+                                                                {% for item in 5|sub:object.rating|mul:'i' %}
+                                                                <span class="fa fa-star"></span>
+                                                                {% endfor %}
+                                                            </div>
                                                         </div>
                                                         <a href="#" class="rating-reviews">(3 {% trans "izohlar" %})</a>
                                                     </div>
@@ -461,7 +467,7 @@
                                                         <span></span>
                                                     </div>
                                                     <div class="progress-value">
-                                                        <mark>70%</mark>
+                                                        <mark>{{ object.five_point_percent }}%</mark>
                                                     </div>
                                                 </div>
                                                 <div class="ratings-container">
@@ -473,7 +479,7 @@
                                                         <span></span>
                                                     </div>
                                                     <div class="progress-value">
-                                                        <mark>30%</mark>
+                                                        <mark>{{ object.four_point_percent }}%</mark>
                                                     </div>
                                                 </div>
                                                 <div class="ratings-container">
@@ -485,7 +491,7 @@
                                                         <span></span>
                                                     </div>
                                                     <div class="progress-value">
-                                                        <mark>40%</mark>
+                                                        <mark>{{ object.three_point_percent }}%</mark>
                                                     </div>
                                                 </div>
                                                 <div class="ratings-container">
@@ -497,7 +503,7 @@
                                                         <span></span>
                                                     </div>
                                                     <div class="progress-value">
-                                                        <mark>0%</mark>
+                                                        <mark>{{ object.two_point_percent }}%</mark>
                                                     </div>
                                                 </div>
                                                 <div class="ratings-container">
@@ -509,7 +515,7 @@
                                                         <span></span>
                                                     </div>
                                                     <div class="progress-value">
-                                                        <mark>0%</mark>
+                                                        <mark>{{ object.one_point_percent }}%</mark>
                                                     </div>
                                                 </div>
                                             </div>
@@ -567,34 +573,29 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="show-all">
                                             <ul class="comments list-style-none">
-                                                {% comment %} <li class="comment">
+                                                {% for rating in comments %}
+                                                <li class="comment">
                                                     <div class="comment-body">
                                                         <figure class="comment-avatar">
-                                                            <img src="images/agents/1-100x100.png"
+                                                            <img src="{% static 'images/icons/user.png' %}"
                                                                 alt="Commenter Avatar" width="90" height="90">
                                                         </figure>
                                                         <div class="comment-content">
                                                             <h4 class="comment-author">
-                                                                <a href="#">John Doe</a>
-                                                                <span class="comment-date">March 22, 2021 at
-                                                                    1:54 pm</span>
+                                                                <a href="#">{{ rating.person }}</a>
+                                                                <span class="comment-date">{{ rating.created }}</span>
                                                             </h4>
                                                             <div class="ratings-container comment-rating">
                                                                 <div class="ratings-full">
                                                                     <span class="ratings"
-                                                                        style="width: 60%;"></span>
+                                                                        style="width: {{ rating.get_rating_percentage }}%;"></span>
                                                                     <span
                                                                         class="tooltiptext tooltip-top"></span>
                                                                 </div>
                                                             </div>
-                                                            <p>pellentesque habitant morbi tristique senectus
-                                                                et. In dictum non consectetur a erat.
-                                                                Nunc ultrices eros in cursus turpis massa
-                                                                tincidunt ante in nibh mauris cursus mattis.
-                                                                Cras ornare arcu dui vivamus arcu felis bibendum
-                                                                ut tristique.</p>
+                                                            <p>{{ rating.comment }}</p>
                                                             <div class="comment-action">
-                                                                <a href="#"
+                                                                {% comment %} <a href="#"
                                                                     class="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize">
                                                                     <i class="far fa-thumbs-up"></i>Helpful (1)
                                                                 </a>
@@ -602,22 +603,13 @@
                                                                     class="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize">
                                                                     <i class="far fa-thumbs-down"></i>Unhelpful
                                                                     (0)
-                                                                </a>
-                                                                <div class="review-image">
-                                                                    <a href="#">
-                                                                        <figure>
-                                                                            <img src="{% static 'images/products/default/review-img-1.jpg' %}"
-                                                                                width="60" height="60"
-                                                                                alt="Attachment image of John Doe's review on Electronics Black Wrist Watch"
-                                                                                data-zoom-image="{% static 'images/products/default/review-img-1-800x900.jpg' %}" />
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
+                                                                </a> {% endcomment %}
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </li>
-                                                 {% endcomment %}
+                                                {% endfor %}
                                             </ul>
                                         </div>
                                     </div>
@@ -677,8 +669,16 @@
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
+                                                <div class="rating mr-2 noClick">
+                                                    <div class="star-content">
+                                                        {% for item in object.rating|mul:'i' %}
+                                                        <span class="fa fa-star checked"></span>
+                                                        {% endfor %}
+                                                        {% for item in 5|sub:object.rating|mul:'i' %}
+                                                        <span class="fa fa-star"></span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
                                             </div>
                                             <a href="#" class="rating-reviews">(3 izohlar)</a>
                                         </div>
@@ -739,9 +739,15 @@
                                     <div class="product-details">
                                         <h4 class="product-name"><a href="{{ prod.get_absolute_url }}">{{ prod.title }}</a></h4>
                                         <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
+                                            <div class="rating mr-2 noClick">
+                                                <div class="star-content">
+                                                    {% for item in object.rating|mul:'i' %}
+                                                    <span class="fa fa-star checked"></span>
+                                                    {% endfor %}
+                                                    {% for item in 5|sub:object.rating|mul:'i' %}
+                                                    <span class="fa fa-star"></span>
+                                                    {% endfor %}
+                                                </div>
                                             </div>
                                             <a href="#" class="rating-reviews">{% trans "Izohlar" %}</a>
                                         </div>
@@ -835,9 +841,15 @@
                                                             <a href="#">{{ item.title }}</a>
                                                         </h4>
                                                         <div class="ratings-container">
-                                                            <div class="ratings-full">
-                                                                <span class="ratings" style="width: 100%;"></span>
-                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            <div class="rating mr-2 noClick">
+                                                                <div class="star-content">
+                                                                    {% for item in object.rating|mul:'i' %}
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    {% endfor %}
+                                                                    {% for item in 5|sub:object.rating|mul:'i' %}
+                                                                    <span class="fa fa-star"></span>
+                                                                    {% endfor %}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="product-price">{{ item.price|sum|floatformat:-2|intcomma }}</div>

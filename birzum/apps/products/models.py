@@ -141,6 +141,46 @@ class Product(TimeStampedModel):
     def is_discount(self):
         return True if self.discount_price else False
 
+    @property
+    def five_point_percent(self):
+        part_ratings = self.ratings.filter(rate=5)
+        all_ratings = self.ratings
+        if all_ratings and part_ratings:
+            return int((part_ratings.count() / all_ratings.count()) * 100)
+        return 0
+
+    @property
+    def four_point_percent(self):
+        part_ratings = self.ratings.filter(rate=4)
+        all_ratings = self.ratings
+        if all_ratings and part_ratings:
+            return int((part_ratings.count() / all_ratings.count()) * 100)
+        return 0
+
+    @property
+    def three_point_percent(self):
+        part_ratings = self.ratings.filter(rate=3)
+        all_ratings = self.ratings
+        if all_ratings and part_ratings:
+            return int((part_ratings.count() / all_ratings.count()) * 100)
+        return 0
+
+    @property
+    def two_point_percent(self):
+        part_ratings = self.ratings.filter(rate=2)
+        all_ratings = self.ratings
+        if all_ratings and part_ratings:
+            return int((part_ratings.count() / all_ratings.count()) * 100)
+        return 0
+
+    @property
+    def one_point_percent(self):
+        part_ratings = self.ratings.filter(rate=1)
+        all_ratings = self.ratings
+        if all_ratings and part_ratings:
+            return int((part_ratings.count() / all_ratings.count()) * 100)
+        return 0
+
 
 class Price(TimeStampedModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='prices')

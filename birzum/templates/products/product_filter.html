@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 	
-{% load static i18n custom_tags thumbnail humanize %}
+{% load static i18n custom_tags mathfilters thumbnail humanize %}
 
 {% block content %}
 
@@ -277,9 +277,15 @@
                                         <a href="{% url 'products:detail' cat_slug=p.category.slug slug=p.slug %}">{{ p.title }}</a>
                                     </h3>
                                     <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
+                                        <div class="rating mr-2 noClick">
+                                            <div class="star-content">
+                                                {% for item in p.rating|mul:'i' %}
+                                                <span class="fa fa-star checked"></span>
+                                                {% endfor %}
+                                                {% for item in 5|sub:p.rating|mul:'i' %}
+                                                <span class="fa fa-star"></span>
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                         <a href="{{ p.get_absolute_url }}" class="rating-reviews">(3 izohlar)</a>
                                     </div>

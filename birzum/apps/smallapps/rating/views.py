@@ -18,13 +18,10 @@ def rate(request, id):
     print(rating, message, phone, name)
     product = get_object_or_404(Product, id=id)
     if product:
-        rating = Rating.objects.create(
+        Rating.objects.create(
             product=product, rate=int(rating), comment=message,
             person=name, contact=phone
             )
-        if not rating.comment:
-            rating.published = True
-            rating.save()
 
         messages.add_message(request, messages.SUCCESS, _("Mahsulotga baho berganingizdan mamnunmiz!"))
 

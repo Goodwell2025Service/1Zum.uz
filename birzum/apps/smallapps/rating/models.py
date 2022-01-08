@@ -30,6 +30,10 @@ class Rating(models.Model):
     def __str__(self) -> str:
         return "# " + str(self.pk)
 
+    @property
+    def get_rating_percentage(self):
+        return int((self.rate / 5) * 100)
+
 
 class Currency(models.Model):
     updated = models.DateTimeField(_('Yangilandi'), auto_now_add=True, editable=False)
