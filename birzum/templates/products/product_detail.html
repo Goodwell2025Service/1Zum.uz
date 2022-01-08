@@ -119,8 +119,8 @@
                                 {% comment %} <div class="product-price"><ins class="new-price">{{ product.price|sum|floatformat:-2|intcomma }} UZS</ins></div> {% endcomment %}
 
                                 <div class="ratings-container">
-                                    <div class="rating mr-2">
-                                        <div class="star-content" url="{% url 'rating:rate' object.id %}">
+                                    <div class="rating mr-2 noClick">
+                                        <div class="star-content">
                                             {% for item in object.rating|mul:'i' %}
                                             <span class="fa fa-star checked"></span>
                                             {% endfor %}
@@ -439,21 +439,17 @@
                                             <div class="avg-rating-container">
                                                 <h4 class="avg-mark font-weight-bolder ls-50">3.3</h4>
                                                 <div class="avg-rating">
-                                                    <p class="text-dark mb-1">Average Rating</p>
+                                                    <p class="text-dark mb-1">{% trans "Umumiy baho" %}</p>
                                                     <div class="ratings-container">
                                                         <div class="ratings-full">
                                                             <span class="ratings" style="width: 60%;"></span>
                                                             <span class="tooltiptext tooltip-top"></span>
                                                         </div>
-                                                        <a href="#" class="rating-reviews">(3 izohlar)</a>
+                                                        <a href="#" class="rating-reviews">(3 {% trans "izohlar" %})</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div
-                                                class="ratings-value d-flex align-items-center text-dark ls-25">
-                                                <span
-                                                    class="text-dark font-weight-bold">66.7%</span>Recommended<span
-                                                    class="count">(2 of 3)</span>
+                                            <div class="ratings-value d-flex align-items-center text-dark ls-25">
                                             </div>
                                             <div class="ratings-list">
                                                 <div class="ratings-container">
@@ -521,13 +517,12 @@
                                     </div>
                                     <div class="col-xl-8 col-lg-7 mb-4">
                                         <div class="review-form-wrapper">
-                                            <h3 class="title tab-pane-title font-weight-bold mb-1">Submit Your
-                                                Review</h3>
-                                            <p class="mb-3">Your email address will not be published. Required
-                                                fields are marked *</p>
-                                            <form action="#" method="POST" class="review-form">
+                                            <h3 class="title tab-pane-title font-weight-bold mb-1">{% trans "Izohingizni qoldiring" %}</h3>
+                                            <p class="mb-3">{% trans "Sizning emailingiz ochiq ko'rsatilmaydi. faqat yulduzcha (*) bilan belgilangan maydonlarni to'ldiring" %}</p>
+                                            <form action="{% url 'rating:rate' object.id %}" method="POST" class="review-form">
+                                                {% csrf_token %}
                                                 <div class="rating-form">
-                                                    <label for="rating">Your Rating Of This Product :</label>
+                                                    <label for="rating">{% trans "Sizning bahoyingiz " %}:</label>
                                                     <div class="rating ml-3">
                                                         <div class="star-content">
                                                             <span class="fa fa-star"></span>
@@ -538,18 +533,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <input type="hidden" name="review[rating]">
                                                 <div class="rating-author">
-                                                    <textarea cols="30" rows="6"
-                                                        placeholder="Write Your Review Here..." class="form-control"
+                                                    <textarea cols="30" rows="6" name="message"
+                                                        placeholder="{% trans "Izoh qoldiring" %}" class="form-control"
                                                         id="review"></textarea>
                                                     <div class="row gutter-md">
                                                         <div class="col-md-6">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Your Name" id="author">
+                                                            <input type="text" class="form-control" name="name"
+                                                                placeholder="{% trans "Ismingiz" %}" id="author">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Your Email" id="email_1">
+                                                            <input type="phone" class="form-control" name="phone"
+                                                                placeholder="{% trans "Telefon raqamingiz" %}" id="email_1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -557,10 +553,9 @@
                                                 <div class="form-group">
                                                     <input type="checkbox" class="custom-checkbox"
                                                         id="save-checkbox">
-                                                    <label for="save-checkbox" id="anonym">{% trans "Izohsiz baho berish" %}</label>
+                                                    <label for="save-checkbox">{% trans "Izohsiz baho berish" %}</label>
                                                 </div>
-                                                <button type="submit" class="btn btn-dark">Submit
-                                                    Review</button>
+                                                <button type="submit" class="btn btn-dark">{% trans "Jo'natish" %}</button>
                                             </form>
                                         </div>
                                     </div>
@@ -572,7 +567,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="show-all">
                                             <ul class="comments list-style-none">
-                                                <li class="comment">
+                                                {% comment %} <li class="comment">
                                                     <div class="comment-body">
                                                         <figure class="comment-avatar">
                                                             <img src="images/agents/1-100x100.png"
@@ -622,7 +617,7 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                                
+                                                 {% endcomment %}
                                             </ul>
                                         </div>
                                     </div>

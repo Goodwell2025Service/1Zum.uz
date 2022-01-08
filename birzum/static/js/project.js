@@ -164,14 +164,14 @@ $(document).ready(function() {
         }
     })
 
-    $('#anonym').off().on('click', function(){
+    $('#save-checkbox').off().on('click', function(){
         console.log("clicked")
         if ($(this).is(":checked")){   
             console.log("checked")
             $(".rating-author").fadeOut();
             $(".rate-first").fadeOut();
         } else {
-            console.log("not checked")
+            console.log("not checked");
             $(".rating-author").fadeIn();
             $(".rate-first").fadeIn();
         }
@@ -180,4 +180,3 @@ $(document).ready(function() {
 })
 
 // https://app.slack.com/client/T02PM4HGUUX/C02Q41YLH2Q
-
