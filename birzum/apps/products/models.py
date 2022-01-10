@@ -7,6 +7,8 @@ from django.utils.translation import gettext_lazy as _
 from model_utils.models import TimeStampedModel
 from mptt.models import MPTTModel, TreeForeignKey
 
+from .managers import ProductsManager
+
 User = get_user_model()
 
 
@@ -112,6 +114,9 @@ class Product(TimeStampedModel):
         related_name="products",
         null=True, blank=True
     )
+
+    objects = models.Manager()
+    items = ProductsManager()
 
     class Meta:
         ordering = ('created',)

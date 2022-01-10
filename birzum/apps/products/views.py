@@ -65,7 +65,9 @@ class ProductDetail(DetailView):
         context["more"] = Product.objects.all().order_by('title')[:6]
         context["comments"] = Rating.objects.filter(
             product=self.object, published=True)
+        context['next'] = Product.items.get_next(id=self.object.id)
+        context['prev'] = Product.items.get_prev(id=self.object.id)
         return context
-    
+
 
 product_detail_view = ProductDetail.as_view()

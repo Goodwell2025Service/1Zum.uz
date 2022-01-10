@@ -21,9 +21,18 @@
                     <i class="w-icon-angle-left"></i>
                 </a>
                 <span class="product-nav-popup">
+                    {% if not prev.get_first_image %}
                     <img src="{% static 'images/products/product-nav-prev.jpg' %}" alt="Product" width="110"
                         height="110" />
-                    <span class="product-name">Soft Sound Maker</span>
+                    {% else %}
+                    {% thumbnail prev.get_first_image "110x110" as im %}
+                    <a href="{{ prev.get_absolute_url }}">
+                        <img src="{{ im.url }}" alt="{{ prev.title }}" width="{{ im.width }}"
+                        height="{{ im.height }}" />
+                    </a>
+                    {% endthumbnail %}
+                    {% endif %}
+                    <span class="product-name">{{ prev.title|default_if_none:"No data found" }}</span>
                 </span>
             </li>
             <li class="product-nav-next">
@@ -31,9 +40,18 @@
                     <i class="w-icon-angle-right"></i>
                 </a>
                 <span class="product-nav-popup">
-                    <img src="{% static 'images/products/product-nav-next.jpg' %}" alt="Product" width="110"
+                    {% if not next.get_first_image %}
+                    <img src="{% static 'images/products/product-nav-prev.jpg' %}" alt="Product" width="110"
                         height="110" />
-                    <span class="product-name">Fabulous Sound Speaker</span>
+                    {% else %}
+                    {% thumbnail next.get_first_image "110x110" as im %}
+                    <a href="{{ next.get_absolute_url }}">
+                        <img src="{{ im.url }}" alt="Product" width="{{ im.width }}"
+                        height="{{ im.height }}" />
+                    </a>
+                    {% endthumbnail %}
+                    {% endif %}
+                    <span class="product-name">{{ next.title|default_if_none:"No data found" }}</span>
                 </span>
             </li>
         </ul>
