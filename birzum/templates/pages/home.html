@@ -2073,7 +2073,7 @@
             </div>
             {% endif %}
             <!-- End of Brands Wrapper -->
-
+            {% if posts|length > 0 %}
             <div class="title-link-wrapper title-post mb-4 appear-animate">
                 <h2 class="title ls-normal mb-0">{% trans "Bizning blogimiz" %}</h2>
                 <a href="blog-listing.html" class="font-weight-bold font-size-normal mb-2">{% trans "Barcha maqolalar" %}<i
@@ -2122,7 +2122,9 @@
                 <div class="swiper-pagination"></div>
             </div>
             <!-- End of Blog Post -->
+            {% endif %}
 
+            {% if last_seen|length > 0 %}
             <div class="title-link-wrapper title-recent mb-4 appear-animate">
                 <h2 class="title ls-normal mb-0">{% trans "Yaqinda ko'rilgan mahsuloatlar" %}</h2>
                 <a href="shop-boxed-banner.html" class="font-weight-bold font-size-normal mb-2">{% trans "Barcha mahsulotlar" %}<i
@@ -2148,122 +2150,29 @@
                 }
             }">
                 <div class="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
+                    {% for item in last_seen %}
                     <div class="swiper-slide product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-1.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
+                                <a href="{{ item.get_absolute_url }}">
+                                    {% thumbnail item.get_first_image "152x171" as im %}
+                                    <img src="{{ im.url }}" alt="{{ item.title }}"
+                                        width="{{ im.width }}" height="{{ im.height }}" style="background-color: #fff" />
+                                    {% endthumbnail %}
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="#">Top Men's Hiking Hat</a>
+                                <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                             </h4>
                         </div>
                     </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-2.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Leather Stripe Watch</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-3.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Red Cap Sound Marker</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-4.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Smartphone Electronic Charger</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-5.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Blue Ski Boots</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-6.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Soft Sound Marker</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-7.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Multi Function Watch</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- End of Product Wrap -->
-                    <div class="swiper-slide product-wrap mb-0">
-                        <div class="product text-center product-absolute">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="{% static 'images/demos/demo7/products/8-8.jpg' %}" alt="Category image"
-                                        width="152" height="171" style="background-color: #fff" />
-                                </a>
-                            </figure>
-                            <h4 class="product-name">
-                                <a href="#">Running Machine</a>
-                            </h4>
-                        </div>
-                    </div>
+                    {% endfor %}
                     <!-- End of Product Wrap -->
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
             <!-- End of Reviewed Producs -->
+            {% endif %}
         </div>
         <!-- End of Container -->
     </div>

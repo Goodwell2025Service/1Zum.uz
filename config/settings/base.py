@@ -330,6 +330,7 @@ SOCIALACCOUNT_ADAPTER = "birzum.users.adapters.SocialAccountAdapter"
 CART_SESSION_ID = "2"
 COMPARE_SESSION_ID = "1"
 WHISHLIST_SESSION_ID = "3"
+LAST_SEEN_SESSION_ID = "4"
 
 #-------------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
