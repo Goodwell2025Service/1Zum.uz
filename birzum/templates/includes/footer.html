@@ -72,7 +72,7 @@
                             <li><a href="#">{% trans "Buyurtmani kuzatish" %}</a></li>
                             <li><a href="{% url 'cart:detail' %}">{% trans "Savat" %}</a></li>
                             <li><a href="{{ get_language_code }}/accounts/login">{% trans "Kirish" %}</a></li>
-                            <li><a href="#">{% trans "Yordam" %}</a></li>
+                            <li><a href="{% url 'company:contact' %}">{% trans "Yordam" %}</a></li>
                             <li><a href="{% url 'whishlist:whishlist' %}">{% trans "Sevimli mahsulotlar" %}</a></li>
                             <li><a href="#">{% trans "Mahfiylik siyosati" %}</a></li>
                         </ul>
