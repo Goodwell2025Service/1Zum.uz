@@ -93,12 +93,11 @@ $(document).ready(function() {
 
     // submit pagination form
     $('select[name="paginate"]').off().on('change', function(e) {
-        console.log("changed");
         $("#left-filter").submit();
     });
 
-    $('input[type="checkbox"]').off().on('click', function(e) {
-        console.log("changed");
+    $('input[name="category"], input[name="brand"], input[name="discount"], input[name="lising"]').off().on('click', function(e) {
+        console.log("something has worked")
         $("#left-filter").submit();
     });
 
@@ -149,7 +148,35 @@ $(document).ready(function() {
         });
     })
 
+    // event saving ratings
+    $('.fa-star').click(function(){
+        $(this).prevAll().addClass('checked');
+        $(this).addClass('checked');
+        $(this).nextAll().removeClass('checked');
+        const rate = $(this).prevAll().length + 1;
+        $('input[name="review[rating]"]').val(rate)
+        if ($('input[name="review[rating]"]').val()) {
+            $('#submitComment').attr('disabled', false)
+            $('#rateWarning').fadeOut()
+        } else {
+            $('#submitComment').attr('disabled', true)
+            $('#rateWarning').show()
+        }
+    })
+
+    $('#save-checkbox').off().on('click', function(){
+        console.log("clicked")
+        if ($(this).is(":checked")){   
+            console.log("checked")
+            $(".rating-author").fadeOut();
+            $(".rate-first").fadeOut();
+        } else {
+            console.log("not checked");
+            $(".rating-author").fadeIn();
+            $(".rate-first").fadeIn();
+        }
+    })
+
 })
 
 // https://app.slack.com/client/T02PM4HGUUX/C02Q41YLH2Q
-
