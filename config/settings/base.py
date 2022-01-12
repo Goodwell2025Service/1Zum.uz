@@ -105,6 +105,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize", # Handy template tags
+    "modeltranslation",
     "django.contrib.admin",
     "django.forms",
 ]
@@ -354,6 +355,8 @@ HIJACK_REGISTER_ADMIN = False
 
 HIJACK_USE_BOOTSTRAP = True
 
+# modeltranslation ----------------------------
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
 
 CKEDITOR_CONFIGS = {
