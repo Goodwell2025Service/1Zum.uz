@@ -9,6 +9,17 @@
 <!-- Start of Main -->
 <main class="main mb-10 pb-1">
     <!-- Start of Breadcrumb -->
+    
+    {% if messages %}
+    {% for message in messages %}
+    <div class="mb-3 mt-3 text-center">
+        <div class="alert alert-{{ message.tags }} alert-simple alert-inline show-code-action">
+            <h4 class="alert-title">{{ message }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
     <nav class="breadcrumb-nav container">
         <ul class="breadcrumb bb-no">
             <li><a href="{% url 'home' %}">{% trans "Asosiy sahifa" %}</a></li>
