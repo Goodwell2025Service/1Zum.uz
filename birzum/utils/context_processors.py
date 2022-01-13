@@ -12,8 +12,5 @@ def settings_context(_request):
     return {"DEBUG": settings.DEBUG}
 
 def local_context(request):
-    if request.path_info in ['/uz/', '/ru/']:
-        categories = Category.objects.select_related('parent').exclude(hide=True)
-    else:
-        categories = Category.objects.select_related('parent').all()
-    return {'categories': categories}
+    cats = Category.objects.select_related('parent').all()
+    return {'cats': cats, 'categories': cats.exclude(hide=True)}
