@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.urls import reverse
 
 from birzum.apps.products.models import Category
 from birzum.apps.cart.cart import Cart
@@ -11,5 +12,8 @@ def settings_context(_request):
     return {"DEBUG": settings.DEBUG}
 
 def local_context(request):
-    categories = Category.objects.select_related('parent')[:8]
+    if request.path_info in ['/uz/', '/ru/']:
+        categories = Category.objects.select_related('parent').exclude(hide=True)
+    else:
+        categories = Category.objects.select_related('parent').all()
     return {'categories': categories}

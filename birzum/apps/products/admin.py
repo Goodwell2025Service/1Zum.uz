@@ -27,6 +27,8 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(MPTTModelAdmin):
+    list_display = ['name', 'hide', 'order']
+    list_editable = ['hide', 'order']
     search_fields = ['name']
 
     def get_prepopulated_fields(self, request, obj=None):

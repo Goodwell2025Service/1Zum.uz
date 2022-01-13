@@ -37,6 +37,7 @@ class Category(MPTTModel):
         related_name=_("categories")
         )
     logo = models.ImageField(_("Logo"), upload_to="logo_image/", blank=True, null=True)
+    hide = models.BooleanField(_("Yashirish"), default=False)
     image = models.ImageField(_("Rasmi"), upload_to="cat_image/", blank=True, null=True)
 
     order = models.IntegerField(_("Tartib raqami"), default=10)
