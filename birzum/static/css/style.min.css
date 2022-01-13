@@ -15894,7 +15894,6 @@ body .product-popup {
   font-size: 1.4rem;
   letter-spacing: -0.009em;
   line-height: 1.1;
-  text-transform: capitalize;
 }
 .menu > li > a::after {
   margin-left: 0.6rem;
@@ -16415,7 +16414,6 @@ body .product-popup {
 .category-menu > li > a {
   display: block;
   padding: 1.3rem 1rem;
-  text-transform: capitalize;
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.1;

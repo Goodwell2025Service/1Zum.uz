@@ -12,13 +12,14 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx =  super().get_context_data(**kwargs)
         last = Last(self.request)
-        ctx['last_seen'] = Product.objects.filter(id__in=last.box.keys()).prefetch_related('image')
+        ctx['last_seen'] = Product.objects.filter(
+            id__in=last.box.keys()).select_related('brand', 'category').prefetch_related('image')
         ctx['banners'] = HomePageBanner.objects.all()
         ctx['features'] = Features.objects.all()
         ctx['partners'] = Partner.objects.all()
-        ctx['last'] = Product.objects.all().order_by('created')[:4]
-        ctx['products'] = Product.objects.all()[:3]
-        ctx['bestseller'] = Product.objects.filter(bestseller=True)[:3]
-        ctx['best'] = Product.objects.all()[:3]
+        ctx['products'] = Product.objects.select_related(
+            'brand', 'category').prefetch_related('image')[:3]
+        ctx['bestseller'] = Product.objects.filter(
+            bestseller=True).select_related('brand', 'category').prefetch_related('image')[:3]
         ctx['posts'] = New.objects.all().order_by('created')
         return ctx

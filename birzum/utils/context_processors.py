@@ -11,5 +11,5 @@ def settings_context(_request):
     return {"DEBUG": settings.DEBUG}
 
 def local_context(request):
-    categories = Category.objects.select_related('parent').all()
+    categories = Category.objects.select_related('parent')[:8]
     return {'categories': categories}

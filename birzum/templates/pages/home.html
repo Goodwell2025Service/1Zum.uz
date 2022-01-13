@@ -123,7 +123,7 @@
                         class="w-icon-long-arrow-right"></i></a>
             </div>
             <div class="row appear-animate">
-                {% for item in last %}
+            {% for item in products  %}
                 <div class="col-lg-6 mb-4">
                     <div class="product product-list br-xs mb-0">
                         <figure class="product-media">
@@ -314,7 +314,7 @@
                         </figure>
                         <div class="product-details">
                             <h4 class="product-name">
-                                <a href="#">Best Pedestrian Bag</a>
+                                <a href="#">products Pedestrian Bag</a>
                             </h4>
                             <div class="ratings-container">
                                 <div class="ratings-full">
@@ -1953,7 +1953,7 @@
                 <div class="col-lg-4 col-sm-4 mb-6">
                     <h4 class="title title-underline mb-2 pt-1">{% trans "Sevimli mahsulotlar" %}</h4>
                     <div class="widget widget-products">
-                        {% for item in best %}
+                        {% for item in products %}
                         <div class="product product-widget">
                             <figure class="product-media">
                                 <a href="{{ item.get_absolute_url }}">
@@ -1995,7 +1995,7 @@
                 <div class="col-lg-4 col-sm-4 mb-6">
                     <h4 class="title title-underline mb-2 pt-1">{% trans "Yangli mahsulotlar" %}</h4>
                     <div class="widget widget-products">
-                        {% for item in last %}
+                        {% for item in products  %}
                         <div class="product product-widget">
                             <figure class="product-media">
                                 <a href="{{ item.get_absolute_url }}">

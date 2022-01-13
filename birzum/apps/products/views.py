@@ -16,7 +16,7 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         last = Last(self.request)
-        ctx['categories'] = Category.objects.select_related('parent').all()
+        ctx['categories'] = Category.objects.select_related('parent')
         ctx['last_seen'] = Product.objects.filter(id__in=last.box.keys()).prefetch_related('images')
         return ctx
 
@@ -25,7 +25,7 @@ home_view = Home.as_view()
 
 
 class ProductList(FilterView):
-    queryset = Product.objects.select_related('category', 'brand').prefetch_related('image').all()
+    queryset = Product.objects.select_related('category', 'brand').prefetch_related('image')
     filterset_class = ProductFilter
 
     def get_queryset(self, **kwargs):
@@ -61,7 +61,7 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["features"] = Features.objects.all()
-        context["products_from_this_vendor"] = Product.objects.filter(
+        context["products_from_this_vendor"] = Product.objects.select_related('brand', 'category').filter(
             brand=self.object.brand).exclude(id=self.object.id)[:3]
         context["products_in_this_cat"] = Product.objects.filter(
             category=self.object.category).exclude(id=self.object.id)[:3]
