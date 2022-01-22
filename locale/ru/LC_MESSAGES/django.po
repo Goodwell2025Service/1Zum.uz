@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-04 20:20+0500\n"
-"PO-Revision-Date: 2022-01-12 23:04+0437\n"
-"Last-Translator:   <ubuhobbit@gmail.com>\n"
+"PO-Revision-Date: 2022-01-22 14:22+0437\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -93,11 +93,11 @@ msgstr "Вопросы"
 
 #: birzum/apps/cart/views.py:14
 msgid "Mahsulot muvoffaqiyatli qo'shildi!"
-msgstr "Товар успешно добавлен!"
+msgstr "Продукт успешно добавлен!"
 
 #: birzum/apps/cart/views.py:15
 msgid "Mahsulot sotuvda qolmagan!"
-msgstr "Товара нет в продаже!"
+msgstr "Продукт нет в продаже!"
 
 #: birzum/apps/order/apps.py:7 birzum/apps/order/models.py:39
 #: birzum/apps/order/models.py:57 birzum/templates/users/user_detail.html:40
@@ -171,7 +171,7 @@ msgstr "Зкакз"
 #: birzum/templates/order/order_create.html:197
 #: birzum/templates/smallapps/compare/compare.html:33
 msgid "Mahsulot"
-msgstr "Товар"
+msgstr "Продукт"
 
 #: birzum/apps/order/models.py:51 birzum/apps/products/models.py:143
 msgid "narx"
@@ -185,7 +185,7 @@ msgstr "Количество"
 #: birzum/templates/products/product_detail.html:15
 #: birzum/templates/smallapps/whishlist/whishlist.html:31
 msgid "Mahsulotlar"
-msgstr "Товары"
+msgstr "Продукты"
 
 #: birzum/apps/products/models.py:14
 msgid "Brend nomi"
@@ -294,7 +294,7 @@ msgstr "Цена кредита"
 
 #: birzum/apps/products/models.py:113
 msgid "mahsulot"
-msgstr "товар"
+msgstr "продукт"
 
 #: birzum/apps/products/models.py:144
 msgid "Narxlar"
@@ -371,11 +371,11 @@ msgstr "Показать раздел статистики"
 
 #: birzum/apps/smallapps/company/models.py:34
 msgid "Sotuvdagi productlar"
-msgstr "Товары для продажи"
+msgstr "Продукты для продажи"
 
 #: birzum/apps/smallapps/company/models.py:35
 msgid "Sotuvdagi mahsulotlar tavsifi"
-msgstr "Описание товаров для продажи"
+msgstr "Описание продуктов для продажи"
 
 #: birzum/apps/smallapps/company/models.py:37
 #: birzum/templates/pages/about.html:122
@@ -631,7 +631,7 @@ msgstr "Рекламный баннер, занимающий половину �
 
 #: birzum/apps/smallapps/reklama/models.py:64
 msgid "Mahsulotlar bo'limida o'ng yondagi kichik reklama banneri"
-msgstr "Небольшой рекламный баннер справа в разделе Товары"
+msgstr "Небольшой рекламный баннер справа в разделе продукты"
 
 #: birzum/apps/smallapps/reklama/models.py:79
 msgid "Mahsus malumotlari bo'limi [chapdagi uzun vertikal reklama]"
@@ -972,7 +972,7 @@ msgstr "продукт добавлен"
 #: birzum/templates/includes/home_header.html:98
 #: birzum/templates/includes/home_header.html:141
 msgid "Savat"
-msgstr "покупка товаров"
+msgstr "покупка продуктов"
 
 #: birzum/templates/blog/new_list.html:23
 msgid "Bosh sahifa"
@@ -1110,7 +1110,7 @@ msgstr "ЭККС"
 #: birzum/templates/includes/home_header.html:206
 #: birzum/templates/includes/mobile-menu.html:44
 msgid "Mahsulotni qaytarib olish yoki almashtirish"
-msgstr "Возврат или обмен товара"
+msgstr "Возврат или обмен продукт"
 
 #: birzum/templates/includes/default_header.html:590
 #: birzum/templates/includes/home_header.html:207
@@ -1198,7 +1198,7 @@ msgstr "Ваши деньги будут возвращены"
 
 #: birzum/templates/includes/footer.html:87
 msgid "Mahsulotni qaytarish"
-msgstr "Вернуть товар"
+msgstr "Вернуть Продукт"
 
 #: birzum/templates/includes/footer.html:88
 msgid "Qo'llab quvvatlash"
@@ -1210,7 +1210,7 @@ msgstr "Условия эксплуатации"
 
 #: birzum/templates/includes/footer.html:174
 msgid "Copyright © 2021 | 1zum do'koni. Barcha huquqlar himoyalangan"
-msgstr "Copyright © 2021-22 | магазин 1zum. все права защищены"
+msgstr "Copyright © 2021-22 | магазин 1zum. Все права защищены"
 
 #: birzum/templates/includes/footer.html:177
 msgid "Havfsiz to'lovlar"
@@ -1309,11 +1309,11 @@ msgstr "Онлайн поддержка"
 
 #: birzum/templates/pages/about.html:75
 msgid "Xarid bo'yicha konsultatsiya"
-msgstr "Xarid bo'yicha konsultatsiya"
+msgstr "Консультации по закупкам"
 
 #: birzum/templates/pages/about.html:113
 msgid "Sotuvdagi mahsulotlar"
-msgstr "Товары для продажи"
+msgstr "Продукты для продажи"
 
 #: birzum/templates/pages/about.html:146
 msgid "Mijozlar haqida qayguramiz"
@@ -1386,7 +1386,7 @@ msgstr "Комментарии"
 
 #: birzum/templates/products/product_detail.html:1094
 msgid "Ushbu kategoriyadagi mahsulotlar"
-msgstr "Товары в этой категории"
+msgstr "Продукты в этой категории"
 
 #: birzum/templates/products/product_detail.html:1095
 #: birzum/templates/products/product_detail.html:1205
@@ -1437,11 +1437,11 @@ msgstr "Окно сравнения"
 
 #: birzum/templates/smallapps/compare/compare.html:77
 msgid "images/products/elements/3.jpg"
-msgstr "изображения / товары / элементы / 3.jpg"
+msgstr "изображения / продукты / элементы / 3.jpg"
 
 #: birzum/templates/smallapps/compare/compare.html:96
 msgid "images/products/elements/4-1.jpg"
-msgstr "маги / товары / стихии / 4-1.jpg"
+msgstr "маги / продукты / стихии / 4-1.jpg"
 
 #: birzum/templates/users/user_detail.html:37
 msgid "Menu"
