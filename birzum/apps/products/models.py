@@ -102,7 +102,7 @@ class Product(TimeStampedModel):
     discount = models.BooleanField("Chegirma", default=False)
     lising = models.BooleanField("Lising", default=False)
 
-    price = models.DecimalField(_("Narx Dollarda"), max_digits=13, decimal_places=2, blank=True)
+    price = models.DecimalField(_("Narx Dollarda"), max_digits=13, decimal_places=2, default=0)
     price_sum = models.DecimalField(_("Narx Sumda"), max_digits=13, decimal_places=2, default=0)
     discount_price = models.DecimalField(_("Chegirma narx Dollarda"), max_digits=13, decimal_places=2, null=True, blank=True)
     discount_price_sum = models.DecimalField(_("Chegirma narx Sumda"), max_digits=13, decimal_places=2, default=0)
