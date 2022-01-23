@@ -1,4 +1,4 @@
-{% load static i18n mptt_tags thumbnail custom_tags %}
+{% load static i18n mptt_tags thumbnail humanize custom_tags %}
 
 <header class="header">
     <div class="header-top">
@@ -104,7 +104,7 @@
                                     <a href="#" class="product-name">{{ product.title }}</a>
                                     <div class="price-box">
                                         <span class="product-quantity">{{ item.quantity }}</span>
-                                        <span class="product-price">{{ item.price }} UZS</span>
+                                        <span class="product-price">{{ item.price|sum|floatformat:-2|intcomma }} UZS</span>
                                     </div>
                                 </div>
                                 <figure class="product-media">
@@ -126,7 +126,7 @@
                         <div class="cart-total">
                             <label>{% trans "Umumiy" %}:</label>
                             {% if cart|length > 0 %}
-                            <span class="price">{{ cart.get_total_price }} UZS</span>
+                            <span class="price">{{ cart.get_total_price|sum|floatformat:-2|intcomma }} UZS</span>
                             {% endif %}
                         </div>
 
