@@ -697,16 +697,14 @@
                                         <h4 class="product-name"><a href="{{ prod.get_anbolute_url }}">{{ prod.title }}</a>
                                         </h4>
                                         <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <div class="rating mr-2 noClick">
-                                                    <div class="star-content">
-                                                        {% for item in prod.rating|mul:'i' %}
-                                                        <span class="fa fa-star checked"></span>
-                                                        {% endfor %}
-                                                        {% for item in 5|sub:prod.rating|mul:'i' %}
-                                                        <span class="fa fa-star"></span>
-                                                        {% endfor %}
-                                                    </div>
+                                            <div class="rating mr-2 noClick">
+                                                <div class="star-content">
+                                                    {% for item in prod.rating|mul:'i' %}
+                                                    <span class="fa fa-star checked"></span>
+                                                    {% endfor %}
+                                                    {% for item in 5|sub:prod.rating|mul:'i' %}
+                                                    <span class="fa fa-star"></span>
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                             <a href="#" class="rating-reviews">({{ object.rating|length }} {% trans "izohlar" %})</a>
