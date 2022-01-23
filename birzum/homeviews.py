@@ -17,7 +17,6 @@ class HomeView(TemplateView):
         ctx['banners'] = HomePageBanner.objects.all()
         ctx['big_vertical'] = HorizontalAdvert.objects.last()
         ctx['half_page'] = HalfPageAdvert.objects.all()[:2]
-        ctx['right_side'] = SidebarAdvert.objects.last()
         ctx['top_prods'] = TopProductsAdvert.objects.last()
         ctx['features'] = Features.objects.all()
         ctx['partners'] = Partner.objects.all()

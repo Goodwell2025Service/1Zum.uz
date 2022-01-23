@@ -700,16 +700,16 @@
                                             <div class="ratings-full">
                                                 <div class="rating mr-2 noClick">
                                                     <div class="star-content">
-                                                        {% for item in object.rating|mul:'i' %}
+                                                        {% for item in prod.rating|mul:'i' %}
                                                         <span class="fa fa-star checked"></span>
                                                         {% endfor %}
-                                                        {% for item in 5|sub:object.rating|mul:'i' %}
+                                                        {% for item in 5|sub:prod.rating|mul:'i' %}
                                                         <span class="fa fa-star"></span>
                                                         {% endfor %}
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="#" class="rating-reviews">(3 izohlar)</a>
+                                            <a href="#" class="rating-reviews">({{ object.rating|length }} {% trans "izohlar" %})</a>
                                         </div>
                                         <div class="product-pa-wrapper">
                                             <div class="product-price">{{ prod.price|sum|floatformat:-2|intcomma }}</div>
@@ -770,15 +770,15 @@
                                         <div class="ratings-container">
                                             <div class="rating mr-2 noClick">
                                                 <div class="star-content">
-                                                    {% for item in object.rating|mul:'i' %}
+                                                    {% for item in prod.rating|mul:'i' %}
                                                     <span class="fa fa-star checked"></span>
                                                     {% endfor %}
-                                                    {% for item in 5|sub:object.rating|mul:'i' %}
+                                                    {% for item in 5|sub:prod.rating|mul:'i' %}
                                                     <span class="fa fa-star"></span>
                                                     {% endfor %}
                                                 </div>
                                             </div>
-                                            <a href="#" class="rating-reviews">{% trans "Izohlar" %}</a>
+                                            <a href="#" class="rating-reviews">{{ prod.rating|length }} {% trans "Izohlar" %}</a>
                                         </div>
                                         <div class="product-pa-wrapper">
                                             <div class="product-price">{{ prod.price|sum|floatformat:-2|intcomma }}</div>
