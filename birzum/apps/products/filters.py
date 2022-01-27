@@ -28,7 +28,7 @@ class ProductFilter(django_filters.FilterSet):
         fields = ["discount", "lising"]
 
     def category_filter(self, queryset, name, value):
-        categories = Category.objects.filter(id__in=value).values_list('id')
+        categories = Category.objects.filter(id__in=value)
         return queryset.filter(category__in=categories)
 
     def brand_filter(self, queryset, name, value):

@@ -20,12 +20,10 @@ def cart_add(request, id):
 
     # agar product bor bo'lsa get parametrdan uni countini tekshirib ko'ramiz
     if obj:
-        print("Cartaga qoshildi")
         # tekshiruv tugagandan song cartaga mahsulotni qo'shib yuboramiz
         cart.add(product=obj, quantity=int(count))
 
         return JsonResponse({"success": True, "message": success_message, 'count': count}, safe=False)
-    print("qoshilmadi")
     return JsonResponse({"success": False, "message": fail_message}, safe=False)
 
 
@@ -44,8 +42,6 @@ def cart_clear(request):
 
 def cart_detail(request):
     cart = Cart(request)
-    print("THis ios a cart total price", cart.get_total_price())
-    print([cart.cart[item]['price'] for item in cart.cart.keys()])
     return render(request, 'cart/cart.html', {'cart': cart})
 
 

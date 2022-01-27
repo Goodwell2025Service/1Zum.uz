@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView, TemplateView
 from django_filters.views import FilterView
+from django.core.paginator import Paginator
 
 from birzum.apps.smallapps.company.models import Features
 from birzum.apps.smallapps.rating.models import Rating
@@ -25,13 +26,13 @@ home_view = Home.as_view()
 
 
 class ProductList(FilterView):
-    queryset = Product.objects.select_related('category', 'brand').prefetch_related('image')
+    queryset = Product.objects.select_related('category', 'brand', 'chegirma').prefetch_related('image', 'ratings')
     filterset_class = ProductFilter
 
     def get_queryset(self, **kwargs):
         cat_slug = self.kwargs.get('cat_slug', None)
         paginate = self.request.GET.get('paginate', 9)
-        self.paginate_by = paginate
+        paginator = Paginator(self.filterset_class.qs, paginate)
         if cat_slug:
             categories = get_object_or_404(Category, slug=cat_slug)
         try:
@@ -43,7 +44,8 @@ class ProductList(FilterView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['brands'] = Brand.objects.all()
+        ctx['brands'] = Brand.objects.select_related('category').prefetch_related('product').all()
+        ctx['cats'] = Category.objects.filter(image__isnull=False).select_related('parent')
         return ctx
 
 
@@ -51,7 +53,8 @@ product_list_view = ProductList.as_view()
 
 
 class ProductDetail(DetailView):
-    model = Product
+    queryset = Product.objects.select_related(
+        'category', 'brand', 'chegirma').prefetch_related('image', 'ratings').all()
     slug_field = 'slug'
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -61,15 +64,14 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["features"] = Features.objects.all()
-        context["products_from_this_vendor"] = Product.objects.select_related('brand', 'category').filter(
-            brand=self.object.brand).exclude(id=self.object.id)[:3]
-        context["products_in_this_cat"] = Product.objects.filter(
-            category=self.object.category).exclude(id=self.object.id)[:3]
-        context["more"] = Product.objects.all().order_by('title')[:6]
-        context["comments"] = Rating.objects.filter(
+        if self.object.brand:
+            context["products_from_this_vendor"] = Product.items.in_same_vendor(
+                brand_id=self.object.brand.id, prod_id=self.object.id)
+        context["products_in_this_cat"] = Product.items.in_same_category(
+            cat_id=self.object.category_id, prod_id=self.object.id)
+        context["more"] = Product.items.more()
+        context["comments"] = Rating.objects.select_related('product').filter(
             product=self.object, published=True)
-        context['next'] = Product.items.get_next(id=self.object.id)
-        context['prev'] = Product.items.get_prev(id=self.object.id)
         return context
 
     def get_object(self, *args, **kwargs):

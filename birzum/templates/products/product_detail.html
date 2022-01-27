@@ -602,7 +602,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="show-all">
                                             <ul class="comments list-style-none">
-                                                {% for rating in comments %}
+                                                {% for rating in object.ratings.all %}
                                                 <li class="comment">
                                                     <div class="comment-body">
                                                         <figure class="comment-avatar">

@@ -12,5 +12,5 @@ def settings_context(_request):
     return {"DEBUG": settings.DEBUG}
 
 def local_context(request):
-    cats = Category.objects.select_related('parent').all()
-    return {'cats': cats, 'categories': cats.exclude(hide=True)}
+    cats = Category.objects.filter(hide=False).select_related('parent')
+    return {'categories': cats}

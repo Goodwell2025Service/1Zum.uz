@@ -13,7 +13,7 @@ class HomeView(TemplateView):
         ctx =  super().get_context_data(**kwargs)
         last = Last(self.request)
         ctx['last_seen'] = Product.objects.filter(
-            id__in=last.box.keys()).select_related('brand', 'category').prefetch_related('image')
+            id__in=last.box.keys()).select_related('brand', 'category').prefetch_related('image', 'ratings')
         ctx['banners'] = HomePageBanner.objects.all()
         ctx['big_vertical'] = HorizontalAdvert.objects.last()
         ctx['half_page'] = HalfPageAdvert.objects.all()[:2]
@@ -21,8 +21,8 @@ class HomeView(TemplateView):
         ctx['features'] = Features.objects.all()
         ctx['partners'] = Partner.objects.all()
         ctx['products'] = Product.objects.select_related(
-            'brand', 'category').prefetch_related('image')[:8]
+            'brand', 'category', 'chegirma').prefetch_related('image', 'ratings')[:8]
         ctx['bestseller'] = Product.objects.filter(
-            bestseller=True).select_related('brand', 'category').prefetch_related('image')[:3]
-        ctx['posts'] = New.objects.all().order_by('created')
+            bestseller=True).select_related('brand', 'category', 'chegirma').prefetch_related('image', 'ratings')[:3]
+        ctx['posts'] = New.objects.select_related('category').order_by('created')
         return ctx
