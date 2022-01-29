@@ -13,7 +13,7 @@ def compare_add(request, id):
     fail_message = _("Mahsulot sotuvda qolmagan!")
 
     compare = Compare(request)
-    obj = Product.objects.filter(available=True, id=id).first()
+    obj = Product.objects.filter(id=id).first()
 
     # agar product bor bo'lsa get parametrdan uni countini tekshirib ko'ramiz
     if obj:
