@@ -28,6 +28,7 @@ home_view = Home.as_view()
 class ProductList(FilterView):
     queryset = Product.objects.select_related('category', 'brand', 'chegirma').prefetch_related('image', 'ratings')
     filterset_class = ProductFilter
+    paginate_by = 30
 
     def get_queryset(self, **kwargs):
         cat_slug = self.kwargs.get('cat_slug', None)
