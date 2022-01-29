@@ -15,6 +15,7 @@ def trigger_error(request):
 urlpatterns = (
     i18n_patterns(
         path("", HomeView.as_view(), name="home"),
+        path("coming-soon/", TemplateView.as_view(template_name="pages/soon.html"), name="soon"),
         # Django Admin, use {% url 'admin:index' %}
         path(settings.ADMIN_URL, admin.site.urls),
         path("translations/", include("rosetta.urls")),

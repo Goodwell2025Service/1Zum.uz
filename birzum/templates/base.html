@@ -327,10 +327,10 @@
     <span id="startCompare" class="d-none">{% trans "Taqqoslashni boshlash" %}</span>
     <span id="productsText" class="d-none">{% trans "mahsulotlar" %}</span>
 
+    {% block javascript %}
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/sticky/sticky.js' %}"></script>
     <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
     <script src="{% static 'vendor/parallax/parallax.min.js' %}"></script>
     <script src="{% static 'vendor/jquery.plugin/jquery.plugin.min.js' %}"></script>
     <script src="{% static 'vendor/jquery.countdown/jquery.countdown.min.js' %}"></script>
@@ -338,13 +338,12 @@
     <script src="{% static 'vendor/isotope/isotope.pkgd.min.js' %}"></script>
     <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'vendor/zoom/jquery.zoom.js' %}"></script>
-    <script src="{% static 'vendor/photoswipe/photoswipe.js' %}"></script>
-    <script src="{% static 'vendor/photoswipe/photoswipe-ui-default.js' %}"></script>
     <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
 
     <!-- Main JS -->
     <script src="{% static 'js/main.min.js' %}"></script>
     <script src="{% static 'js/project.js' %}"></script>
+    {% endblock javascript %}
 </body>
 
 </html>

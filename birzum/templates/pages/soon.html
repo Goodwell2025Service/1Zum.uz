@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block content %}
+
+{% include 'includes/home_header.html' %}
+
+<div class="page-content">
+    <div class="banner coming-soon-bg"
+        style="background-image: url({% static 'images/coming-soon.jpg' %}); background-color: #333;">
+        <div class="coming-content-wrapper d-flex align-items-center justify-content-end pl-sm-4 pr-sm-4">
+            <div class="coming-content">
+                <a href="{% url 'home' %}" class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" width="168" height="53">
+                </a>
+                <h2 class="coming-title ls-25">Tez <span>orada...</span></h2>
+                <p>Biz hozirda ushbu sahifa kontenti ustida izlanish olib bormoqdamiz...</p>
+                {% comment %} <div class="countdown countdown-coming" data-until="+50d" data-format="DHMS"
+                    data-relative="true">50:00:00</div> {% endcomment %}
+
+                <div class="social-icons social-icons-colored">
+                    <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
+                    <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
+                    <a href="#" class="social-icon social-instagram w-icon-instagram"></a>
+                    <a href="#" class="social-icon social-youtube w-icon-youtube"></a>
+                    <a href="#" class="social-icon social-pinterest w-icon-pinterest"></a>
+                </div>
+                <p class="copyright mb-0">Copyright © 2022 - 1Zum.uz. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block javascript %}
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.plugin/jquery.plugin.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.countdown/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/main.min.js' %}"></script>
+{% endblock javascript %}
