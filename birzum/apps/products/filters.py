@@ -29,7 +29,10 @@ class ProductFilter(django_filters.FilterSet):
 
     def category_filter(self, queryset, name, value):
         categories = Category.objects.filter(id__in=value)
-        return queryset.filter(category__in=categories)
+        cats = None
+        for category in categories:
+            cat_ids = category.get_descendants(include_self=True).values_list('id')
+        return queryset.filter(category__id__in=cat_ids)
 
     def brand_filter(self, queryset, name, value):
         brands = Brand.objects.filter(id__in=value).values_list('id')
