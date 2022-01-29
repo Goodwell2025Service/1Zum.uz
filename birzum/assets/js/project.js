@@ -5,7 +5,6 @@ $(document).ready(function() {
     $('.btn-cart').off().on('click', function(e){
         e.preventDefault();
         let count = $('.qty').val()
-        // console.log('clicked', count, $('.cart-count'))
         $.ajax({
             method: "GET",
             url: $(this).attr("href"),
@@ -13,11 +12,9 @@ $(document).ready(function() {
             dataType: 'json',
             success: function (data) {
                 if (data.success) {
-                    console.log(data.message)
                     $('#header-cart').text(data.count)
                     $('#success_msg').text(data.message)
                 } else {
-                    console.log(data.message)
                     $('#success_msg').text(data.message)
                     $('#success_msg').css('color', 'red')
                 }
@@ -41,12 +38,10 @@ $(document).ready(function() {
     $('.quantity-plus').off().click(function(e){
         e.preventDefault()
         let productId = $(this).attr("product-id")
-        console.log($(this).attr('class'), productId)
         let productQuantity = $(this).prev('.qty')
         if (Number(productQuantity.val()) < 20) {
             productQuantity.val(Number(productQuantity.val()) + 1);
         }
-        console.log("quantity now", productQuantity.val())
 
         let elem = $(this)
 
@@ -68,14 +63,11 @@ $(document).ready(function() {
     $('.quantity-minus').off().click(function(e){
         e.preventDefault()
         let productId = $(this).attr("product-id")
-        console.log($(this).attr('class'), productId)
         let productQuantity = $(this).prev().prev()
         if (Number(productQuantity.val()) > 1) {
             productQuantity.val(Number(productQuantity.val()) - 1);
         }
         
-        console.log("quantity now", productQuantity.val())
-
         let elem = $(this)
         $.ajax({
             method: "GET",
@@ -97,7 +89,6 @@ $(document).ready(function() {
     });
 
     $('input[name="category"], input[name="brand"], input[name="discount"], input[name="lising"]').off().on('click', function(e) {
-        console.log("something has worked")
         $("#left-filter").submit();
     });
 
@@ -110,7 +101,6 @@ $(document).ready(function() {
         e.preventDefault();
         let count = $('.qty').val()
         let compare_link = $(this).attr("href")
-        // console.log('clicked', count, $('.cart-count'))
         $.ajax({
             method: "GET",
             url: $(this).attr("href"),
@@ -118,11 +108,9 @@ $(document).ready(function() {
             dataType: 'json',
             success: function (data) {
                 if (data.success) {
-                    console.log(data.message)
                     $('#success_msg').text(data.message)
                     $(this).removeClass('w-icon-compare')
                 } else {
-                    console.log(data.message)
                     $('#success_msg').text(data.message)
                 }
             }
@@ -132,18 +120,13 @@ $(document).ready(function() {
     // function manipulating the whishlist functionality
     $('.btn-wishlist').off().on('click', function(e){
         e.preventDefault();
-        console.log("Bosildi")
         $.ajax({
             method: "GET",
             url: $(this).attr("href"),
             data: {'data': 1},
             dataType: 'json',
             success: function (data) {
-                if (data.success) {
-                    console.log("Success boldi")
-                } else {
-                    console.log("Muammo boldi")
-                }
+                if (data.success) {} else {};
             }
         });
     })
@@ -165,13 +148,10 @@ $(document).ready(function() {
     })
 
     $('#save-checkbox').off().on('click', function(){
-        console.log("clicked")
         if ($(this).is(":checked")){   
-            console.log("checked")
             $(".rating-author").fadeOut();
             $(".rate-first").fadeOut();
         } else {
-            console.log("not checked");
             $(".rating-author").fadeIn();
             $(".rate-first").fadeIn();
         }

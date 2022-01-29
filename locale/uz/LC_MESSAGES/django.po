@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-04 20:20+0500\n"
-"PO-Revision-Date: 2022-01-14 20:15+0437\n"
+"PO-Revision-Date: 2022-01-23 18:07+0437\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1412,7 +1412,7 @@ msgstr "Qo'shimcha"
 
 #: birzum/templates/products/product_filter.html:190
 msgid "Rassrochka"
-msgstr "Rassrochka"
+msgstr "Bo'lib to'lash"
 
 #: birzum/templates/products/product_filter.html:233
 msgid "Safidagi natijalar soni"

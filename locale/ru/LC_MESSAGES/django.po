@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-04 20:20+0500\n"
-"PO-Revision-Date: 2022-01-22 14:22+0437\n"
+"PO-Revision-Date: 2022-01-23 18:05+0437\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -724,7 +724,7 @@ msgstr ""
 
 #: birzum/templates/account/email_confirm.html:20
 msgid "Confirm"
-msgstr "Confirm"
+msgstr "Подтверждать"
 
 #: birzum/templates/account/email_confirm.html:27
 #, python-format
@@ -1154,7 +1154,7 @@ msgstr "У вас есть вопрос? Звоните нам 24/7"
 
 #: birzum/templates/includes/footer.html:44
 msgid "Hoziroq ro'yhatdan o'ting va birinchi bo'lib buyurtma bering !"
-msgstr "Hoziroq ro'yhatdan o'ting va birinchi bo'lib buyurtma bering !"
+msgstr "Зарегистрируйтесь сейчас и заказывайте первым!"
 
 #: birzum/templates/includes/footer.html:59
 msgid "Korxona"
