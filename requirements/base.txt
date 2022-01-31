@@ -20,3 +20,6 @@ sorl-thumbnail==12.7.0  # https://github.com/jazzband/sorl-thumbnail
 django-hijack==2.1.10  # https://github.com/arteria/django-hijack/
 django-hijack-admin==2.1.10 # https://github.com/arteria/django-hijack-admin
 django-modeltranslation==0.17  # https://django-modeltranslation.readthedocs.io/en/latest/installation.html
+django-mathfilters==1.0.0  # https://pypi.org/project/django-mathfilters/
+django-filter==21.1  # https://pypi.org/project/django-filter/
+django-rosetta==0.9.8  # https://github.com/mbi/django-rosetta
