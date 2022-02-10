@@ -25,6 +25,7 @@ class User(AbstractUser):
         max_length=55)
 
     def get_absolute_url(self):
+        return reverse('users:detail', kwargs={'username' : self.username})
         """Get url for user's detail view.
 
         Returns:
