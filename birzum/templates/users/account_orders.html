@@ -32,20 +32,7 @@
 
 
             <div class="tab-vertical row gutter-lg">
-                <ul class="nav nav-tabs mb-6" role="tablist">
-                    <li class="nav-item">
-                        <a href="{% url 'users:detail' username=user.username %}" class="nav-link">{% trans "Menu" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_orders' username=user.username %}" class="nav-link active">{% trans "Buyurtmalar" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_addresses' username=user.username %}" class="nav-link">{% trans "Manzil" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_details' username=user.username %}" class="nav-link">{% trans "Profil malumotlari" %}</a>
-                    </li>
-                </ul>
+                {% include "includes/menu_for_user_account.html" %}
 
                 <div class="tab-content mb-6">
 
@@ -55,18 +42,18 @@
                                 <i class="w-icon-orders"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title text-capitalize ls-normal mb-0">Orders</h4>
+                                <h4 class="icon-box-title text-capitalize ls-normal mb-0">{% trans "Buyurtmalar" %}</h4>
                             </div>
                         </div>
 
                         <table class="shop-table account-orders-table mb-6">
                             <thead>
                                 <tr>
-                                    <th class="order-id">Order</th>
-                                    <th class="order-date">Date</th>
-                                    <th class="order-status">Status</th>
-                                    <th class="order-total">Total</th>
-                                    <th class="order-actions">Actions</th>
+                                    <th class="order-id">{% trans "Buyurtma"%}</th>
+                                    <th class="order-date">{% trans "Sana" %}</th>
+                                    <th class="order-status">{% trans "Holati" %}</th>
+                                    <th class="order-total">{% trans "Umumiy bahosi" %}</th>
+                                    <th class="order-actions">{% trans "Harakatlar" %}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,7 +67,7 @@
                                     </td>
                                     <td class="order-action">
                                         <a href="#"
-                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
+                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">{% trans "Ko'rish" %}</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,7 +80,7 @@
                                     </td>
                                     <td class="order-action">
                                         <a href="#"
-                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
+                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">{% trans "Ko'rish" %}</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -106,7 +93,7 @@
                                     </td>
                                     <td class="order-action">
                                         <a href="#"
-                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
+                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">{% trans "Ko'rish" %}</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -119,14 +106,13 @@
                                     </td>
                                     <td class="order-action">
                                         <a href="#"
-                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
+                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">{% trans "Ko'rish" %}</a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <a href="shop-banner-sidebar.html" class="btn btn-dark btn-rounded btn-icon-right">Go
-                            Shop<i class="w-icon-long-arrow-right"></i></a>
+                        <a href="shop-banner-sidebar.html" class="btn btn-dark btn-rounded btn-icon-right">{% trans "Xarid qilish" %}<i class="w-icon-long-arrow-right"></i></a>
                     </div>
 
                    

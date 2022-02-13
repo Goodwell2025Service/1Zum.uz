@@ -32,21 +32,7 @@
     <div class="page-content pt-2">
         <div class="container">
             <div class="tab-vertical row gutter-lg">
-                <ul class="nav nav-tabs mb-6" role="tablist">
-                    <li class="nav-item">
-                        <a href="{% url 'users:detail' username=user.username %}" class="nav-link">{% trans "Menu" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_orders' username=user.username %}" class="nav-link">{% trans "Buyurtmalar" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_addresses' username=user.username %}" class="nav-link active">{% trans "Manzil" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_details' username=user.username %}" class="nav-link">{% trans "Profil malumotlari" %}</a>
-                    </li>
-                </ul>
-
+                {% include "includes/menu_for_user_account.html" %}
                 <div class="tab-content mb-6">
 
                     <div class="tab-pane active" id="account-addresses">
@@ -55,90 +41,92 @@
                                 <i class="w-icon-map-marker"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title mb-0 ls-normal">Addresses</h4>
+                                <h4 class="icon-box-title mb-0 ls-normal">{% trans "Manzilllar" %}</h4>
                             </div>
                         </div>
-                        <p>The following addresses will be used on the checkout page
-                            by default.</p>
+                        <!-- <p>The following addresses will be used on the checkout page
+                            by default.</p> -->
+                        <p>{% trans "Agar foydalanuvchi manzillarni kiritmasa, quyidagi manzillar avtomatik tarzda o'rnatiladi." %}</p>
+                            
                         <div class="row">
                             <div class="col-sm-6 mb-6">
                                 <div class="ecommerce-address billing-address pr-lg-8">
-                                    <h4 class="title title-underline ls-25 font-weight-bold">Billing Address</h4>
+                                    <h4 class="title title-underline ls-25 font-weight-bold">{% trans "Murojaat manzili" %}</h4>
                                     <address class="mb-4">
                                         <table class="address-table">
                                             <tbody>
                                                 <tr>
-                                                    <th>Name:</th>
+                                                    <th>{% trans "FIO:" %}</th>
                                                     <td>John Doe</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Company:</th>
+                                                    <th>{% trans "Kompaniya:" %}</th>
                                                     <td>Conia</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Address:</th>
+                                                    <th>{% trans "Manzil:" %}</th>
                                                     <td>Wall Street</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>City:</th>
+                                                    <th>{% trans "Shahar:" %}</th>
                                                     <td>California</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Country:</th>
+                                                    <th>{% trans "Mamlakat:" %}</th>
                                                     <td>United States (US)</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Postcode:</th>
+                                                    <th>{% trans "Pochta qaqami:" %}</th>
                                                     <td>92020</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Phone:</th>
+                                                    <th>{% trans "Telefon:" %}</th>
                                                     <td>1112223334</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </address>
                                     <a href="#"
-                                        class="btn btn-link btn-underline btn-icon-right text-primary">Edit
-                                        your billing address<i class="w-icon-long-arrow-right"></i></a>
+                                        class="btn btn-link btn-underline btn-icon-right text-primary">{% trans "Murojaat manzilini o'zgartirish" %}
+                                        <i class="w-icon-long-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-sm-6 mb-6">
                                 <div class="ecommerce-address shipping-address pr-lg-8">
-                                    <h4 class="title title-underline ls-25 font-weight-bold">Shipping Address</h4>
+                                    <h4 class="title title-underline ls-25 font-weight-bold">{% trans "Yetkazish manzili" %}</h4>
                                     <address class="mb-4">
                                         <table class="address-table">
                                             <tbody>
                                                 <tr>
-                                                    <th>Name:</th>
+                                                    <th>{% trans "FIO:" %}</th>
                                                     <td>John Doe</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Company:</th>
+                                                    <th>{% trans "Kompaniya:" %}</th>
                                                     <td>Conia</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Address:</th>
+                                                    <th>{% trans "Manzil:" %}</th>
                                                     <td>Wall Street</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>City:</th>
+                                                    <th>{% trans "Shahar:" %}</th>
                                                     <td>California</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Country:</th>
+                                                    <th>{% trans "Mamlakat:" %}</th>
                                                     <td>United States (US)</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Postcode:</th>
+                                                    <th>{% trans "Pochta raqami:" %}</th>
                                                     <td>92020</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </address>
                                     <a href="#"
-                                        class="btn btn-link btn-underline btn-icon-right text-primary">Edit your
-                                        shipping address<i class="w-icon-long-arrow-right"></i></a>
+                                        class="btn btn-link btn-underline btn-icon-right text-primary">{% trans "Yetkazish manzilini o'zgartirish" %}
+                                        <i class="w-icon-long-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

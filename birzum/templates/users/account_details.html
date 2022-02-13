@@ -32,20 +32,7 @@
     <div class="page-content pt-2">
         <div class="container">
             <div class="tab-vertical row gutter-lg">
-                <ul class="nav nav-tabs mb-6" role="tablist">
-                    <li class="nav-item">
-                        <a href="{% url 'users:detail' username=user.username %}" class="nav-link">{% trans "Menu" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_orders' username=user.username %}" class="nav-link">{% trans "Buyurtmalar" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_addresses' username=user.username %}" class="nav-link">{% trans "Manzil" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'users:account_details' username=user.username %}" class="nav-link active">{% trans "Profil malumotlari" %}</a>
-                    </li>
-                </ul>
+                {% include "includes/menu_for_user_account.html" %}
                 <div class="tab-content mb-6">
 
                     <div class="tab-pane active" id="account-details">
@@ -54,7 +41,7 @@
                                 <i class="w-icon-user"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title mb-0 ls-normal">Account Details</h4>
+                                <h4 class="icon-box-title mb-0 ls-normal">{% trans "Profil ma'lumotlari" %}</h4>
                             </div>
                         </div>
                         <form class="form account-details-form" action="{% url 'users:update' %}" method="post">
@@ -62,14 +49,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        {% comment %}
-                                        {{ form.first_name.error}}
-                                        <label for="{{ form.first_name.id_for_label }}">First name *</label>
-                                        {{ form.first_name}}
-                                        {% endcomment %}
 
                                         {{ form.first_name.errors }}
-                                        <label for="{{ form.first_name.id_for_label }}">First name *</label>
+                                        <label for="{{ form.first_name.id_for_label }}">{% trans "Ismi *" %}</label>
                                         <input type="text" id="firstname" name="{{ form.first_name.name}}" value="{{ form.first_name.value }}" placeholder="John"
                                             class="form-control form-control-md">
                                     </div>
@@ -78,15 +60,10 @@
                                     <div class="form-group">
                                         
                                         {{ form.last_name.errors }}
-                                        <label for="{{ form.last_name.id_for_label }}">Last name *</label>
+                                        <label for="{{ form.last_name.id_for_label }}">{% trans "Familiyasi *" %}</label>
                                         <input type="text" id="lastname" name="{{ form.last_name.name}}" value="{{ form.last_name.value }}" placeholder="Doe"
                                             class="form-control form-control-md">
 
-                                        {% comment %}
-                                        {{ form.last_name.error }}
-                                        <label for="{{ form.last_name.id_for_label }}">Last name *</label>
-                                        {{ form.last_name }}
-                                        {% endcomment %}
                                         
 
                                     </div>
@@ -95,31 +72,20 @@
 
                             <div class="form-group mb-3">
                                 {{ form.username.errors }}
-                                <label for="{{ form.username.id_for_label}}">Display name *</label>
+                                <label for="{{ form.username.id_for_label}}">{% trans "Foydalanuvchi nomi *" %}</label>
                                 <input type="text" id="username" name="{{ form.username.name }}" value="{{ form.username.value }}" placeholder="John Doe"
                                     class="form-control form-control-md mb-0">
 
-                                {% comment %}
-                                {{ form.username.error }}
-                                <label for="{{ form.username.id_for_label }}">Display name *</label>
-                                {{ form.username }}
 
-                                {% endcomment %}
 
                                 <p>This will be how your name will be displayed in the account section and in reviews</p>
                             </div>
 
                             <div class="form-group mb-6">
                                 {{ form.email.errors}}
-                                <label for="{{ form.email.id_for_label }}">Email address *</label>
+                                <label for="{{ form.email.id_for_label }}">{% trans "Elektron pochta manzili *" %}</label>
                                 <input type="email" id="email" name="{{ form.email.name }}" value="{{ form.email.value }}"
                                     class="form-control form-control-md">
-
-                                {% comment %}
-                                {{ form.email.error}}
-                                <label for="{{ form.email.id_for_label }}">Email address *</label>
-                                 {{ form.email }}
-                                 {% endcomment %}
                             </div>
                           
                             <!-- <h4 class="title title-password ls-25 font-weight-bold">Password change</h4>
@@ -138,7 +104,7 @@
                                 <input type="password" class="form-control form-control-md"
                                     id="conf-password" name="conf_password">
                             </div> -->
-                            <button type="submit" class="btn btn-dark btn-rounded btn-sm mb-4">Save Changes</button>
+                            <button type="submit" class="btn btn-dark btn-rounded btn-sm mb-4">{% trans "O'zgarishlarni saqlash" %}</button>
                         </form>
                         <!-- <form class="form account-details-form" action="#" method="post">
                             <div class="row">
