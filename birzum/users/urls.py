@@ -1,8 +1,6 @@
 from django.urls import path
 
-from birzum.users.views import * # user_detail_view, user_redirect_view, user_update_view
-
-# django_view_set
+from birzum.users.views import user_redirect_view, user_update_view, user_account_dashboard_view, user_account_addresses_view, user_account_orders_view
 
 app_name = "users"
 urlpatterns = [
