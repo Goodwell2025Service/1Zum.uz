@@ -5,11 +5,13 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView, CreateView
 from django.shortcuts import render
+from .models import Profile
+from .forms import UserAddressCreationForm
+# from .forms import UserAddressCreationForm
 
 User = get_user_model()
 
 class UserAccountDashboardView(LoginRequiredMixin, DetailView):
-
     model = User
     slug_field = "username"
     slug_url_kwarg = "username"
@@ -18,7 +20,6 @@ class UserAccountDashboardView(LoginRequiredMixin, DetailView):
 user_account_dashboard_view = UserAccountDashboardView.as_view()
 
 class UserAccountDetailView(LoginRequiredMixin, DetailView):
-
     model = User
     slug_field = "username"
     slug_url_kwarg = "username"
@@ -27,7 +28,6 @@ class UserAccountDetailView(LoginRequiredMixin, DetailView):
 user_account_detail_view = UserAccountDetailView.as_view()
 
 class UserAccountAddressesView(LoginRequiredMixin, DetailView):
-
     model = User
     slug_field = "username"
     slug_url_kwarg = "username"
@@ -35,6 +35,34 @@ class UserAccountAddressesView(LoginRequiredMixin, DetailView):
 
 
 user_account_addresses_view = UserAccountAddressesView.as_view()
+
+class UserAddressCreateView(CreateView):
+    model = Profile
+    form_class = UserAddressCreationForm
+    template_name = "users/user_address_create_form.html"
+
+    def form_valid(self, form):
+        obj = form.save()
+        obj.user = self.request.user
+        obj.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.request.user.get_absolute_url()  # type: ignore [union-attr]
+
+user_address_create_view = UserAddressCreateView.as_view()
+
+class UserAddressUpdateView(UpdateView):
+    model = Profile
+    form_class = UserAddressCreationForm
+    template_name = "users/user_address_create_form.html"
+
+    def get_success_url(self):
+        return self.request.user.get_absolute_url()  # type: ignore [union-attr]
+
+
+user_address_update_view = UserAddressUpdateView.as_view()
+
 
 class UserAccountOrdersView(LoginRequiredMixin, DetailView):
 

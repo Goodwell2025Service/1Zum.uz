@@ -50,14 +50,8 @@
                                 <a href="{% url 'users:account_addresses' username=user.username %}" class="text-primary link-to-tab">{% trans "Yashash va yetkazib berish manzillarini " %} 
                                 </a> {% trans "o'zgartirishingiz mumkin, va " %} 
                                 <a href="{% url 'users:account_details' username=user.username %}" class="text-primary link-to-tab">{% trans "profil " %}</a>
-                                {% trans "malumotlarini o'zgartirishingiz mumkin " %}
-                                
-                                
+                                {% trans "malumotlarini o'zgartirishingiz mumkin " %}    
                         </p>
-                        
-
-      
-
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
                                 <a href="{% url 'users:account_orders' username=user.username %}" class="link-to-tab">
@@ -121,8 +115,6 @@
                                 </a>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

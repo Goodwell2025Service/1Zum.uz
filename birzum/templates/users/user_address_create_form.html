@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static i18n account socialaccount %}
+
+{% block title %}User: {{ object.username }}{% endblock %}
+
+{% block content %}
+
+{% include 'includes/home_header.html' %}
+
+<!-- Start of Main -->
+<main class="main">
+    <!-- Start of Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title mb-0">{% trans "Mening profilim" %}</h1>
+        </div>
+    </div>
+    <!-- End of Page Header -->
+
+    <!-- Start of Breadcrumb -->
+    <nav class="breadcrumb-nav">
+        <div class="container mt-2 mb-2">
+            <ul class="breadcrumb">
+                <li><a href="{% url 'home' %}">{% trans "Asosiy sahifa" %}</a></li>
+                <li>{% trans "Mening profilim" %}</li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End of Breadcrumb -->
+
+    <!-- Start of PageContent -->
+    <div class="page-content pt-2">
+        <div class="container">
+            <div class="tab-vertical row gutter-lg">
+                {% include "includes/menu_for_user_account.html" %}
+                <div class="tab-content mb-6">
+                    
+                    <form class="form account-details-form" action="." method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    {{ form.region.errors }}
+                                    <label for="{{ form.district.id_for_label }}">{% trans "Viloyat *" %}</label>
+                                    {{ form.region }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    
+                                    {{ form.district.errors }}
+                                    <label for="{{ form.district.id_for_label }}">{% trans "Shahar yoki tuman *" %}</label>
+                                    {{ form.district }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                {{ form.street.errors }}
+                                <label for="{{ form.street.id_for_label}}">{% trans "Ko'cha *" %}</label>
+                                {{ form.street }}
+                            </div>
+
+                            <div class="col-md-6 form-group mb-6">
+                                {{ form.house.errors}}
+                                <label for="{{ form.house.id_for_label }}">{% trans "Uy raqami *" %}</label>
+                                {{ form.house }}
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-md-4 form-group mb-6">
+                                {{ form.postcode.errors}}
+                                <label for="{{ form.postcode.id_for_label }}">{% trans "Pochta raqami " %}</label>
+                                {{ form.postcode }}
+                            </div>
+        
+                            <div class="col-md-4 form-group mb-6">
+                                {{ form.phone.errors}}
+                                <label for="{{ form.phone.id_for_label }}">{% trans "Telefone raqam *" %}</label>
+                                {{ form.phone }}
+                            </div>
+                            {% comment %}
+                            <div class="col-md-4 form-group mb-6">
+                                {{ form.gender.errors}}
+                                {{ form.gender.label_tag }}
+                                {{ form.gender }}
+
+                            </div>
+                            {% endcomment %}
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-rounded btn-sm mb-4">{% trans "O'zgarishlarni saqlash" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of PageContent -->
+</main>
+<!-- End of Main -->
+{% endblock content %}

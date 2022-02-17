@@ -6,12 +6,6 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
-class GenderChoices(models.IntegerChoices):
-    HIDDEN = 1, _("Hidden")
-    MALE = 2, _("Male")
-    FEMALE = 3, _("Female")
-
-
 class User(AbstractUser):
 
     """Default user for birZum ecommerce system."""
@@ -56,11 +50,6 @@ class Profile(models.Model):
     postcode = models.PositiveIntegerField(_("Manzil"), blank=True)
     phone = models.CharField(_("Telefon"), max_length=50, blank=True, null=True)
     birth_date = models.DateField(_("Tug'ilgan sana"), blank=True, default=timezone.now)
-    gender = models.CharField(
-        _("Jins"),
-        choices=GenderChoices.choices,
-        default=GenderChoices.HIDDEN,
-        max_length=55)
 
     class Meta:
         verbose_name = _("Profil")
