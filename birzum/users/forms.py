@@ -24,7 +24,7 @@ class UserAddressCreationForm(forms.ModelForm):
         fields = ['region', 'district', 'street', 'house', 'postcode', 'phone', ]
         widgets = {
             'region': forms.TextInput(attrs = {'placeholder': 'Viloyat','class': 'form-select form-control'}),
-            'district': forms.TextInput(attrs = {'placeholder': 'Shahar nomini kiriting', 'class':'form-control'}),
+            'district': forms.TextInput(attrs = {'placeholder': 'Shahar', 'class':'form-control'}),
             'street': forms.TextInput(attrs = {'placeholder': 'Ko\'cha nomini kiriting', 'class': 'form-control'}),
             'house': forms.TextInput(attrs = {'placeholder': 'Uy raqamini kiriting', 'class': 'form-control'}),
             'postcode': forms.TextInput(attrs = {'placeholder': 'Pochta raqamini kiriting', 'class': 'form-control'}),

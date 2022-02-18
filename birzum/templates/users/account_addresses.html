@@ -56,7 +56,7 @@
                                                 <td>{{object.last_name}} {{ object.first_name }}</td>
                                             </tr>
                                             <tr>
-                                                <th style="width:300px;">{% trans "Viloyat yoki Toshkent shahri:" %}</th>
+                                                <th style="width:300px;">{% trans "Viloyat:" %}</th>
                                                 <td>{{ object.profile.region }}</td>
                                             </tr>
                                             <tr>
@@ -85,7 +85,7 @@
                                             class="btn btn-link btn-underline btn-icon-right text-primary">{% trans "Yetkazish manzilini o'zgartirish" %}
                                             <i class="w-icon-long-arrow-right"></i></a>
                                         {% else %}
-                                        <p>Siz hali manzil kiritmagansiz.</p>
+                                        <p>{% trans "Siz hali manzil kiritmagansiz." %}</p>
                                         {% endif %}
                                     </div>
                                     <div class="col-md-6">
