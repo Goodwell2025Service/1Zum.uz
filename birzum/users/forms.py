@@ -23,12 +23,11 @@ class UserAddressCreationForm(forms.ModelForm):
         model = Profile
         fields = ['region', 'district', 'street', 'house', 'postcode', 'phone', ]
         widgets = {
-            'region': forms.TextInput(attrs = {'placeholder': 'Viloyat yoki Toshkent shahri','class': 'form-select form-control'}),
-            'district': forms.TextInput(attrs = {'placeholder': 'Shaxar nomini kiriting', 'class':'form-control'}),
+            'region': forms.TextInput(attrs = {'placeholder': 'Viloyat','class': 'form-select form-control'}),
+            'district': forms.TextInput(attrs = {'placeholder': 'Shahar nomini kiriting', 'class':'form-control'}),
             'street': forms.TextInput(attrs = {'placeholder': 'Ko\'cha nomini kiriting', 'class': 'form-control'}),
             'house': forms.TextInput(attrs = {'placeholder': 'Uy raqamini kiriting', 'class': 'form-control'}),
             'postcode': forms.TextInput(attrs = {'placeholder': 'Pochta raqamini kiriting', 'class': 'form-control'}),
             'phone': forms.TextInput(attrs = {'placeholder': 'Tel: (masalan: 99899 123 45 67)', 'class': 'form-control'}),
-            'gender': forms.Select(attrs = {'class': 'form-select form-control'}),
         }
     
