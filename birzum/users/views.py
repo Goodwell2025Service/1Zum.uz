@@ -1,4 +1,4 @@
-from allauth.account.views import SignupView
+from allauth.account.views import SignupView, LoginView
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView, CreateView
 from django.shortcuts import render
 from .models import Profile
-from .forms import UserAddressCreationForm, BaseUserSignupForm
+from .forms import UserAddressCreationForm, BaseUserSignupForm #, BaseUserLoginForm
 # from .forms import UserAddressCreationForm
 
 User = get_user_model()
@@ -113,3 +113,16 @@ class UserSignupView(SignupView):
 
 
 user_signup_view = UserSignupView.as_view()
+
+# class UserLoginView(LoginView):
+#     model = User
+#     form_class = BaseUserLoginForm
+
+#     # def get_success_url(self):
+#     #     return reverse("users:detail")
+
+#     # def form_invalid(self, form):
+#     #     return super().form_invalid(form)
+
+
+# user_login_view = UserLoginView.as_view()
