@@ -24,7 +24,6 @@ urlpatterns = (
         # User management
         path("users/", include("birzum.users.urls", namespace="users")),
         path("accounts/signup/", user_signup_view, name="account_signup"),
-        # path("accounts/login/", user_login_view, name="account_login"),
         path("accounts/", include("allauth.urls")),
         path('ckeditor/', include('ckeditor_uploader.urls')),
         # Your stuff: custom urls includes go here

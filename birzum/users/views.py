@@ -7,8 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView, CreateView
 from django.shortcuts import render
 from .models import Profile
-from .forms import UserAddressCreationForm, BaseUserSignupForm #, BaseUserLoginForm
-# from .forms import UserAddressCreationForm
+from .forms import UserAddressCreationForm, BaseUserSignupForm 
 
 User = get_user_model()
 
@@ -113,16 +112,3 @@ class UserSignupView(SignupView):
 
 
 user_signup_view = UserSignupView.as_view()
-
-# class UserLoginView(LoginView):
-#     model = User
-#     form_class = BaseUserLoginForm
-
-#     # def get_success_url(self):
-#     #     return reverse("users:detail")
-
-#     # def form_invalid(self, form):
-#     #     return super().form_invalid(form)
-
-
-# user_login_view = UserLoginView.as_view()

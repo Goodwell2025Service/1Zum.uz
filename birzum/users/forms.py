@@ -1,4 +1,4 @@
-from allauth.account.forms import SignupForm, LoginForm
+from allauth.account.forms import SignupForm
 from django.contrib.auth import forms as admin_forms
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
@@ -80,33 +80,3 @@ class BaseUserSignupForm(SignupForm):
                 'autocomplete': 'new-password',
                 "placeholder": "********"})
 
-# class BaseUserLoginForm(LoginForm):
-
-#     username = forms.CharField(
-#         max_length=255,
-#         label=_("Foydalanuvchi nomi"),
-#         widget=forms.TextInput(
-#             attrs={"class": "form-control", 
-#             "placeholder": "Foydalanuvchi nomi",
-#             "autocomlete": "username"}))
-#     password = forms.CharField(
-#         max_length=255,
-#         label=_("Foydalanuvchi nomi"),
-#         widget=forms.TextInput(
-#             attrs={"class": "form-control", 
-#             "placeholder": "**********",
-#             "type": "password",
-#             "autocomlete": "current-password"}))
-
-
-
-#     class Meta:
-#         model = User
-#         fields = ['username', 'password']
-
-#     field_order = ['username', 'password']
-
-    # def login(self, *args, **kwargs):
-    #     # self.fields['username'] = username
-    #     # self.fields['password'] = password
-    #     return super(BaseUserLoginForm, self).login(*args, **kwargs)
