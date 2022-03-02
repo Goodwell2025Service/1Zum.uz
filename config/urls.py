@@ -7,7 +7,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 from birzum.homeviews import HomeView
-from birzum.users.views import user_signup_view #, user_login_view
+from birzum.users.views import user_signup_view 
 
 
 def trigger_error(request):

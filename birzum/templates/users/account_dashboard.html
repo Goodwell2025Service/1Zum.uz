@@ -33,8 +33,15 @@
         <div class="container">
             <div class="tab-vertical row gutter-lg">
                 {% include "includes/menu_for_user_account.html" %}
-
                 <div class="tab-content mb-6">
+                    {%if not request.user.profile %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {% trans "Profil ma'lumotlari sizda to'liq emas. To'dirish uchun \" Foydalanuvchi ma'lumotlari \" bo'limiga o'ting." %}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                        </div>
+                    {% endif %}
                     <div class="tab-pane active in" id="account-dashboard">
                         <p class="greeting">
                             {% trans "Salom" %}

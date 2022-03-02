@@ -34,7 +34,11 @@
             <div class="tab-vertical row gutter-lg">
                 {% include "includes/menu_for_user_account.html" %}
                 <div class="tab-content mb-6">
-                    
+                    {%if not request.user.profile %}
+                        <div class="alert alert-warning" role="alert">
+                            {% trans "Profil ma'lumotlari sizda to'liq emas. To'dirish uchun \" Foydalanuvchi ma'lumotlari \" bo'limiga o'ting." %}
+                        </div>
+                    {% endif %}
                     <form class="form account-details-form" action="." method="post">
                         {% csrf_token %}
                         <div class="row">

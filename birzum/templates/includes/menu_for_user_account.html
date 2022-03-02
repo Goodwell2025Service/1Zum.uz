@@ -1,11 +1,4 @@
 {% load static i18n account socialaccount %}
-{%if not request.user.profile %}
-<script>
-
-    alert("Profile Ma'lumotlarini to'ldiring")
-</script>
-{% endif %}
-<!-- <span>{%if not request.user.profile %} onload = "alertUser('Profile ma\'lumotlarini to\'ldiring.')" {% endif %}</span> -->
 <ul class="nav nav-tabs mb-6" role="tablist">
     <li class="nav-item">
         <a href="{% url 'users:detail' username=user.username %}" class="nav-link {% if '/detail/' in request.path %}active{% endif %}">{% trans "Menu" %}</a>

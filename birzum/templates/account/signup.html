@@ -15,36 +15,35 @@
 		<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   			{% csrf_token %}
 			<div class="form-group">
-				{{ form.first_name.errors}}
 				<label for="id_first_name">Ism *</label>
 				{{ form.first_name }}
+				{{ form.first_name.errors}}
 			</div>
 			<div class="form-group">
-				{{ form.last_name.errors}}
 				<label for="id_last_name">Familiya *</label>
 				{{ form.last_name }}
+				{{ form.last_name.errors}}
 			</div>
 			<div class="form-group">
-				{{ form.username.errors}}
 				<label for="id_username">Foydalanuvchi nomi *</label>
 				{{ form.username }}
+				{{ form.username.errors}}
 			</div>
 			<div class="form-group">
-				{{ form.email.errors}}
 				<label for="id_email">Elektron pochta manzili *</label>
 				{{ form.email }}
+				{{ form.email.errors}}
 			</div>
 			<div class="form-group">
-				{{ form.password1.errors}}
 				<label for="id_password1">Parol *</label>
 				{{ form.password1 }}
+				{{ form.password1.errors}}
 			</div>
 			<div class="form-group">
-				{{ form.password2.errors}}
 				<label for="id_password2">Parolni takrorlang *</label>
 				{{ form.password2 }}
+				{{ form.password2.errors}}
 			</div>
-			{% comment %} {{ form|crispy }} {% endcomment %}
   			
   			<button class="btn btn-primary mt-3" type="submit">{% translate "Ro'yhatdan o'tish" %} &raquo;</button>
 		</form>
