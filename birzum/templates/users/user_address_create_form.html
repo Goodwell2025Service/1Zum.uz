@@ -12,7 +12,7 @@
     <!-- Start of Page Header -->
     <div class="page-header">
         <div class="container">
-            <h1 class="page-title mb-0">{% trans "Foydalanuvchi ma'lumotlari" %}</h1>
+            <h1 class="page-title mb-0">{% trans "Manzil ma'lumotlarini o'zgartirish" %}</h1>
         </div>
     </div>
     <!-- End of Page Header -->
@@ -22,7 +22,12 @@
         <div class="container mt-2 mb-2">
             <ul class="breadcrumb">
                 <li><a href="{% url 'home' %}">{% trans "Asosiy sahifa" %}</a></li>
-                <li>{% trans "Foydalanuvchi ma'lumotlari" %}</li>
+                <li><a href="{% url 'users:account_addresses' username=user.username %}">{% trans "Manzil ma'lumotlari" %}</a></li>
+                {% if request.user.profile %}
+                <li>{% trans "Manzil ma'lumotlarini o'zgartirish" %}</li>
+                {% else %}
+                <li>{% trans "Manzil ma'lumotlarini yaratish" %}</li>
+                {% endif %}
             </ul>
         </div>
     </nav>

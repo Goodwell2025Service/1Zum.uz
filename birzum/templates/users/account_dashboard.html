@@ -35,12 +35,10 @@
                 {% include "includes/menu_for_user_account.html" %}
                 <div class="tab-content mb-6">
                     {%if not request.user.profile %}
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            {% trans "Profil ma'lumotlari sizda to'liq emas. To'dirish uchun \" Foydalanuvchi ma'lumotlari \" bo'limiga o'ting." %}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                        </div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="padding: 1.4rem 1.5rem 1.4rem 2rem;">
+                        {% trans "Manzil ma'lumotlari sizda to'liq emas. Iltimos manzil ma'lumotlarini to'ldiring." %}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right;">X</button>
+                      </div>
                     {% endif %}
                     <div class="tab-pane active in" id="account-dashboard">
                         <p class="greeting">
@@ -52,20 +50,15 @@
 
                         <p class="mb-4">
                             {% trans "Siz menudan turib " %} <a href="{% url 'users:account_orders' username=user.username %}"
-                                class="text-primary link-to-tab">{% trans "buyurtmalaringizni ko'rishingiz mumkin" %}</a>,
+                                class="text-primary link-to-tab">{% trans "buyurtmalaringizni " %}</a>,
                             
-                                <a href="{% url 'users:account_addresses' username=user.username %}" class="text-primary link-to-tab">{% trans "foydalanuvchi haqidagi ma'lumotlarni " %} 
-                                </a> {% trans "ko'rishingiz mumkin, va " %} 
-                                {% if object.profile %}
-                                <a href="{% url 'users:address_change' username=user.username pk=user.profile.id %}"
+                                <a href="{% url 'users:account_details' username=user.username %}" class="text-primary link-to-tab">{% trans "foydalanuvchi haqidagi ma'lumotlarni " %} 
+                                </a> {% trans " va " %} 
+
+                                <a href="{% url 'users:account_addresses' username=user.username %}"
                                     class="text-primary link-to-tab">{% trans "yetkazib berish manzilini " %}</a>     
                                     </a>
-                                {% else %}
-                                <a href="{% url 'users:address_create' %}"
-                                class="text-primary tlink-to-tab">{% trans "yetkazib berish manzilini " %}</a>
-                                </a>
-                                {% endif %}
-                                {% trans "yaratishingiz yoki o'zgartirishingiz mumkin " %}    
+                                {% trans "ko'rishingiz mumkin " %}    
                         </p>
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
@@ -88,14 +81,13 @@
                                             <i class="w-icon-map-marker"></i>
                                         </span>
                                         <div class="icon-box-content">
-                                            <p class="text-uppercase mb-0">{% trans "Profil ma'lumotlari" %}</p>
+                                            <p class="text-uppercase mb-0">{% trans "Manzil ma'lumotlari" %}</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                                {% if object.profile %}
-                                <a href="{% url 'users:address_change' username=user.username pk=user.profile.id %}"
+                                <a href="{% url 'users:account_details' username=user.username %}"
                                     class="link-to-tab">
                                     <div class="icon-box text-center">
                                         <span class="icon-box-icon icon-account">
@@ -105,20 +97,7 @@
                                             <p class="text-uppercase mb-0">{% trans "Foydalanuvchi ma'lumotlari" %}</p>
                                         </div>
                                     </div>      
-                                    </a>
-                                {% else %}
-                                <a href="{% url 'users:address_create' %}"
-                                class="link-to-tab">
-                                <div class="icon-box text-center">
-                                    <span class="icon-box-icon icon-account">
-                                        <i class="w-icon-user"></i>
-                                    </span>
-                                    <div class="icon-box-content">
-                                        <p class="text-uppercase mb-0">{% trans "Foydalanuvchi ma'lumotlari" %}</p>
-                                    </div>
-                                </div>
-                                </a>
-                                {% endif %}
+                                    </a>                                
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
                                 <a href="{% url 'whishlist:whishlist' %}" class="link-to-tab">

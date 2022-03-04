@@ -7,7 +7,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 from birzum.homeviews import HomeView
-from birzum.users.views import user_signup_view 
+from birzum.users.views import user_signup_view, user_login_view
 
 
 def trigger_error(request):
@@ -23,6 +23,7 @@ urlpatterns = (
         # path("hijack", include('hijack.urls', namespace='hijack')),
         # User management
         path("users/", include("birzum.users.urls", namespace="users")),
+        path("accounts/login/", user_login_view, name="account_login"),
         path("accounts/signup/", user_signup_view, name="account_signup"),
         path("accounts/", include("allauth.urls")),
         path('ckeditor/', include('ckeditor_uploader.urls')),

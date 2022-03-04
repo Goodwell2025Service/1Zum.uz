@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView, CreateView
 from django.shortcuts import render
 from .models import Profile
-from .forms import UserAddressCreationForm, BaseUserSignupForm 
+from .forms import UserAddressCreationForm, BaseUserSignupForm , BaseUserLoginForm
 
 User = get_user_model()
 
@@ -76,7 +76,7 @@ user_account_orders_view = UserAccountOrdersView.as_view()
 class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
     fields = ['first_name', 'last_name','username', 'email',]
-    template_name = "users/account_details.html"
+    template_name = "users/account_details_update_form.html"
     success_message = _("Information successfully updated")
 
     def form_valid(self, form):
@@ -112,3 +112,9 @@ class UserSignupView(SignupView):
 
 
 user_signup_view = UserSignupView.as_view()
+
+class UserLoginView(LoginView):
+    form_class = BaseUserLoginForm
+
+
+user_login_view = UserLoginView.as_view()

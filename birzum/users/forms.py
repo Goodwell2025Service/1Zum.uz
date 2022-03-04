@@ -1,4 +1,4 @@
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, LoginForm
 from django.contrib.auth import forms as admin_forms
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
@@ -79,4 +79,11 @@ class BaseUserSignupForm(SignupForm):
                 "class": "form-control",
                 'autocomplete': 'new-password',
                 "placeholder": "********"})
+
+class BaseUserLoginForm(LoginForm):
+
+    def __init__(self, *args, **kwargs):
+        super(BaseUserLoginForm, self).__init__(*args, **kwargs)
+        self.fields['login'].label = "Foydalanuvchi nomi"
+        self.fields['password'].label = "Parol"
 

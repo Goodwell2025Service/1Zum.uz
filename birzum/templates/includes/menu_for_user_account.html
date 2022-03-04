@@ -8,18 +8,10 @@
         class="nav-link {% if '/account_orders/' in request.path %}active{% endif %}">{% trans "Buyurtmalar" %}</a>
     </li>
     <li class="nav-item">
-        <a href="{% url 'users:account_addresses' username=user.username %}" class="nav-link {% if '/account_addresses/' in request.path %}active{% endif %}">{% trans "Profil ma'lumotlari" %}</a>
+        <a href="{% url 'users:account_addresses' username=user.username %}" class="nav-link {% if '/account_addresses/' in request.path %}active{% endif %}">{% trans "Manzil ma'lumotlari" %}</a>
     </li>
     <li class="nav-item">
-        {% if object.profile %}
-        <a href="{% url 'users:address_change' username=user.username pk=user.profile.id %}"
-            class="nav-link {% if '/address/' in request.path %}active{% endif %}">{% trans "Foydalanuvchi ma'lumotlari" %}
-            </a>
-        {% else %}
-        <a href="{% url 'users:address_create' %}"
-        class="nav-link {% if '/address/' in request.path %}active{% endif %}">{% trans "Foydalanuvchi ma'lumotlari" %}
-        </a>
-        {% endif %}
+        <a href="{% url 'users:account_details' username=user.username %}" class="nav-link {% if '/account_details/' in request.path %}active{% endif %}">{% trans "Foydalanuvchi ma'lumotlari" %}</a>
     </li>
 </ul>
 

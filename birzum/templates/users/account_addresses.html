@@ -34,7 +34,12 @@
             <div class="tab-vertical row gutter-lg">
                 {% include "includes/menu_for_user_account.html" %}
                 <div class="tab-content mb-6">
-
+                    {%if not request.user.profile %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="padding: 1.4rem 1.5rem 1.4rem 2rem;">
+                        {% trans "Manzil ma'lumotlari sizda to'liq emas. Iltimos manzil ma'lumotlarini to'ldiring." %}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right;">X</button>
+                      </div>
+                    {% endif %}
                     <div class="tab-pane active" id="account-addresses">
                         <div class="icon-box icon-box-side icon-box-light">
                             <span class="icon-box-icon icon-map-marker">
@@ -53,7 +58,7 @@
                                         <tbody>
                                             <tr>
                                                 <th style="width:300px;">{% trans "FIO:" %}</th>
-                                                <td>{{object.last_name}} {{ object.first_name }}</td>
+                                                <td>{{object.get_full_name }}</td>
                                             </tr>
                                             <tr>
                                                 <th style="width:300px;">{% trans "Viloyat:" %}</th>
@@ -65,7 +70,7 @@
                                             </tr>
                                             <tr>
                                                 <th style="width:300px;">{% trans "Ko'cha va uy manzili:" %}</th>
-                                                <td>{{ object.profile.street }} ko'chasi, {{ object.profile.house }}-uy.</td>
+                                                <td>{{ object.profile.street }}{% if object.profile.street %} ko'chasi, {% endif %}{{ object.profile.house }}{% if object.profile.street %}-uy.{% endif %}</td>
                                             </tr>
                                             <tr>
                                                 <th style="width:300px;">{% trans "Pochta raqami:" %}</th>
@@ -78,7 +83,15 @@
                                         </tbody>
                                     </table>
                                 </address>
-
+                                {% if object.profile %}
+                                <a href="{% url 'users:address_change' username=user.username pk=user.profile.id %}"
+                                    class="btn btn-link btn-underline btn-icon-right text-primary">{% trans "Manzil ma'lumotlarini o'zgartirish" %}
+                                    <i class="w-icon-long-arrow-right"></i></a>
+                                {% else %}
+                                <a href="{% url 'users:address_create' %}"
+                                class="btn btn-link btn-underline btn-icon-right text-primary">{% trans "Manzil ma'lumotlarini yaratish" %}
+                                <i class="w-icon-long-arrow-right"></i></a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

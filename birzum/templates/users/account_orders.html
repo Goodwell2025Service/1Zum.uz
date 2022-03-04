@@ -37,9 +37,10 @@
 
                 <div class="tab-content mb-6">
                     {%if not request.user.profile %}
-                        <div class="alert alert-warning" role="alert">
-                            {% trans "Profil ma'lumotlari sizda to'liq emas. To'dirish uchun \" Foydalanuvchi ma'lumotlari \" bo'limiga o'ting." %}
-                        </div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="padding: 1.4rem 1.5rem 1.4rem 2rem;">
+                        {% trans "Manzil ma'lumotlari sizda to'liq emas. Iltimos manzil ma'lumotlarini to'ldiring." %}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right;">X</button>
+                      </div>
                     {% endif %}
                     <div class="tab-pane active mb-4" id="account-orders">
                         <div class="icon-box icon-box-side icon-box-light">
