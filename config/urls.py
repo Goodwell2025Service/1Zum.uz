@@ -1,17 +1,14 @@
-from django.conf import settings
-from django.conf.urls.i18n import i18n_patterns
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import include, path
-from django.views import defaults as default_views
-from django.views.generic import TemplateView
+"use client";
 
-from birzum.homeviews import HomeView
-from birzum.users.views import user_signup_view, user_login_view
+import Link, { LinkProps } from "next/link";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
+type AnchorProps = ComponentPropsWithoutRef<"a">;
 
-def trigger_error(request):
-    division_by_zero = 1 / 0
+type Props = AnchorProps & LinkProps & {
+  className?: string;
+  children: ReactNode;
+};
 
 urlpatterns = (
     i18n_patterns(
