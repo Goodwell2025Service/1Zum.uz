@@ -12,8 +12,8 @@ const browserSync = require('browser-sync').create()
 
 const cssnano = require ('cssnano')
 const imagemin = require('imagemin')
-const imageminMozjpeg = require('imagemin-mozjpeg')
-const imageminPngquant = require('imagemin-pngquant')
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminOptipng = require('imagemin-optipng');
 const pixrem = require('pixrem')
 const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
@@ -84,8 +84,8 @@ async function imgCompression() {
   await imagemin([`${paths.images}/*.{jpg,jpeg,png}`], {
     destination: paths.images,
     plugins: [
-      imageminMozjpeg({ quality: 75 }),
-      imageminPngquant({ quality: [0.6, 0.8] })
+      imageminJpegtran({ progressive: true }),
+      imageminOptipng({ optimizationLevel: 5 })
     ]
   });
 }
