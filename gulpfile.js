@@ -120,11 +120,8 @@ function watchPaths() {
 }
 
 // Generate all assets
-const generateAssets = parallel(
-  styles,
-  scripts,
-  imgCompression
-)
+const isCI = process.env.CI === 'true';
+const generateAssets = isCI ? parallel(styles, scripts) : parallel(styles, scripts, imgCompression);
 
 // Set up dev environment
 const dev = parallel(
