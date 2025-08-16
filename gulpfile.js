@@ -11,7 +11,9 @@ const autoprefixer = require('autoprefixer')
 const browserSync = require('browser-sync').create()
 
 const cssnano = require ('cssnano')
-const imagemin = require('gulp-imagemin')
+const imagemin = require('imagemin')
+const imageminMozjpeg = require('imagemin-mozjpeg')
+const imageminPngquant = require('imagemin-pngquant')
 const pixrem = require('pixrem')
 const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
@@ -78,10 +80,14 @@ function scripts() {
 }
 
 // Image compression
-function imgCompression() {
-  return src(`${paths.images}/*`)
-    .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
-    .pipe(dest(paths.images))
+async function imgCompression() {
+  await imagemin([`${paths.images}/*.{jpg,jpeg,png}`], {
+    destination: paths.images,
+    plugins: [
+      imageminMozjpeg({ quality: 75 }),
+      imageminPngquant({ quality: [0.6, 0.8] })
+    ]
+  });
 }
 // Run django server
 function runServer(cb) {
