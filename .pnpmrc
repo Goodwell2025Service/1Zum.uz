@@ -1,0 +1,6 @@
+# Allow safe build scripts
+auto-install-peers=true
+enable-pre-post-scripts=true
+
+# Ignore problematic binary dependencies that might not work in CI environments
+ignore-scripts-of-dependencies=jpegtran-bin,optipng-bin,@parcel/watcher,es5-ext

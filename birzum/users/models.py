@@ -6,6 +6,11 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
+class GenderChoices(models.TextChoices):
+    MALE = 'M', _('Male')
+    FEMALE = 'F', _('Female')
+    HIDDEN = 'H', _('Prefer not to say')
+
 class User(AbstractUser):
 
     """Default user for birZum ecommerce system."""

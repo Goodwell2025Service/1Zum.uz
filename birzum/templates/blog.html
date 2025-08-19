@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - 1ZUM.uz</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="http://localhost:9000/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/css/demo7.min.css">
+    
+    <style>
+        .demo-nav {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .demo-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .demo-nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #dee2e6;
+        }
+        .blog-content {
+            padding: 20px;
+        }
+        .blog-meta {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .blog-excerpt {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        .sidebar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .widget {
+            margin-bottom: 30px;
+        }
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .widget-list {
+            list-style: none;
+            padding: 0;
+        }
+        .widget-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .widget-list li:last-child {
+            border-bottom: none;
+        }
+        .widget-list a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+        .widget-list a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Navigation -->
+    <div class="demo-nav">
+        <h2>📝 1ZUM.uz - Blog & News</h2>
+        <div>
+            <a href="demo.html">🏠 Home</a>
+            <a href="products.html">📦 Products</a>
+            <a href="blog.html">📝 Blog</a>
+            <a href="http://localhost:9000" target="_blank">🎨 Static Files</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://localhost:9000/images/page-header.jpg'); background-size: cover; color: white; text-align: center; padding: 100px 0;">
+        <div class="container">
+            <h1 class="page-title">Blog & News</h1>
+            <nav class="breadcrumb-nav">
+                <div class="breadcrumb">
+                    <a href="demo.html">Home</a>
+                    <span class="delimiter">/</span>
+                    <span>Blog</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <main class="main">
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="blog-grid">
+                            <!-- Blog Post 1 -->
+                            <article class="blog-card">
+                                <div class="blog-image">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar"></i> August 19, 2025
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-user"></i> Admin
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-comments"></i> 5 Comments
+                                    </div>
+                                    <h2 class="blog-title">Latest Technology Trends in 2025</h2>
+                                    <p class="blog-excerpt">
+                                        Discover the most exciting technology trends that are shaping our future. From AI innovations to sustainable tech solutions, explore what's coming next.
+                                    </p>
+                                    <a href="#post1" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 2 -->
+                            <article class="blog-card">
+                                <div class="blog-image">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar"></i> August 18, 2025
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-user"></i> Tech Editor
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-comments"></i> 12 Comments
+                                    </div>
+                                    <h2 class="blog-title">Best Smartphones for Every Budget</h2>
+                                    <p class="blog-excerpt">
+                                        Our comprehensive guide to choosing the perfect smartphone. Whether you're looking for flagship features or budget-friendly options.
+                                    </p>
+                                    <a href="#post2" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 3 -->
+                            <article class="blog-card">
+                                <div class="blog-image">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar"></i> August 17, 2025
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-user"></i> Home Expert
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-comments"></i> 8 Comments
+                                    </div>
+                                    <h2 class="blog-title">Smart Home Setup Guide</h2>
+                                    <p class="blog-excerpt">
+                                        Transform your house into a smart home with our step-by-step guide. Learn about the best devices and how to integrate them seamlessly.
+                                    </p>
+                                    <a href="#post3" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 4 -->
+                            <article class="blog-card">
+                                <div class="blog-image">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar"></i> August 16, 2025
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-user"></i> Shopping Guide
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-comments"></i> 15 Comments
+                                    </div>
+                                    <h2 class="blog-title">Online Shopping Tips & Tricks</h2>
+                                    <p class="blog-excerpt">
+                                        Master the art of online shopping with our expert tips. Learn how to find the best deals, avoid scams, and shop safely.
+                                    </p>
+                                    <a href="#post4" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 5 -->
+                            <article class="blog-card">
+                                <div class="blog-image">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar"></i> August 15, 2025
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-user"></i> Gaming Expert
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-comments"></i> 22 Comments
+                                    </div>
+                                    <h2 class="blog-title">Gaming Setup on a Budget</h2>
+                                    <p class="blog-excerpt">
+                                        Build an amazing gaming setup without breaking the bank. Our guide covers everything from budget builds to pro setups.
+                                    </p>
+                                    <a href="#post5" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+
+                            <!-- Blog Post 6 -->
+                            <article class="blog-card">
+                                <div class="blog-image">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar"></i> August 14, 2025
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-user"></i> Photo Expert
+                                        <span class="mx-2">|</span>
+                                        <i class="fas fa-comments"></i> 9 Comments
+                                    </div>
+                                    <h2 class="blog-title">Photography Gear for Beginners</h2>
+                                    <p class="blog-excerpt">
+                                        Start your photography journey with the right gear. Our beginner's guide covers cameras, lenses, and essential accessories.
+                                    </p>
+                                    <a href="#post6" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-3">
+                        <aside class="sidebar">
+                            <!-- Categories Widget -->
+                            <div class="widget">
+                                <h3 class="widget-title">Categories</h3>
+                                <ul class="widget-list">
+                                    <li><a href="#tech">Technology <span class="float-right">(15)</span></a></li>
+                                    <li><a href="#mobile">Mobile Devices <span class="float-right">(8)</span></a></li>
+                                    <li><a href="#home">Home & Garden <span class="float-right">(12)</span></a></li>
+                                    <li><a href="#gaming">Gaming <span class="float-right">(6)</span></a></li>
+                                    <li><a href="#photography">Photography <span class="float-right">(4)</span></a></li>
+                                    <li><a href="#reviews">Product Reviews <span class="float-right">(20)</span></a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Recent Posts Widget -->
+                            <div class="widget">
+                                <h3 class="widget-title">Recent Posts</h3>
+                                <ul class="widget-list">
+                                    <li><a href="#recent1">Latest Technology Trends in 2025</a></li>
+                                    <li><a href="#recent2">Best Smartphones for Every Budget</a></li>
+                                    <li><a href="#recent3">Smart Home Setup Guide</a></li>
+                                    <li><a href="#recent4">Online Shopping Tips & Tricks</a></li>
+                                    <li><a href="#recent5">Gaming Setup on a Budget</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Tags Widget -->
+                            <div class="widget">
+                                <h3 class="widget-title">Tags</h3>
+                                <div class="tag-cloud">
+                                    <a href="#tag1" class="tag" style="padding: 5px 10px; background: #f8f9fa; margin: 2px; display: inline-block; border-radius: 3px; text-decoration: none; color: #6c757d;">Technology</a>
+                                    <a href="#tag2" class="tag" style="padding: 5px 10px; background: #f8f9fa; margin: 2px; display: inline-block; border-radius: 3px; text-decoration: none; color: #6c757d;">Mobile</a>
+                                    <a href="#tag3" class="tag" style="padding: 5px 10px; background: #f8f9fa; margin: 2px; display: inline-block; border-radius: 3px; text-decoration: none; color: #6c757d;">Reviews</a>
+                                    <a href="#tag4" class="tag" style="padding: 5px 10px; background: #f8f9fa; margin: 2px; display: inline-block; border-radius: 3px; text-decoration: none; color: #6c757d;">Gaming</a>
+                                    <a href="#tag5" class="tag" style="padding: 5px 10px; background: #f8f9fa; margin: 2px; display: inline-block; border-radius: 3px; text-decoration: none; color: #6c757d;">Smart Home</a>
+                                    <a href="#tag6" class="tag" style="padding: 5px 10px; background: #f8f9fa; margin: 2px; display: inline-block; border-radius: 3px; text-decoration: none; color: #6c757d;">Photography</a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="http://localhost:9000/vendor/jquery/jquery.min.js"></script>
+    <script src="http://localhost:9000/js/main.js"></script>
+    
+    <script>
+        // Demo functionality for blog
+        document.querySelectorAll('.read-more').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const title = this.closest('.blog-content').querySelector('.blog-title').textContent;
+                alert(`📖 Opening Blog Post:\n\n"${title}"\n\nThis would take you to the full article page.`);
+            });
+        });
+
+        // Demo functionality for sidebar links
+        document.querySelectorAll('.widget-list a, .tag').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.textContent.replace(/\(\d+\)/, '').trim();
+                alert(`🔍 Filtering by:\n\n"${text}"\n\nThis would show related posts.`);
+            });
+        });
+    </script>
+</body>
+</html>

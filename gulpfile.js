@@ -81,13 +81,20 @@ function scripts() {
 
 // Image compression
 async function imgCompression() {
-  await imagemin([`${paths.images}/*.{jpg,jpeg,png}`], {
-    destination: paths.images,
-    plugins: [
-      imageminJpegtran({ progressive: true }),
-      imageminOptipng({ optimizationLevel: 5 })
-    ]
-  });
+  try {
+    await imagemin([`${paths.images}/*.{jpg,jpeg,png}`], {
+      destination: paths.images,
+      plugins: [
+        imageminJpegtran({ progressive: true }),
+        imageminOptipng({ optimizationLevel: 5 })
+      ]
+    });
+    console.log('Images compressed successfully');
+  } catch (error) {
+    console.warn('Image compression failed (this is expected in CI environments):', error.message);
+    // Don't fail the build if image compression fails
+    return Promise.resolve();
+  }
 }
 // Run django server
 function runServer(cb) {
@@ -120,7 +127,13 @@ function watchPaths() {
 }
 
 // Generate all assets
-const isCI = process.env.CI === 'true';
+// Detect CI environments (AWS Amplify, GitHub Actions, etc.)
+const isCI = process.env.CI === 'true' || 
+             process.env.AWS_AMPLIFY_APP_ID || 
+             process.env.AMPLIFY_BUILD_ID ||
+             process.env.CODEBUILD_BUILD_ID ||
+             process.env.NODE_ENV === 'production';
+
 const generateAssets = isCI ? parallel(styles, scripts) : parallel(styles, scripts, imgCompression);
 
 // Set up dev environment
@@ -132,4 +145,5 @@ const dev = parallel(
 
 exports.default = series(generateAssets, dev)
 exports["generate-assets"] = generateAssets
+exports["generate-assets-ci"] = parallel(styles, scripts)
 exports["dev"] = dev

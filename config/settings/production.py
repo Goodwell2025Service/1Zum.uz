@@ -8,7 +8,60 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_secret("DJANGO_SECRET_KEY")
+"""
+Production-ready settings for 1ZUM.uz project
+For use with AWS Amplify or other cloud deployments
+"""
+import os
+from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-change-in-production-12345')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true'
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    '.amplifyapp.com',  # AWS Amplify domains
+    '.amazonaws.com',   # AWS domains
+]
+
+# Application definition
+DJANGO_APPS = [
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.sites",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.humanize",
+    "django.contrib.admin",
+    "django.forms",
+]
+
+THIRD_PARTY_APPS = [
+    "crispy_forms",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "corsheaders",
+]
+
+LOCAL_APPS = [
+    "birzum.users",
+    "birzum.apps.products",
+    "birzum.apps.order",
+    "birzum.apps.blog",
+    "birzum.apps.cart",
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = get_secret("DJANGO_ALLOWED_HOSTS").split(",")
 

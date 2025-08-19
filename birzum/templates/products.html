@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - 1ZUM.uz</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="http://localhost:9000/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/vendor/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:9000/css/demo7.min.css">
+    
+    <style>
+        .demo-nav {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .demo-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .demo-nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #dee2e6;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-price {
+            color: #007bff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .product-rating {
+            color: #ffc107;
+            margin: 5px 0;
+        }
+        .btn-demo {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-demo:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Navigation -->
+    <div class="demo-nav">
+        <h2>🏪 1ZUM.uz - Product Showcase</h2>
+        <div>
+            <a href="demo.html">🏠 Home</a>
+            <a href="products.html">📦 Products</a>
+            <a href="blog.html">📝 Blog</a>
+            <a href="http://localhost:9000" target="_blank">🎨 Static Files</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://localhost:9000/images/page-header.jpg'); background-size: cover; color: white; text-align: center; padding: 100px 0;">
+        <div class="container">
+            <h1 class="page-title">Our Products</h1>
+            <nav class="breadcrumb-nav">
+                <div class="breadcrumb">
+                    <a href="demo.html">Home</a>
+                    <span class="delimiter">/</span>
+                    <span>Products</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <main class="main">
+        <div class="page-content">
+            <div class="container">
+                <!-- Filters -->
+                <div class="shop-default-banner banner d-flex align-items-center mb-5 br-xs" style="background-image: url('http://localhost:9000/images/banner.jpg'); background-color: #FFC74E; min-height: 180px;">
+                    <div class="banner-content">
+                        <h4 class="banner-subtitle font-weight-bold">Accessories Collection</h4>
+                        <h3 class="banner-title text-white text-uppercase font-weight-bolder ls-normal">Smart Watches</h3>
+                        <a href="#shop" class="btn btn-dark btn-outline btn-rounded btn-icon-right">Shop Now<i class="w-icon-long-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">MacBook Pro 14"</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                (24 reviews)
+                            </div>
+                            <div class="product-price">$1,999.00</div>
+                            <button class="btn-demo mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">iPhone 15 Pro</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                (18 reviews)
+                            </div>
+                            <div class="product-price">$1,199.00</div>
+                            <button class="btn-demo mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">AirPods Pro</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                (12 reviews)
+                            </div>
+                            <div class="product-price">$249.00</div>
+                            <button class="btn-demo mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">iPad Air</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                (31 reviews)
+                            </div>
+                            <div class="product-price">$599.00</div>
+                            <button class="btn-demo mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Samsung 55" QLED TV</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                (8 reviews)
+                            </div>
+                            <div class="product-price">$899.00</div>
+                            <button class="btn-demo mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Canon EOS R5</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                (15 reviews)
+                            </div>
+                            <div class="product-price">$3,899.00</div>
+                            <button class="btn-demo mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="http://localhost:9000/vendor/jquery/jquery.min.js"></script>
+    <script src="http://localhost:9000/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="http://localhost:9000/js/main.js"></script>
+    
+    <script>
+        // Demo cart functionality
+        document.querySelectorAll('.btn-demo').forEach(button => {
+            button.addEventListener('click', function() {
+                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                const productPrice = this.closest('.product-card').querySelector('.product-price').textContent;
+                
+                alert(`🛒 Added to Cart!\n\nProduct: ${productTitle}\nPrice: ${productPrice}\n\nThis is a demo - no actual purchase is made.`);
+                
+                // Change button text temporarily
+                const originalText = this.textContent;
+                this.textContent = 'Added!';
+                this.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = '#007bff';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
