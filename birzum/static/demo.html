@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>1ZUM.UZ | ONLINE DO'KON</title>
+    
+    <meta name="keywords" content="Uy maishiy jihozlar, kir yuvish mashinalari, mikrovolnovkalar, dudbo'ronlar, pishirish yuzalari, muzlatgichlar, sovutgichlar" />
+    <meta name="description" content="1ZUM bu o'zbekistondagi keng asortimentga ega uy maishiy jihozlarini sotuvchi online do'kon">
+    <meta name="author" content="Ubaydullo Ibrohimov">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- WebFont.js -->
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700'] }
+        };
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = "js/webfont.js";
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" type="text/css" href="vendor/fontawesome-free/css/all.min.css">
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/magnific-popup/magnific-popup.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="css/demo7.min.css">
+    
+    <style>
+        /* Custom styles for demo */
+        .demo-banner {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .template-demo {
+            border: 2px dashed #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            background: #f8fff9;
+            border-radius: 8px;
+        }
+        .template-demo h4 {
+            color: #28a745;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body class="home">
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <h1>🎉 1ZUM.uz - Complete Working Demo</h1>
+        <p>Localhost:8080 - Full website preview with working CSS/JS</p>
+    </div>
+
+    <!-- Template Demo Section -->
+    <div class="template-demo">
+        <h4>📄 This page demonstrates:</h4>
+        <ul>
+            <li>✅ Working CSS from localhost:9000</li>
+            <li>✅ Working JavaScript from localhost:9000</li>
+            <li>✅ Working Images from localhost:9000</li>
+            <li>✅ Complete layout structure</li>
+            <li>✅ Interactive components</li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header class="header header-border">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-left">
+                    <p class="welcome-msg">Welcome to 1ZUM.uz!</p>
+                </div>
+                <div class="header-right">
+                    <div class="dropdown">
+                        <a href="#currency">USD</a>
+                        <div class="dropdown-box">
+                            <a href="#USD">USD</a>
+                            <a href="#EUR">EUR</a>
+                            <a href="#UZS">UZS</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#language">ENG</a>
+                        <div class="dropdown-box">
+                            <a href="#en">English</a>
+                            <a href="#uz">O'zbek</a>
+                            <a href="#ru">Русский</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-left mr-md-4">
+                    <a href="#home" class="mobile-menu-toggle w-icon-hamburger" aria-label="menu-toggle"></a>
+                    <a href="#home" class="logo ml-lg-0">
+                        <img src="images/logo.png" alt="logo" width="144" height="45" />
+                    </a>
+                </div>
+                <div class="header-center">
+                    <div class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+                        <div class="select-box">
+                            <select id="category" name="category">
+                                <option value="">All Categories</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="home">Home & Garden</option>
+                                <option value="fashion">Fashion</option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Search in..." required />
+                        <button class="btn btn-search" type="submit"><i class="w-icon-search"></i></button>
+                    </div>
+                </div>
+                <div class="header-right ml-4">
+                    <div class="header-call d-xs-show d-lg-flex align-items-center">
+                        <a href="tel:#" class="w-icon-call"></a>
+                        <div class="call-info d-lg-show">
+                            <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
+                                <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4>
+                            <a href="tel:#" class="phone-number font-weight-bolder ls-50">+998 90 123 45 67</a>
+                        </div>
+                    </div>
+                    <a class="wishlist label-down link d-xs-show" href="#wishlist">
+                        <i class="w-icon-heart"></i>
+                        <span class="wishlist-label d-lg-show">Wishlist</span>
+                    </a>
+                    <a class="compare label-down link d-xs-show" href="#compare">
+                        <i class="w-icon-compare"></i>
+                        <span class="compare-label d-lg-show">Compare</span>
+                    </a>
+                    <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
+                        <div class="cart-overlay"></div>
+                        <a href="#cart" class="cart-toggle label-down link">
+                            <i class="w-icon-cart">
+                                <span class="cart-count">2</span>
+                            </i>
+                            <span class="cart-label">Cart</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom d-lg-show">
+            <div class="container">
+                <div class="header-left">
+                    <div class="dropdown category-dropdown has-border" data-visible="true">
+                        <a href="#" class="category-toggle text-dark" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true" data-display="static"
+                            title="Browse Categories">
+                            <i class="w-icon-category"></i>
+                            <span>Browse Categories</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="header-center">
+                    <nav class="main-nav">
+                        <ul class="menu active-underline">
+                            <li class="active">
+                                <a href="#home">Home</a>
+                            </li>
+                            <li>
+                                <a href="#shop">Shop</a>
+                            </li>
+                            <li>
+                                <a href="#about">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-right">
+                    <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Track Order</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Banner -->
+    <div class="intro-section">
+        <div class="swiper-container swiper-theme nav-inner pg-inner swiper-nav-lg animation-slider pg-xxl-hide nav-xxl-show nav-hide"
+            data-swiper-options="{
+                'slidesPerView': 1,
+                'autoplay': {
+                    'delay': 8000,
+                    'disableOnInteraction': false
+                }
+            }">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                    style="background-image: url(images/banner.jpg); background-color: #ebeef2;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="images/banner.jpg" alt="Banner"
+                                width="480" height="397"
+                                data-bottom-top="transform: translateY(10vh);"
+                                data-top-bottom="transform: translateY(-10vh);" style="width: 480px;">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal mb-2 ls-25 lh-1 text-primary text-uppercase">
+                                Trade-in offer</h5>
+                            <h3 class="banner-title font-weight-bolder ls-25 lh-1">
+                                <strong>Save $250</strong><br>
+                                <span class="font-weight-normal text-capitalize">On Techno Gadgets</span>
+                            </h3>
+                            <a href="#shop" class="btn btn-dark btn-outline btn-rounded btn-icon-right">
+                                Shop Now<i class="w-icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="page-content">
+            <div class="container">
+                <!-- Features Section -->
+                <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white mb-10">
+                    <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon">
+                                <i class="w-icon-truck"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder ls-normal">Free Shipping</h4>
+                                <p class="text-default">Orders $50 or more</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon">
+                                <i class="w-icon-bag"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder ls-normal">Free Returns</h4>
+                                <p class="text-default">Within 30 days</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon">
+                                <i class="w-icon-truck"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder ls-normal">Get 20% Off 1 Item</h4>
+                                <p class="text-default">When you sign up</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon">
+                                <i class="w-icon-chat"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder ls-normal">We Support</h4>
+                                <p class="text-default">24/7 amazing services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div class="row category-cosmetic-lifestyle appear-animate">
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="banner banner-fixed br-xs">
+                            <figure>
+                                <img src="images/banner.jpg" alt="Category Banner" width="280" height="240" style="background-color: #25D4A4;" />
+                            </figure>
+                            <div class="banner-content text-center y-50">
+                                <h5 class="banner-subtitle font-weight-bold text-uppercase">New Arrivals</h5>
+                                <h3 class="banner-title font-weight-bolder text-capitalize text-white">Electronic<br>Devices</h3>
+                                <div class="banner-price-info font-weight-normal">Starting at <strong>$29</strong></div>
+                                <a href="#category1" class="btn btn-white btn-link btn-underline btn-icon-right">
+                                    Shop Now<i class="w-icon-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="banner banner-fixed br-xs">
+                            <figure>
+                                <img src="images/banner.jpg" alt="Category Banner" width="280" height="240" style="background-color: #E5E5E5;" />
+                            </figure>
+                            <div class="banner-content text-center y-50">
+                                <h5 class="banner-subtitle font-weight-bold text-uppercase">Sale Offer</h5>
+                                <h3 class="banner-title font-weight-bolder text-capitalize">Home & Garden</h3>
+                                <div class="banner-price-info font-weight-normal">Up to <strong>50% Off</strong></div>
+                                <a href="#category2" class="btn btn-dark btn-link btn-underline btn-icon-right">
+                                    Shop Now<i class="w-icon-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="banner banner-fixed br-xs">
+                            <figure>
+                                <img src="images/banner.jpg" alt="Category Banner" width="280" height="240" style="background-color: #333;" />
+                            </figure>
+                            <div class="banner-content text-center y-50">
+                                <h5 class="banner-subtitle font-weight-bold text-uppercase text-white">Best Deals</h5>
+                                <h3 class="banner-title font-weight-bolder text-capitalize text-white">Fashion &<br>Clothing</h3>
+                                <div class="banner-price-info font-weight-normal text-white">Starting at <strong>$39</strong></div>
+                                <a href="#category3" class="btn btn-white btn-link btn-underline btn-icon-right">
+                                    Shop Now<i class="w-icon-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="banner banner-fixed br-xs">
+                            <figure>
+                                <img src="images/banner.jpg" alt="Category Banner" width="280" height="240" style="background-color: #F0F0F0;" />
+                            </figure>
+                            <div class="banner-content text-center y-50">
+                                <h5 class="banner-subtitle font-weight-bold text-uppercase">Hot Items</h5>
+                                <h3 class="banner-title font-weight-bolder text-capitalize">Sports &<br>Outdoors</h3>
+                                <div class="banner-price-info font-weight-normal">Save up to <strong>60%</strong></div>
+                                <a href="#category4" class="btn btn-dark btn-link btn-underline btn-icon-right">
+                                    Shop Now<i class="w-icon-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer appear-animate">
+        <div class="footer-newsletter bg-primary pt-6 pb-6">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="icon-box icon-box-side text-white">
+                            <div class="icon-box-icon d-inline-flex">
+                                <i class="w-icon-envelop3"></i>
+                            </div>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title text-white text-normal font-weight-bold">Subscribe To Our Newsletter</h4>
+                                <p class="text-white">Get all the latest information on Events, Sales and Offers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
+                        <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-rounded">
+                            <input type="email" class="form-control mr-2 bg-white" name="email" id="email" placeholder="Your E-mail Address" />
+                            <button class="btn btn-dark btn-rounded" type="submit">Subscribe<i class="w-icon-long-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="widget widget-about">
+                            <a href="#home" class="logo-footer">
+                                <img src="images/logo_footer.png" alt="logo-footer" width="144" height="45" />
+                            </a>
+                            <div class="widget-body">
+                                <p class="widget-about-title">Got Question? Call us 24/7</p>
+                                <a href="tel:18005707777" class="widget-about-call">+998 90 123 45 67</a>
+                                <p class="widget-about-desc">Register now to get updates on promotions and
+                                    coupons. Or Download our <a href="#" class="text-primary">mobile app</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget">
+                            <h3 class="widget-title">Company</h3>
+                            <ul class="widget-body">
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#team">Team Member</a></li>
+                                <li><a href="#career">Career</a></li>
+                                <li><a href="#contact">Contact Us</a></li>
+                                <li><a href="#affiliate">Affiliate</a></li>
+                                <li><a href="#order">Order History</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget">
+                            <h3 class="widget-title">My Account</h3>
+                            <ul class="widget-body">
+                                <li><a href="#order">Track My Order</a></li>
+                                <li><a href="#checkout">View Cart</a></li>
+                                <li><a href="#login">Sign In</a></li>
+                                <li><a href="#help">Help</a></li>
+                                <li><a href="#wishlist">My Wishlist</a></li>
+                                <li><a href="#privacy">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget">
+                            <h3 class="widget-title">Customer Service</h3>
+                            <ul class="widget-body">
+                                <li><a href="#payment">Payment Methods</a></li>
+                                <li><a href="#refund">Money-back Guarantee!</a></li>
+                                <li><a href="#return">Product Returns</a></li>
+                                <li><a href="#support">Support Center</a></li>
+                                <li><a href="#shipping">Shipping</a></li>
+                                <li><a href="#terms">Terms and Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <p class="copyright">Copyright © 2024 1ZUM Store. All Rights Reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <span class="payment-label mr-lg-8">We're using safe payment for</span>
+                    <figure class="payment">
+                        <img src="images/payment.png" alt="payment" width="159" height="25" />
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Demo functionality
+        console.log('🎉 1ZUM.uz Demo is working!');
+        console.log('📄 Templates: http://localhost:8080');
+        console.log('🎨 Static Assets: http://localhost:9000');
+        
+        // Add some interactivity for demo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for demo
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Demo Link: ' + this.textContent + '\n\nThis would navigate to: ' + this.href);
+                });
+            });
+            
+            // Add cart functionality demo
+            const cartToggle = document.querySelector('.cart-toggle');
+            if (cartToggle) {
+                cartToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('🛒 Cart Demo\n\nItems in cart: 2\nTotal: $89.99\n\nThis would open the cart sidebar.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
